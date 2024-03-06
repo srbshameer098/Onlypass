@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
       MaterialApp(debugShowCheckedModeBanner: false,
         title: 'Onlypass',
         theme: ThemeData(
+          fontFamily: 'Montserrat',
           // This is the theme of your application.
           //
           // TRY THIS: Try running your application with "flutter run". You'll see

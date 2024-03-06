@@ -10,6 +10,13 @@ class Onlypass extends StatefulWidget {
 class _OnlypassState extends State<Onlypass> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return  Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          title:Text('Onlypass',style: TextStyle(color: Colors.white),) ,
+          actions: [Icon(Icons.list,color: Colors.white,)],
+        )
+
+    );
   }
 }
