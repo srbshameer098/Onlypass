@@ -22,21 +22,24 @@ class _ProfileState extends State<Profile> {
           children: [
             //----------------- 1st container ------------//
             Container(
-              width: 375.w,
+              width: 393.w,
               height: 267.h,
               color: Colors.black,
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30),
+                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 25.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text('Profile',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18.sp,
+                                fontWeight: FontWeight.w600,
                                 fontFamily: 'Montserrat')),
                         SizedBox(
                           width: 227.w,
@@ -54,7 +57,7 @@ class _ProfileState extends State<Profile> {
                       ],
                     ),
                     SizedBox(
-                      height: 20.h,
+                      height: 24.h,
                     ),
                     Image.asset(
                       'assets/icons/IconProfile.png',
@@ -62,7 +65,7 @@ class _ProfileState extends State<Profile> {
                       height: 83.h,
                     ),
                     SizedBox(
-                      height: 5.h,
+                      height: 10.h,
                     ),
                     TextButton(
                       onPressed: () {},
@@ -78,7 +81,7 @@ class _ProfileState extends State<Profile> {
             ),
 
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 15.w,vertical: 15.h),
+              padding:  EdgeInsets.symmetric(horizontal: 24.w,vertical: 30.h),
               child: Column(
                 children: [
                   //----------------- 2nd container ------------//
@@ -88,7 +91,7 @@ class _ProfileState extends State<Profile> {
                     height: 40.h,
                     color: Colors.black,
                     child: Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 10.w,),
+                      padding:  EdgeInsets.symmetric(horizontal: 15.w,),
                       child: Row(
                         children: [
                           Text('My membership',
@@ -109,7 +112,7 @@ class _ProfileState extends State<Profile> {
                     ),
                   ),
                   SizedBox(
-                    height: 15.h,
+                    height: 30.h,
                   ),
 
                   SizedBox(
@@ -123,7 +126,9 @@ class _ProfileState extends State<Profile> {
                       children: <Widget>[
                         Container(
                           padding:  EdgeInsets.symmetric(horizontal: 15.w,vertical: 15),
-                          color: Color(0x33dadada),
+                          width: 172.w,
+                          height: 172.h,
+                          color: const Color(0x33dadada),
                           child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                             Image.asset(
@@ -154,7 +159,7 @@ class _ProfileState extends State<Profile> {
                         ),
                         Container(
                           padding:  EdgeInsets.symmetric(horizontal: 15.w,vertical: 15),
-                          color: Color(0x33dadada),
+                          color: const Color(0x33dadada),
                           child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Image.asset(
@@ -185,7 +190,7 @@ class _ProfileState extends State<Profile> {
                         ),
                         Container(
                           padding:  EdgeInsets.symmetric(horizontal: 15.w,vertical: 15),
-                          color: Color(0x33dadada),
+                          color: const Color(0x33dadada),
                           child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Image.asset(
@@ -216,7 +221,7 @@ class _ProfileState extends State<Profile> {
                         ),
                         Container(
                           padding:  EdgeInsets.symmetric(horizontal: 15.w,vertical: 15),
-                          color: Color(0x33dadada),
+                          color: const Color(0x33dadada),
                           child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Image.asset(

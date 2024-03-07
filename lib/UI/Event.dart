@@ -14,7 +14,10 @@ class _EventState extends State<Event> {
         appBar: AppBar(
           backgroundColor: Colors.black,
           title:Text('Event',style: TextStyle(color: Colors.white),) ,
-          actions: [Icon(Icons.list,color: Colors.white,)],
+          actions: [Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 20.w),
+            child: Icon(Icons.menu,color: Colors.white,),
+          )],
         )
 
     );

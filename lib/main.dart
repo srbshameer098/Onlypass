@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(designSize: const Size(375, 812),
+    return ScreenUtilInit(designSize: const Size(392, 852),
     builder: (BuildContext context, Widget? child) {
       SystemChrome.setPreferredOrientations([
         DeviceOrientation.portraitUp,
