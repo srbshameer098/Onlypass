@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:onlypass/UI/Access.dart';
 import 'package:onlypass/UI/Event.dart';
 import 'package:onlypass/UI/Onlypass.dart';
 import 'package:onlypass/UI/Profile.dart';
@@ -16,7 +17,7 @@ class BottomNav extends StatefulWidget {
   State<BottomNav> createState() => _BottomNavState();
 }
 
-final screens = [Home(), Event(), Onlypass(), Profile()];
+final screens = [Home(), Event(), Onlypass(),  Access(), Profile()];
 
 class _BottomNavState extends State<BottomNav> {
   @override
@@ -52,6 +53,11 @@ class _BottomNavState extends State<BottomNav> {
               color: Colors.white,
             ),
             label: "Onlypass",
+            backgroundColor: Colors.black,
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.qr_code_scanner_rounded, color: Colors.white),
+            label: "Access",
             backgroundColor: Colors.black,
           ),
           const BottomNavigationBarItem(
