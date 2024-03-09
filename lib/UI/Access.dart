@@ -3,9 +3,11 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
+
+import 'package:qr_flutter/qr_flutter.dart';
 
 class Access extends StatefulWidget {
   const Access({Key? key}) : super(key: key);
@@ -16,20 +18,11 @@ class Access extends StatefulWidget {
 
 class _AccessState extends State<Access> {
 
-  Barcode? result;
-  QRViewController? controller;
-  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+
 
   // In order to get hot reload to work we need to pause the camera if the platform
   // is android, or resume the camera if the platform is iOS.
-  @override
-  void reassemble() {
-    super.reassemble();
-    if (Platform.isAndroid) {
-      controller!.pauseCamera();
-    }
-    controller!.resumeCamera();
-  }
+
 
 
   @override
@@ -52,92 +45,48 @@ class _AccessState extends State<Access> {
           ],
         ),
         body: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                 children:
                 <Widget>[
-                  Expanded(flex: 1, child: _buildQrView(context)),
                   Center(
-                    child: Column(crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        if (result != null)
-                          Text(
-                              'Barcode Type: ${describeEnum(
-                                  result!.format)}   Data: ${result!.code}')
-                        else
-                          const Text('Scan a code'),
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.center,
-                        //   crossAxisAlignment: CrossAxisAlignment.center,
-                        //   children: <Widget>[
-                        //     Container(
-                        //       margin: const EdgeInsets.all(8),
-                        //       child: ElevatedButton(
-                        //           onPressed: () async {
-                        //             await controller?.toggleFlash();
-                        //             setState(() {});
-                        //           },
-                        //           child: FutureBuilder(
-                        //             future: controller?.getFlashStatus(),
-                        //             builder: (context, snapshot) {
-                        //               return Text('Flash: ${snapshot.data}');
-                        //             },
-                        //           )),
-                        //     ),
-                        //     Container(
-                        //       margin: const EdgeInsets.all(8),
-                        //       child: ElevatedButton(
-                        //           onPressed: () async {
-                        //             await controller?.flipCamera();
-                        //             setState(() {});
-                        //           },
-                        //           child: FutureBuilder(
-                        //             future: controller?.getCameraInfo(),
-                        //             builder: (context, snapshot) {
-                        //               if (snapshot.data != null) {
-                        //                 return Text(
-                        //                     'Camera facing ${describeEnum(
-                        //                         snapshot.data!)}');
-                        //               } else {
-                        //                 return const Text('loading');
-                        //               }
-                        //             },
-                        //           )),
-                        //     )
-                        //   ],
-                        // ),
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.center,
-                        //   crossAxisAlignment: CrossAxisAlignment.center,
-                        //   children: <Widget>[
-                        //     Container(
-                        //       margin: const EdgeInsets.all(8),
-                        //       child: ElevatedButton(
-                        //         onPressed: () async {
-                        //           await controller?.pauseCamera();
-                        //         },
-                        //         child: const Text('pause',
-                        //             style: TextStyle(fontSize: 20)),
-                        //       ),
-                        //     ),
-                        //     Container(
-                        //       margin: const EdgeInsets.all(8),
-                        //       child: ElevatedButton(
-                        //         onPressed: () async {
-                        //           await controller?.resumeCamera();
-                        //         },
-                        //         child: const Text('resume',
-                        //             style: TextStyle(fontSize: 20)),
-                        //       ),
-                        //     )
-                        //   ],
-                        // ),
-
-                      ],
-                    ),
+                    child: Stack(
+                      children: [
+                        Center(
+                          child: Padding(
+                            padding:  EdgeInsets.symmetric(vertical: 50.h),
+                            child: SizedBox(
+                            width: 200.w,
+                            height: 200.h,
+                            child: QrImageView(
+                            data: 'This QR code has an embedded image as well',
+                            version: QrVersions.auto,
+                            size: 320,
+                            gapless: false,
+                            embeddedImage: AssetImage('assets/images/my_embedded_image.png'),
+                            embeddedImageStyle: QrEmbeddedImageStyle(
+                              size: Size(80, 80),
+                            ),
+                                            ),
+                                                  ),
+                          ),
+                        ),
+                        
+                        Positioned(
+                          left: 46.w,
+                          top: 28.h,
+                          child: Image.asset(
+                            'assets/image/QRboarder.png',
+                            width: 260.w,
+                            height: 260.h,
+                          ),
+                        )
+                        
+                   ] ),
                   ),
-                  SizedBox(height: 20.h,),
+
+
+                  // SizedBox(height: 10.h,),
 
                   Text('Active membership',
                       style:TextStyle(
@@ -273,7 +222,57 @@ SizedBox(width: 78.w,),
                         ],
                       ),
                     ),
-                  )
+                  ),
+
+                  SizedBox(height: 30.h,),
+                  Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.black,
+                      // border: Border.all(
+                      //     color: Colors.grey,
+                      //     width: 4.0,
+                      //     style: BorderStyle.solid), //Border.all
+
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0xff545454),
+                          offset:  Offset(
+                            5.0,
+                             5.0,
+
+                          ),
+                          blurRadius: 0.0,
+                          spreadRadius: 0.0,
+                        ), //BoxShadow
+                        // BoxShadow(
+                        //   color: Colors.white,
+                        //   offset: const Offset(0.0, 0.0),
+                        //   blurRadius: 0.0,
+                        //   spreadRadius: 0.0,
+                        // ), //BoxShadow
+                      ],
+                    ), //BoxDe
+                    child: Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: 12.w,vertical: 15.h),
+                      child: Row(
+                        children: [
+                          Text('Upgrade your membership to Platinum\nPass to access all fitness centers.',
+                              style:TextStyle(
+                                  color: Color(0xffffffff),
+                                  fontSize: 14.sp,
+                                  fontFamily: 'Montserrat',fontWeight: FontWeight.w400)),
+                         
+                          Padding(
+                            padding:  EdgeInsets.symmetric(horizontal: 8.w,vertical: 5.h),
+                            child: Transform.rotate(angle:  0.0,
+                            child: RotatedBox(
+                                quarterTurns: 3,
+                                child: Icon(Icons.keyboard_double_arrow_down_outlined,color: Colors.white,size: 24.sp,))),
+                          )
+                        ],
+                      ),
+                    ),// coration
+                  ),
 
 
 
@@ -297,81 +296,6 @@ SizedBox(width: 78.w,),
             )
         )
     );
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  Widget _buildQrView(BuildContext context) {
-    // For this example we check how width or tall the device is and change the scanArea and overlay accordingly.
-    var scanArea = (MediaQuery
-        .of(context)
-        .size
-        .width < 400 ||
-        MediaQuery
-            .of(context)
-            .size
-            .height < 400)
-        ? 200.0
-        : 350.0;
-    // To ensure the Scanner view is properly sizes after rotation
-    // we need to listen for Flutter SizeChanged notification and update controller
-    return QRView(
-      key: qrKey,
-      onQRViewCreated: _onQRViewCreated,
-      overlay: QrScannerOverlayShape(
-          borderColor: Color(0xff11ff00),
-          borderRadius: 10,
-          borderLength: 30,
-          borderWidth: 10,
-          cutOutSize: scanArea),
-      onPermissionSet: (ctrl, p) => _onPermissionSet(context, ctrl, p),
-    );
-  }
-
-  void _onQRViewCreated(QRViewController controller) {
-    setState(() {
-      this.controller = controller;
-    });
-    controller.scannedDataStream.listen((scanData) {
-      setState(() {
-        result = scanData;
-      });
-    });
-  }
-
-  void _onPermissionSet(BuildContext context, QRViewController ctrl, bool p) {
-    log('${DateTime.now().toIso8601String()}_onPermissionSet $p');
-    if (!p) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('no Permission')),
-      );
-    }
-  }
-
-  @override
-  void dispose() {
-    controller?.dispose();
-    super.dispose();
   }
 
 }
