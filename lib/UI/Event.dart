@@ -453,6 +453,244 @@ class _EventState extends State<Event> {
                               ],
                             ),
                           ),
+
+
+
+                          ///-----------3rd Container  -------------------///
+                          Container(
+                            width: 375.w,
+                            height: 207.h,
+                            decoration: BoxDecoration(color: Color(0xffffffff)),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Row(
+                                      children: [
+                                        Center(
+                                          child: Text(
+                                              'Organizers',
+                                              style: TextStyle(
+                                                  color: Color(0xff191919),
+                                                  fontSize: 16.sp,
+                                                  fontWeight:
+                                                  FontWeight.w600,
+                                                  fontFamily:
+                                                  'Montserrat')),
+                                        ),
+                                        SizedBox(
+                                          width: 60.w,
+                                        ),
+                                        // Icon(
+                                        //   Icons.arrow_forward_ios_outlined,
+                                        //   size: 14,
+                                        // )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    // Navigator.of(context).push(
+                                    //     MaterialPageRoute(builder: (builder) => Page1()));
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: SizedBox(
+                                      height: 130.h,
+                                      child: ListView.separated(
+                                        scrollDirection: Axis.horizontal,
+                                        itemCount: 6,
+                                        itemBuilder:
+                                            (BuildContext context, int index) {
+                                          return Column(crossAxisAlignment: CrossAxisAlignment.center,
+                                            children: [
+                                              CircleAvatar(
+                                                backgroundColor: Colors.grey,
+                                                radius: 30.r,
+                                              child: ClipRRect(
+                                                borderRadius: BorderRadius.circular(30.r),
+                                                child: Image.asset(
+                                                  'assets/image/Ellipse 51.png',
+                                                  width: 72.w,
+                                                  height: 72.h,
+                                                ),
+                                              ),
+
+                                              ),
+                                              SizedBox(width:120.w,
+                                                child: Center(
+                                                  child: Text(
+                                                    textAlign: TextAlign.center,
+                                                      'Rootsys Technologies school',
+                                                      style: TextStyle(
+                                                          color: Color(0xff191919),
+                                                          fontSize: 16.sp,
+                                                          fontWeight:
+                                                          FontWeight.w600,
+                                                          fontFamily:
+                                                          'Montserrat')),
+                                                ),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                        separatorBuilder:
+                                            (BuildContext context, int index) {
+                                          return SizedBox(
+                                            width: 14.w,
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+
+
+
+
+
+
+                          ///-----------4th Container  -------------------///
+                          Container(
+                            width: 375.w,
+                            height: 298.h,
+                            decoration: BoxDecoration(color: Color(0xffffffff)),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          children: [
+                                            Center(
+                                              child: Text(
+                                                  'Challenges',
+                                                  style: TextStyle(
+                                                      color: Color(0xff191919),
+                                                      fontSize: 16.sp,
+                                                      fontWeight:
+                                                      FontWeight.w600,
+                                                      fontFamily:
+                                                      'Montserrat')),
+                                            ),
+                                            SizedBox(
+                                              width: 60.w,
+                                            ),
+                                            Icon(
+                                              Icons.arrow_forward_ios_outlined,
+                                              size: 14,
+                                            )
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    // Navigator.of(context).push(
+                                    //     MaterialPageRoute(builder: (builder) => Page1()));
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: SizedBox(
+                                      height: 174.h,
+                                      child: ListView.separated(
+                                        scrollDirection: Axis.horizontal,
+                                        itemCount: 3,
+                                        itemBuilder:
+                                            (BuildContext context, int index) {
+                                          return Container(
+                                            width: 300.w,
+                                            height: 174.h,
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                BorderRadius.circular(0),
+                                                color: Color(0xffffffff)),
+                                            child: Column(
+                                              children: [
+                                                Stack(children: [
+                                                  Image.asset(
+                                                    'assets/image/event_img_2.png',
+                                                    width: 274.w,
+                                                    height: 174.h,
+                                                  ),
+                                                  Positioned(
+                                                    left: 15.w,
+                                                    top: 105.h,
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                      CrossAxisAlignment
+                                                          .start,
+                                                      children: [
+                                                        SizedBox(
+                                                          width: 200.w,
+                                                          child: Text(
+                                                              'Scale your business with digital marketing',
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .white,
+                                                                  fontSize:
+                                                                  16.sp,
+                                                                  fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                                  fontFamily:
+                                                                  'Montserrat')),
+                                                        ),
+                                                        Row(
+                                                          children: [
+
+                                                            Text(
+                                                                'Flex Yoga - Subash Park Kaloor',
+                                                                style: TextStyle(
+                                                                    color: Color(
+                                                                        0xffffffff),
+                                                                    fontSize:
+                                                                    12.sp,
+                                                                    fontFamily:
+                                                                    'Montserrat',
+                                                                    fontWeight:
+                                                                    FontWeight
+                                                                        .w400)),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  )
+                                                ]),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                        separatorBuilder:
+                                            (BuildContext context, int index) {
+                                          return SizedBox(
+                                            width: 14.w,
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+
+
+
+
                         ],
                       ),
                     ),
