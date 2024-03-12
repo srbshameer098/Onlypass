@@ -2,6 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:scrollable_clean_calendar/controllers/clean_calendar_controller.dart';
+import 'package:scrollable_clean_calendar/scrollable_clean_calendar.dart';
+import 'package:scrollable_clean_calendar/utils/enums.dart';
+
+bool _visible = false;
 
 class Event extends StatefulWidget {
   const Event({Key? key}) : super(key: key);
@@ -11,6 +16,19 @@ class Event extends StatefulWidget {
 }
 
 class _EventState extends State<Event> {
+  final calendarController = CleanCalendarController(
+    minDate: DateTime.now(),
+    maxDate: DateTime.now().add(const Duration(days: 365)),
+    onRangeSelected: (firstDate, secondDate) {},
+    onDayTapped: (date) {},
+    // readOnly: true,
+    onPreviousMinDateTapped: (date) {},
+    onAfterMaxDateTapped: (date) {},
+    weekdayStart: DateTime.monday,
+    // initialFocusDate: DateTime(2023, 5),
+    // initialDateSelected: DateTime(2022, 3, 15),
+    // endDateSelected: DateTime(2022, 3, 20),
+  );
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -111,89 +129,146 @@ class _EventState extends State<Event> {
                         ),
                       ),
                     ),
-                    Container(
-                      width: 42.w,
-                      // height: 40,
-                      color: Color(0xfff0f0f0),
-                      child: Center(
-                          child: Image.asset(
-                        'assets/icons/calender.png',
-                        width: 24.w,
-                        // height: 24.h,
-                        color: Color(0xff191919),
-                      )),
+                    GestureDetector(
+                      onTap: (){
+                        setState(() {
+                          _visible = !_visible;
+                        });
+                        calendarController.clearSelectedDates();
+                        // showDatePicker(
+                        //
+                        //   context: context,
+                        //   initialDate: DateTime.now(),
+                        //   firstDate: DateTime(2023, 01, 01),
+                        //   lastDate: DateTime(2025, 12, 31),
+                        // );
+                      },
+                      // _visible==true?
+                      child: Container(
+                        width: 42.w,
+                        // height: 40,
+                        color: Color(0xfff0f0f0),
+                        child: Center(
+                            child: Image.asset(
+                          'assets/icons/calender.png',
+                          width: 24.w,
+                          // height: 24.h,
+                          color: Color(0xff191919),
+                        )),
+                      ),
                     )
                   ],
                 ),
               ),
+
+              _visible==true?  SizedBox(
+                width: 345.w,
+                height: 380.h,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    color: Colors.black,
+                    child: ScrollableCleanCalendar(
+                      monthTextStyle:TextStyle(color: Colors.white,fontSize: 14.sp,fontWeight: FontWeight.w500 ),
+                       weekdayTextStyle:TextStyle(color:Color(0xff5c5c5c),fontSize: 14.sp,fontWeight: FontWeight.w500),
+                      dayTextStyle:TextStyle(color:Color(0xfffefefe),fontSize: 14.sp,fontWeight: FontWeight.w400),
+                      calendarController: calendarController,
+                      layout: Layout.DEFAULT,
+
+                        dayDisableColor:Color(0xfdffffff),
+                        dayBackgroundColor:Color(0xfd000000),
+                        dayDisableBackgroundColor:Color(0xfd000000),
+                      daySelectedBackgroundColor:Color(0xffffffff),
+                      calendarCrossAxisSpacing: 0,
+                    ),
+                  ),
+                ),
+              ):SizedBox(),
               // SizedBox(width: 20.w,),
 
               ///-----------Tab Bar  -------------------///
 
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 20.w),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 44.w,
-                        height: 28,
-                        color: Color(0xffb7b7b7),
-                        child: Center(
-                          child: Image.asset(
-                            'assets/icons/filter.png',
-                            width: 24.w,
-                            height: 24.h,
-                            color: Color(0xff191919),
+              Stack(
+                children: [
+                  Container(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 20.w),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 44.w,
+                            height: 28,
+                            color: Color(0xffb7b7b7),
+                            child: Center(
+                              child: Image.asset(
+                                'assets/icons/filter.png',
+                                width: 24.w,
+                                height: 24.h,
+                                color: Color(0xff191919),
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                      TabBar(
-                        tabAlignment: TabAlignment.start,
-                        indicatorColor: Colors.transparent,
-                        labelColor: Colors.white,
-                        isScrollable: true,
-                        tabs: [
-                          Container(
-                              width: 80.w,
-                              height: 30.h,
-                              decoration: BoxDecoration(
-                                color: Color(0xFD000000),
-                              ),
-                              child: Tab(child: Text('All(${38})'))),
-                          Container(
-                              width: 80.w,
-                              height: 30.h,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFEAEAEA),
-                              ),
-                              child: Tab(
-                                  child: Text(
-                                'Event(${21})',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                ),
-                              ))),
-                          Container(
-                              width: 80.w,
-                              height: 30.h,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFEAEAEA),
-                              ),
-                              child: Tab(
-                                  child: Text(
-                                'Class(${14})',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                ),
-                              ))),
+                          TabBar(
+                            tabAlignment: TabAlignment.start,
+                            indicatorColor: Colors.transparent,
+                            labelColor: Colors.white,
+                            isScrollable: true,
+                            tabs: [
+                              Container(
+                                  width: 80.w,
+                                  height: 30.h,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFD000000),
+                                  ),
+                                  child: Tab(child: Text('All(${38})'))),
+                              Container(
+                                  width: 80.w,
+                                  height: 30.h,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFEAEAEA),
+                                  ),
+                                  child: Tab(
+                                      child: Text(
+                                    'Event(${21})',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  ))),
+                              Container(
+                                  width: 80.w,
+                                  height: 30.h,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFEAEAEA),
+                                  ),
+                                  child: Tab(
+                                      child: Text(
+                                    'Class(${14})',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  ))),
+                            ],
+                          ),
                         ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
-              ),
+                  Positioned(
+                    left: 35.w,
+                    bottom: 42.h,
+                    child: CircleAvatar(radius: 8.r,
+                      backgroundColor:Color(0xff00ff00),
+                      child:    Text('${4}',
+                          style: TextStyle(
+                              color: Color(0xff191919),
+                              fontSize: 8.sp,
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w400)),),
+                  )
+              ]),
               Expanded(
                 child: TabBarView(children: [
                   Container(
@@ -314,7 +389,27 @@ class _EventState extends State<Event> {
                                                         ),
                                                       ],
                                                     ),
+                                                  ),
+
+                                                  Positioned(
+                                                    left: 0.w,
+                                                    bottom: 140.h,
+                                                    child: Container(
+                                                      width: 61.w,
+                                                      height: 20.h,
+                                                      color: Color(0x6B000000),
+                                                      child: Center(
+                                                        child: Text('Business',
+                                                            style: TextStyle(
+                                                                color: Color(
+                                                                    0xfffefefe),
+                                                                fontSize: 10.sp,
+                                                                fontFamily: 'Montserrat',
+                                                                fontWeight: FontWeight.w400)),
+                                                      ),
+                                                    ),
                                                   )
+
                                                 ]),
                                               ],
                                             ),
@@ -433,6 +528,27 @@ class _EventState extends State<Event> {
                                                           ],
                                                         ),
                                                       ],
+                                                    ),
+                                                  ),
+
+
+
+                                                  Positioned(
+                                                    right: 0.w,
+                                                    bottom: 280.h,
+                                                    child: Container(
+                                                      width: 61.w,
+                                                      height: 20.h,
+                                                      color: Color(0xFF191919),
+                                                      child: Center(
+                                                        child: Text('Regular',
+                                                            style: TextStyle(
+                                                                color: Color(
+                                                                    0xfffefefe),
+                                                                fontSize: 10.sp,
+                                                                fontFamily: 'Montserrat',
+                                                                fontWeight: FontWeight.w400)),
+                                                      ),
                                                     ),
                                                   )
                                                 ]),
@@ -667,7 +783,27 @@ class _EventState extends State<Event> {
                                                         ),
                                                       ],
                                                     ),
+                                                  ),
+
+                                                  Positioned(
+                                                    left: 0.w,
+                                                    bottom: 140.h,
+                                                    child: Container(
+                                                      width: 61.w,
+                                                      height: 20.h,
+                                                      color: Color(0x6B000000),
+                                                      child: Center(
+                                                        child: Text('Business',
+                                                            style: TextStyle(
+                                                                color: Color(
+                                                                    0xfffefefe),
+                                                                fontSize: 10.sp,
+                                                                fontFamily: 'Montserrat',
+                                                                fontWeight: FontWeight.w400)),
+                                                      ),
+                                                    ),
                                                   )
+
                                                 ]),
                                               ],
                                             ),
