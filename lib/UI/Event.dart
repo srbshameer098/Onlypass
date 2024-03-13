@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,7 +36,7 @@ class _EventState extends State<Event> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
-      child: Scaffold(
+      child: Scaffold(resizeToAvoidBottomInset: false,
         appBar: AppBar(
           backgroundColor: Colors.black,
           title: Text(
@@ -163,7 +166,7 @@ class _EventState extends State<Event> {
 
               _visible==true?  SizedBox(
                 width: 345.w,
-                height: 380.h,
+                height: 360.h,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
@@ -197,19 +200,50 @@ class _EventState extends State<Event> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          Container(
-                            width: 44.w,
-                            height: 28,
-                            color: Color(0xffb7b7b7),
-                            child: Center(
-                              child: Image.asset(
-                                'assets/icons/filter.png',
-                                width: 24.w,
-                                height: 24.h,
-                                color: Color(0xff191919),
+                          Stack(
+                            children: [Container(
+                              width: 60.w,
+                              height: 40.h,
+                              child: Column(
+                                children: [
+                                  SizedBox(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(4.5),
+                                      child: Container(
+                                      width: 44.w,
+                                      height: 28,
+                                      color: Color(0xffb7b7b7),
+                                      child: Center(
+                                        child: Image.asset(
+                                          'assets/icons/filter.png',
+                                          width: 24.w,
+                                          height: 24.h,
+                                          color: Color(0xff191919),
+                                        ),
+                                      ),
+                                                                            ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ),
+
+
+                              Positioned(
+                                left: 40.w,
+                                bottom: 25.h,
+                                child: CircleAvatar(radius: 8.r,
+                                  backgroundColor:Color(0xff00ff00),
+                                  child:    Text('${4}',
+                                      style: TextStyle(
+                                          color: Color(0xff191919),
+                                          fontSize: 8.sp,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w400)),),
+                              )
+
+
+                          ]),
                           TabBar(
                             tabAlignment: TabAlignment.start,
                             indicatorColor: Colors.transparent,
@@ -256,18 +290,7 @@ class _EventState extends State<Event> {
                     ),
                   ),
                 ),
-                  Positioned(
-                    left: 35.w,
-                    bottom: 42.h,
-                    child: CircleAvatar(radius: 8.r,
-                      backgroundColor:Color(0xff00ff00),
-                      child:    Text('${4}',
-                          style: TextStyle(
-                              color: Color(0xff191919),
-                              fontSize: 8.sp,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w400)),),
-                  )
+
               ]),
               Expanded(
                 child: TabBarView(children: [
@@ -277,7 +300,7 @@ class _EventState extends State<Event> {
                         children: [
                           ///-----------1st Container  -------------------///
                           Container(
-                            width: 375.w,
+                            width: 393.w,
                             height: 298.h,
                             decoration: BoxDecoration(color: Color(0xffffffff)),
                             child: Column(
@@ -286,30 +309,24 @@ class _EventState extends State<Event> {
                                   padding: const EdgeInsets.all(8.0),
                                   child: Row(
                                     children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Row(
-                                          children: [
-                                            Center(
-                                              child: Text(
-                                                  'Events happening nearby you',
-                                                  style: TextStyle(
-                                                      color: Color(0xff191919),
-                                                      fontSize: 16.sp,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      fontFamily:
-                                                          'Montserrat')),
-                                            ),
-                                            SizedBox(
-                                              width: 60.w,
-                                            ),
-                                            Icon(
-                                              Icons.arrow_forward_ios_outlined,
-                                              size: 14,
-                                            )
-                                          ],
-                                        ),
+                                      Center(
+                                        child: Text(
+                                            'Events happening nearby you',
+                                            style: TextStyle(
+                                                color: Color(0xff191919),
+                                                fontSize: 16.sp,
+                                                fontWeight:
+                                                    FontWeight.w600,
+                                                fontFamily:
+                                                    'Montserrat')),
+                                      ),
+                                      SizedBox(
+                                        width: 85.w,
+                                      ),
+                                      Icon(
+                                        textDirection:TextDirection.ltr,
+                                        Icons.arrow_forward_ios_outlined,
+                                        size: 14,
                                       )
                                     ],
                                   ),
@@ -449,9 +466,10 @@ class _EventState extends State<Event> {
                                                 fontFamily: 'Montserrat')),
                                       ),
                                       SizedBox(
-                                        width: 60.w,
+                                        width: 234.w,
                                       ),
                                       Icon(
+
                                         Icons.arrow_forward_ios_outlined,
                                         size: 14,
                                       )
@@ -700,7 +718,7 @@ class _EventState extends State<Event> {
                                                       'Montserrat')),
                                             ),
                                             SizedBox(
-                                              width: 60.w,
+                                              width: 227.w,
                                             ),
                                             Icon(
                                               Icons.arrow_forward_ios_outlined,
