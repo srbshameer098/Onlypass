@@ -718,7 +718,7 @@ class _EventState extends State<Event> {
                                                       'Montserrat')),
                                             ),
                                             SizedBox(
-                                              width: 227.w,
+                                              width: 300.w,
                                             ),
                                             Icon(
                                               Icons.arrow_forward_ios_outlined,
