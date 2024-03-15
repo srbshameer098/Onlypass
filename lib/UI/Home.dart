@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:onlypass/Repository/ModelClass/FecilitiesModel.dart';
+import 'package:onlypass/bloc/Fecilities/fecilities_bloc.dart';
+
+import 'Page1.dart';
 
 
 class Home extends StatefulWidget {
@@ -8,8 +13,15 @@ class Home extends StatefulWidget {
   @override
   State<Home> createState() => _HomeState();
 }
-
+late FecilitiesModel data;
 class _HomeState extends State<Home> {
+  @override
+  void initState() {
+
+    BlocProvider.of<FecilitiesBloc>(context).add(FetchFecilities());
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -36,39 +48,18 @@ class _HomeState extends State<Home> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Row(
-              //   children: [
-              //     Icon(
-              //       Icons.location_on_outlined,
-              //       size: 20.sp,
-              //     ),
-              //     Text('Kalamassery, Kochi ',
-              //         style: TextStyle(
-              //             color: Color(0xff191919),
-              //             fontSize: 12.sp,
-              //             fontFamily: 'Montserrat',
-              //             fontWeight: FontWeight.w600)),
-              //     Text('(6 km around)',
-              //         style: TextStyle(
-              //             color: Color(0xff191919),
-              //             fontSize: 12.sp,
-              //             fontFamily: 'Montserrat',
-              //             fontWeight: FontWeight.w400)),
-              //     SizedBox(
-              //       width: 5.w,
-              //     ),
-              //     Text('Change',
-              //         style: TextStyle(
-              //             color: Color(0xff1e90ff),
-              //             fontSize: 12.sp,
-              //             decoration: TextDecoration.underline,
-              //             decorationColor: Color(0xff1e90ff),
-              //             fontFamily: 'Montserrat',
-              //             fontWeight: FontWeight.w400)),
-              //   ],
-              // ),
+              ///-----------Google Map  -------------------///
 
-              ///-----------Search Container  -------------------///
+
+
+
+
+
+
+
+
+
+              ///-----------Head Line  -------------------///
 
 
               Padding(
@@ -172,150 +163,168 @@ class _HomeState extends State<Home> {
                               child: Column(
                                 children: [
 
-                                  GestureDetector(
-                                    onTap: () {
-                                      // Navigator.of(context).push(
-                                      //     MaterialPageRoute(builder: (builder) => Page1()));
-                                    },
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: SizedBox(
-                                        width: 393.h,
-                                        height: 550.h,
-                                        child: ListView.separated(
-                                          scrollDirection: Axis.vertical,
-                                          itemCount: 8,
-                                          itemBuilder:
-                                              (BuildContext context, int index) {
-                                            return Container(
-                                              width: 300.w,
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: SizedBox(
+                                      width: 393.h,
+                                      height: 550.h,
+                                      child: BlocBuilder<FecilitiesBloc, FecilitiesState>(
+  builder: (context, state) {
+    if (state is FecilitiesblocLoading) {
+      return Center(child: CircularProgressIndicator());
+    }
+    if (state is FecilitiesblocError) {
+      return Center(
+        child: Text("ERROR"),
+      );
+    }
+    if (state is FecilitiesblocLoaded) {
+      data = BlocProvider
+          .of<FecilitiesBloc>(context)
+          .fecilitiesModel;
+      return ListView.separated(
+        scrollDirection: Axis.vertical,
+        itemCount: 8,
+        itemBuilder:
+            (BuildContext context, int index) {
+          return GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (builder) => Page1()));
+            },
+            child: Container(
+              width: 300.w,
 
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                  BorderRadius.circular(0),
-                                                  color: Color(0xffffffff)),
-                                              child: Column(
-                                                children: [
-                                                  Stack(children: [
-                                                    Image.asset(
-                                                      'assets/image/Image1 1.png',
-                                                      width: 348.w,
-                                                      height: 232.h,
-                                                    ),
+              decoration: BoxDecoration(
+                  borderRadius:
+                  BorderRadius.circular(0),
+                  color: Color(0xffffffff)),
+              child: Column(
+                children: [
+                  Image.network(
+                   data.images.toString(),
+                    width: 348.w,
+                    height: 232.h,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(0.0),
+                    child: Row(
+                      children: [
+                        Center(
+                          child: Text(
+                              data.facilityName.toString(),
+                              style: TextStyle(
+                                  color: Color(0xff191919),
+                                  fontSize: 16.sp,
+                                  fontWeight:
+                                  FontWeight.w600,
+                                  fontFamily:
+                                  'Montserrat')),
+                        ),
+                        SizedBox(
+                          width: 60.w,
+                        ),
+                        Icon(
+                          Icons.location_on_outlined,
+                          size: 14.sp,
+                          color: Colors.grey,
+                        ), Text(
+                            '${150}m',
+                            style: TextStyle(
+                                color: Color(0xff191919),
+                                fontSize: 12.sp,
+                                fontWeight:
+                                FontWeight.w600,
+                                fontFamily:
+                                'Montserrat')),
+                      ],
+                    ),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Icon(Icons.star, color: Colors.black,),
+                      Text(
+                          '${4.3} ',
+                          style: TextStyle(
+                              color: Color(0xff191919),
+                              fontSize: 14.sp,
+                              fontWeight:
+                              FontWeight.w600,
+                              fontFamily:
+                              'Montserrat')),
+                      Text(
+                          '(${174} Reviews)',
+                          style: TextStyle(
+                              color: Color(
+                                  0xffa2a2a2),
+                              fontSize: 12.sp,
+                              fontWeight:
+                              FontWeight.w400,
+                              fontFamily:
+                              'Montserrat')),
+                      SizedBox(
+                        width: 50.w,
+                      ),
+                      SizedBox(
+                        width: 150.w,
+                        height: 24.h,
+                        child: ListView.separated(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 5,
+                          itemBuilder:
+                              (BuildContext context, int index) {
+                            return Container(
+                              width: 24.w,
+                              height: 24.h,
+                              decoration: BoxDecoration(
 
-                                                  ]),
-                                                  Padding(
-                                                    padding:  EdgeInsets.all(0.0),
-                                                    child: Row(
-                                                      children: [
-                                                        Center(
-                                                          child: Text(
-                                                              'Trans4me Intl. Fitness Club',
-                                                              style: TextStyle(
-                                                                  color: Color(0xff191919),
-                                                                  fontSize: 16.sp,
-                                                                  fontWeight:
-                                                                  FontWeight.w600,
-                                                                  fontFamily:
-                                                                  'Montserrat')),
-                                                        ),
-                                                        SizedBox(
-                                                          width: 60.w,
-                                                        ),
-                                                        Icon(
-                                                          Icons.location_on_outlined,
-                                                          size: 14.sp,
-                                                          color: Colors.grey,
-                                                        ),Text(
-                                                            '${150}m',
-                                                            style: TextStyle(
-                                                                color: Color(0xff191919),
-                                                                fontSize: 12.sp,
-                                                                fontWeight:
-                                                                FontWeight.w600,
-                                                                fontFamily:
-                                                                'Montserrat')),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Row(
-                                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                                    children: [
-                                                      Icon(Icons.star,color: Colors.black,),
-                                                      Text(
-                                                          '${4.3} ',
-                                                          style: TextStyle(
-                                                              color: Color(0xff191919),
-                                                              fontSize: 14.sp,
-                                                              fontWeight:
-                                                              FontWeight.w600,
-                                                              fontFamily:
-                                                              'Montserrat')),
-                                                      Text(
-                                                          '(${174} Reviews)',
-                                                          style: TextStyle(
-                                                              color: Color(
-                                                                  0xffa2a2a2),
-                                                              fontSize: 12.sp,
-                                                              fontWeight:
-                                                              FontWeight.w400,
-                                                              fontFamily:
-                                                              'Montserrat')),
-                                                      SizedBox(
-                                                        width: 50.w,
-                                                      ),
-                                                     SizedBox(
-                                                       width: 150.w,
-                                                        height: 24.h,
-                                                        child: ListView.separated(
-                                                          scrollDirection: Axis.horizontal,
-                                                          itemCount: 5,
-                                                          itemBuilder:
-                                                              (BuildContext context, int index) {
-                                                            return Container(
-                                                              width: 24.w,
-                                                              height: 24.h,
-                                                              decoration: BoxDecoration(
-
-                                                                  color: Color(
-                                                                      0xfff0f0f0)),
-                                                              child: Column(
-                                                                children: [
-                                                                  Center(
-                                                                    child: Image.asset(
-                                                                      'assets/image/event_img_1.png',
-                                                                      width: 20.w,
-                                                                      height: 20.h,
-                                                                    ),
-                                                                  ),
+                                  color: Color(
+                                      0xfff0f0f0)),
+                              child: Column(
+                                children: [
+                                  Center(
+                                    child: Image.asset(
+                                      'assets/image/event_img_1.png',
+                                      width: 20.w,
+                                      height: 20.h,
+                                    ),
+                                  ),
 
 
-                                                                ],
-                                                              ),
-                                                            );
-                                                          },
-                                                          separatorBuilder:
-                                                              (BuildContext context, int index) {
-                                                            return SizedBox(
-                                                              width: 8.w,
-                                                            );
-                                                          },
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  )
-                                                ],
-                                              ),
-                                            );
-                                          },
-                                          separatorBuilder:
-                                              (BuildContext context, int index) {
-                                            return SizedBox(
-                                              width: 14.w,
-                                            );
-                                          },
-                                        ),
-                                      ),
+                                ],
+                              ),
+                            );
+                          },
+                          separatorBuilder:
+                              (BuildContext context, int index) {
+                            return SizedBox(
+                              width: 8.w,
+                            );
+                          },
+                        ),
+
+
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+          );
+        },
+        separatorBuilder:
+            (BuildContext context, int index) {
+          return SizedBox(
+            width: 14.w,
+          );
+        },
+      );
+    }else {
+      return SizedBox();
+    }
+    ;
+  }),
                                     ),
                                   ),
                                 ],
