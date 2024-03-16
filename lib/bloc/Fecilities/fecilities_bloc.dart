@@ -1,14 +1,16 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:onlypass/Repository/Api/Fecilities_api.dart';
-import 'package:onlypass/Repository/ModelClass/FecilitiesModel.dart';
+
+
+import '../../Repository/ModelClass/FacilityModel.dart';
 
 part 'fecilities_event.dart';
 part 'fecilities_state.dart';
 
 class FecilitiesBloc extends Bloc<FecilitiesEvent, FecilitiesState> {
   FecilitiesApi fecilitiesApi=FecilitiesApi();
-  late FecilitiesModel fecilitiesModel;
+  late List<FacilityModel> fecilitiesModel;
   FecilitiesBloc() : super(FecilitiesInitial()) {
     on<FecilitiesEvent>((event, emit) async {
 

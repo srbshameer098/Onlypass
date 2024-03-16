@@ -51,6 +51,7 @@ class ApiClient {
         response = await get(
           Uri.parse(url),
           headers: {
+            'content-Type': 'application/json',
           },
         );
 

@@ -1,5 +1,5 @@
 
-class FecilitiesModel {
+class FacilityModel {
   String? id;
   String? tier;
   String? gender;
@@ -11,30 +11,25 @@ class FecilitiesModel {
   String? websiteUrl;
   String? logoUrl;
   String? description;
-  List<dynamic>? images;
+  List<String>? images;
   String? address;
   int? pinCode;
   String? country;
   String? state;
   String? latitudeLongitude;
-  List<dynamic>? amenities;
-  List<dynamic>? equipments;
+  List<Amenities>? amenities;
+  List<Equipments>? equipments;
   List<FacilityTiming>? facilityTiming;
   int? admissionFee;
-  int? dailyPass;
-  int? monthlyPass;
-  int? threeMonthPass;
-  int? sixMonthPass;
-  int? annualPass;
   String? other;
-  List<dynamic>? review;
+  List<String>? review;
   String? createdAt;
   String? updatedAt;
   int? v;
 
-  FecilitiesModel({this.id, this.tier, this.gender, this.facilityName, this.contactPerson, this.facilityType, this.emailAddress, this.phoneNumber, this.websiteUrl, this.logoUrl, this.description, this.images, this.address, this.pinCode, this.country, this.state, this.latitudeLongitude, this.amenities, this.equipments, this.facilityTiming, this.admissionFee, this.dailyPass, this.monthlyPass, this.threeMonthPass, this.sixMonthPass, this.annualPass, this.other, this.review, this.createdAt, this.updatedAt, this.v});
+  FacilityModel({this.id, this.tier, this.gender, this.facilityName, this.contactPerson, this.facilityType, this.emailAddress, this.phoneNumber, this.websiteUrl, this.logoUrl, this.description, this.images, this.address, this.pinCode, this.country, this.state, this.latitudeLongitude, this.amenities, this.equipments, this.facilityTiming, this.admissionFee, this.other, this.review, this.createdAt, this.updatedAt, this.v});
 
-  FecilitiesModel.fromJson(Map<String, dynamic> json) {
+  FacilityModel.fromJson(Map<String, dynamic> json) {
     if(json["_id"] is String) {
       id = json["_id"];
     }
@@ -69,7 +64,7 @@ class FecilitiesModel {
       description = json["description"];
     }
     if(json["images"] is List) {
-      images = json["images"] ?? [];
+      images = json["images"] == null ? null : List<String>.from(json["images"]);
     }
     if(json["address"] is String) {
       address = json["address"];
@@ -87,10 +82,10 @@ class FecilitiesModel {
       latitudeLongitude = json["latitude_longitude"];
     }
     if(json["amenities"] is List) {
-      amenities = json["amenities"] ?? [];
+      amenities = json["amenities"] == null ? null : (json["amenities"] as List).map((e) => Amenities.fromJson(e)).toList();
     }
     if(json["equipments"] is List) {
-      equipments = json["equipments"] ?? [];
+      equipments = json["equipments"] == null ? null : (json["equipments"] as List).map((e) => Equipments.fromJson(e)).toList();
     }
     if(json["facilityTiming"] is List) {
       facilityTiming = json["facilityTiming"] == null ? null : (json["facilityTiming"] as List).map((e) => FacilityTiming.fromJson(e)).toList();
@@ -98,26 +93,11 @@ class FecilitiesModel {
     if(json["admission_fee"] is num) {
       admissionFee = (json["admission_fee"] as num).toInt();
     }
-    if(json["daily_pass"] is num) {
-      dailyPass = (json["daily_pass"] as num).toInt();
-    }
-    if(json["monthly_pass"] is num) {
-      monthlyPass = (json["monthly_pass"] as num).toInt();
-    }
-    if(json["threeMonth_pass"] is num) {
-      threeMonthPass = (json["threeMonth_pass"] as num).toInt();
-    }
-    if(json["sixMonth_pass"] is num) {
-      sixMonthPass = (json["sixMonth_pass"] as num).toInt();
-    }
-    if(json["annual_pass"] is num) {
-      annualPass = (json["annual_pass"] as num).toInt();
-    }
     if(json["other"] is String) {
       other = json["other"];
     }
     if(json["review"] is List) {
-      review = json["review"] ?? [];
+      review = json["review"] == null ? null : List<String>.from(json["review"]);
     }
     if(json["createdAt"] is String) {
       createdAt = json["createdAt"];
@@ -130,8 +110,8 @@ class FecilitiesModel {
     }
   }
 
-  static List<FecilitiesModel> fromList(List<Map<String, dynamic>> list) {
-    return list.map((map) => FecilitiesModel.fromJson(map)).toList();
+  static List<FacilityModel> fromList(List<Map<String, dynamic>> list) {
+    return list.map((map) => FacilityModel.fromJson(map)).toList();
   }
 
   Map<String, dynamic> toJson() {
@@ -156,20 +136,15 @@ class FecilitiesModel {
     _data["state"] = state;
     _data["latitude_longitude"] = latitudeLongitude;
     if(amenities != null) {
-      _data["amenities"] = amenities;
+      _data["amenities"] = amenities?.map((e) => e.toJson()).toList();
     }
     if(equipments != null) {
-      _data["equipments"] = equipments;
+      _data["equipments"] = equipments?.map((e) => e.toJson()).toList();
     }
     if(facilityTiming != null) {
       _data["facilityTiming"] = facilityTiming?.map((e) => e.toJson()).toList();
     }
     _data["admission_fee"] = admissionFee;
-    _data["daily_pass"] = dailyPass;
-    _data["monthly_pass"] = monthlyPass;
-    _data["threeMonth_pass"] = threeMonthPass;
-    _data["sixMonth_pass"] = sixMonthPass;
-    _data["annual_pass"] = annualPass;
     _data["other"] = other;
     if(review != null) {
       _data["review"] = review;
@@ -180,7 +155,7 @@ class FecilitiesModel {
     return _data;
   }
 
-  FecilitiesModel copyWith({
+  FacilityModel copyWith({
     String? id,
     String? tier,
     String? gender,
@@ -192,27 +167,22 @@ class FecilitiesModel {
     String? websiteUrl,
     String? logoUrl,
     String? description,
-    List<dynamic>? images,
+    List<String>? images,
     String? address,
     int? pinCode,
     String? country,
     String? state,
     String? latitudeLongitude,
-    List<dynamic>? amenities,
-    List<dynamic>? equipments,
+    List<Amenities>? amenities,
+    List<Equipments>? equipments,
     List<FacilityTiming>? facilityTiming,
     int? admissionFee,
-    int? dailyPass,
-    int? monthlyPass,
-    int? threeMonthPass,
-    int? sixMonthPass,
-    int? annualPass,
     String? other,
-    List<dynamic>? review,
+    List<String>? review,
     String? createdAt,
     String? updatedAt,
     int? v,
-  }) => FecilitiesModel(
+  }) => FacilityModel(
     id: id ?? this.id,
     tier: tier ?? this.tier,
     gender: gender ?? this.gender,
@@ -234,11 +204,6 @@ class FecilitiesModel {
     equipments: equipments ?? this.equipments,
     facilityTiming: facilityTiming ?? this.facilityTiming,
     admissionFee: admissionFee ?? this.admissionFee,
-    dailyPass: dailyPass ?? this.dailyPass,
-    monthlyPass: monthlyPass ?? this.monthlyPass,
-    threeMonthPass: threeMonthPass ?? this.threeMonthPass,
-    sixMonthPass: sixMonthPass ?? this.sixMonthPass,
-    annualPass: annualPass ?? this.annualPass,
     other: other ?? this.other,
     review: review ?? this.review,
     createdAt: createdAt ?? this.createdAt,
@@ -381,5 +346,96 @@ class Morning {
     start: start ?? this.start,
     end: end ?? this.end,
     holiday: holiday ?? this.holiday,
+  );
+}
+
+class Equipments {
+  String? equipmentName;
+  String? equipmentImg;
+  String? id;
+
+  Equipments({this.equipmentName, this.equipmentImg, this.id});
+
+  Equipments.fromJson(Map<String, dynamic> json) {
+    if(json["equipment_name"] is String) {
+      equipmentName = json["equipment_name"];
+    }
+    if(json["equipment_img"] is String) {
+      equipmentImg = json["equipment_img"];
+    }
+    if(json["_id"] is String) {
+      id = json["_id"];
+    }
+  }
+
+  static List<Equipments> fromList(List<Map<String, dynamic>> list) {
+    return list.map((map) => Equipments.fromJson(map)).toList();
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> _data = <String, dynamic>{};
+    _data["equipment_name"] = equipmentName;
+    _data["equipment_img"] = equipmentImg;
+    _data["_id"] = id;
+    return _data;
+  }
+
+  Equipments copyWith({
+    String? equipmentName,
+    String? equipmentImg,
+    String? id,
+  }) => Equipments(
+    equipmentName: equipmentName ?? this.equipmentName,
+    equipmentImg: equipmentImg ?? this.equipmentImg,
+    id: id ?? this.id,
+  );
+}
+
+class Amenities {
+  String? amenitiesName;
+  String? isPaid;
+  String? iconUrl;
+  String? id;
+
+  Amenities({this.amenitiesName, this.isPaid, this.iconUrl, this.id});
+
+  Amenities.fromJson(Map<String, dynamic> json) {
+    if(json["amenities_name"] is String) {
+      amenitiesName = json["amenities_name"];
+    }
+    if(json["isPaid"] is String) {
+      isPaid = json["isPaid"];
+    }
+    if(json["iconUrl"] is String) {
+      iconUrl = json["iconUrl"];
+    }
+    if(json["_id"] is String) {
+      id = json["_id"];
+    }
+  }
+
+  static List<Amenities> fromList(List<Map<String, dynamic>> list) {
+    return list.map((map) => Amenities.fromJson(map)).toList();
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> _data = <String, dynamic>{};
+    _data["amenities_name"] = amenitiesName;
+    _data["isPaid"] = isPaid;
+    _data["iconUrl"] = iconUrl;
+    _data["_id"] = id;
+    return _data;
+  }
+
+  Amenities copyWith({
+    String? amenitiesName,
+    String? isPaid,
+    String? iconUrl,
+    String? id,
+  }) => Amenities(
+    amenitiesName: amenitiesName ?? this.amenitiesName,
+    isPaid: isPaid ?? this.isPaid,
+    iconUrl: iconUrl ?? this.iconUrl,
+    id: id ?? this.id,
   );
 }
