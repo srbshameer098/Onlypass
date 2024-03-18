@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:onlypass/bloc/Fecilities/fecilities_bloc.dart';
 
 import '../Repository/ModelClass/FacilityModel.dart';
-import 'Page1.dart';
+import 'Detailed_Page.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -178,15 +178,12 @@ class _HomeState extends State<Home> {
                                                     Navigator.of(context).push(
                                                         MaterialPageRoute(
                                                             builder: (builder) =>
-                                                                Page1()));
+                                                                Detailed_Page()));
                                                   },
                                                   child: Container(
                                                     width: 300.w,
-                                                    decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius.circular(
-                                                                0),
-                                                        color: Color(0xffffffff)),
+
+                                                        color: Color(0xffffffff),
                                                     child: Column(
                                                       children: [
 
@@ -196,12 +193,12 @@ class _HomeState extends State<Home> {
                                                   ? Container(
                                                   child: Image.network(
                                                       data[index].images![itemIndex].toString(),
-                                                  width: 348.w,
-                                                  height: 232.h,fit: BoxFit.fill,
+                                                  width: 356.w,
+                                                  height: 182.h,fit: BoxFit.fill,
                                                 ),
                                                 )
                                                     : SizedBox(), options: CarouselOptions(
-                                                          height: 232.h,
+                                                          height: 182.h,
 
                                                           viewportFraction: 1,
                                                           initialPage: 0,
@@ -387,7 +384,7 @@ class _HomeState extends State<Home> {
                                 Navigator.of(context).push(
                                     MaterialPageRoute(
                                         builder: (builder) =>
-                                            Page1()));
+                                            Detailed_Page()));
                               },
                               child: Icon(Icons.ac_unit_outlined))
                         ],

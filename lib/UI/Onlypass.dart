@@ -481,18 +481,6 @@ class _OnlypassState extends State<Onlypass> {
                             ],
                           ),
                         ),
-                        // Positioned(
-                        //
-                        //     bottom: 167.h,
-                        //     left: 250.w,
-                        //
-                        //     child: CircleAvatar(radius: 5.r,backgroundColor: Colors.white,)),
-                        //
-                        //
-                        // Positioned(
-                        //     left: 250.w,
-                        //     top: 167.h,
-                        //     child: CircleAvatar(radius: 5.r,backgroundColor: Colors.white,))
                       ]),
                     ),
                   ),
