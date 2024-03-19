@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:linear_progress_bar/linear_progress_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'Home.dart';
@@ -30,7 +32,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
               ),
           
               Padding(
-                padding:  EdgeInsets.only(left: 25.w,right: 10.w),
+                padding:  EdgeInsets.only(left: 24.w,right: 24.w),
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
@@ -61,7 +63,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           ),
                           Icon(
                             Icons.star,
-                            color: Colors.black,
+                            color: Colors.black,size: 20.sp,
                           ),
                           Text('${4.3} ',
                               style: TextStyle(
@@ -74,7 +76,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                       .w600,
                                   fontFamily:
                                   'Montserrat')),
-                          SizedBox(width: 40.w,
+                          SizedBox(width: 32.w,
                             child: Text(
                                 '(${240})',
                                 style: TextStyle(
@@ -96,8 +98,8 @@ class _Detailed_PageState extends State<Detailed_Page> {
                       child: Row(
                         children: [
                           Container(
-          
-                            height: 24,
+                            width: 70.w,
+                            height: 24.h,
                               color: Color(0xFFF0F0F0),
           
                             child: Padding(
@@ -105,8 +107,8 @@ class _Detailed_PageState extends State<Detailed_Page> {
                               child: Row(crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Image.asset('assets/icons/gym.png',
-                                    width: 20.30,
-                                    height: 11.41,
+                                    width: 20.30.w,
+                                    height: 11.41.h,
                                   ),
                                   Text(
                                       'GYM',
@@ -126,17 +128,17 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           ),
                       SizedBox(width: 5.w,),
                           Container(
-          
-                            height: 24,
+                            width: 64.w,
+                            height: 24.h,
                             color: Color(0xFFF0F0F0),
           
                             child: Padding(
-                              padding:  EdgeInsets.symmetric(horizontal: 8.w),
+                              padding:  EdgeInsets.symmetric(horizontal: 7.w),
                               child: Row(crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Image.asset('assets/icons/pool.png',
-                                    width: 20.30,
-                                    height: 11.41,
+                                    width: 20.30.w,
+                                    height: 11.41.h,
                                   ),
                                   Text(
                                       'Pool',
@@ -156,13 +158,13 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           ),
           
           
-                      SizedBox(width: 70.w,),
+                      SizedBox(width: 54.w,),
           
           
           
                           Container(
-          
-                            height: 24,
+                            width: 59.w,
+                            height: 24.h,
                             color: Color(0xFFF0F0F0),
           
                             child: Padding(
@@ -191,8 +193,8 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           ),
                           SizedBox(width: 5.w,),
                           Container(
-          
-                            height: 24,
+                            width: 82.w,
+                            height: 24.h,
                             color: Color(0xFFF0F0F0),
           
                             child: Padding(
@@ -232,7 +234,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           Icon(Icons.location_on_outlined,size: 16.sp,
                             color:Color(0xffb7b7b7) ,),
           
-                          SizedBox(width: 9.w,),
+                          SizedBox(width: 8.w,),
           
                           SizedBox(width: 200.w,
                             child: Text(
@@ -249,7 +251,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                     'Montserrat')),
                           ),
           
-                          SizedBox(width: 43.w,),
+                          SizedBox(width: 34.w,),
           
           
                           Text(
@@ -281,7 +283,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           Icon(Icons.access_time_outlined,size: 16.sp,
                             color:Color(0xffb7b7b7) ,),
           
-                          SizedBox(width: 8.54.w,),
+                          SizedBox(width: 8.w,),
           
                           Text(
                               'Open now ',
@@ -309,7 +311,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                   fontFamily:
                                   'Montserrat')),
           
-                          SizedBox(width: 73.w,),
+                          SizedBox(width: 64.1.w,),
           
           
                           Text(
@@ -333,7 +335,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
           
           
                     Padding(
-                      padding:  EdgeInsets.only(top: 40.h),
+                      padding:  EdgeInsets.only(top: 32.h),
                       child: Text(
                           'About',
                           style: TextStyle(
@@ -451,7 +453,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
           
                          Padding(
                           padding:  EdgeInsets.only(top: 40.h),
-                          child: Row(crossAxisAlignment: CrossAxisAlignment.center,
+                          child: Row(crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
           
           
@@ -468,7 +470,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                           .w600,
                                       fontFamily:
                                       'Montserrat')),
-                              SizedBox(width: 83.w,),
+                              SizedBox(width: 74.5.w,),
                               Text(
                                   'Equipment list',
                                   style: TextStyle(
@@ -647,7 +649,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                       ),
                     ),
                     Padding(
-                      padding:  EdgeInsets.only(top: 32.h,bottom: 33.h),
+                      padding:  EdgeInsets.only(top: 32.h,bottom: 30.h),
                       child: Text('Reviews',
                         style: TextStyle(
                           color: Colors.black,
@@ -659,11 +661,80 @@ class _Detailed_PageState extends State<Detailed_Page> {
                     ),
 
 
+          Row (crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              RatingBar.builder(
+                initialRating: 3.3,
+                minRating: 0,
+                itemSize: 21.sp,
+                unratedColor: Colors.grey.shade300,
+                direction: Axis.horizontal,
+                allowHalfRating: true,
+                ignoreGestures: true,
+
+                itemCount: 5,
+                itemPadding: EdgeInsets.symmetric(horizontal: 0.0),
+                itemBuilder: (context, _) => Icon(
+                  Icons.star,
+                  color: Colors.black,
+
+                ),
+                onRatingUpdate: (rating) {
+                  print(rating);
+                },
+              ),
+              SizedBox(width: 10.w,),
+              Text(
+                '4.5',
+                style: TextStyle(
+                  color: Color(0xFF191919),
+                  fontSize: 14,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w600,
+                  height: 0.06,
+                ),
+              )
+            ],
+          ),
+                    Padding(
+                      padding:  EdgeInsets.only(top: 6.h),
+                      child: Row(crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+
+
+                          SizedBox(width:220,
+                            child: LinearProgressBar(
+                              maxSteps: 200,
+                              progressType: LinearProgressBar.progressTypeLinear, // Use Linear progress
+                              currentStep: 174,
+                              progressColor: Colors.black,
+                              backgroundColor: Colors.grey.shade300,
+                            ),
+                          ),
+
+                          SizedBox(width: 24.w,),
+
+                          Text(
+                            '174 Reviews',
+                            style: TextStyle(
+                              color: Color(0xFFB7B7B7),
+                              fontSize: 13.sp,
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w500,
+                              height: 0.06,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+
                     SizedBox(
                       width: 345.5.w,
                       height: 2*150.h,
                       child: ListView
                           .separated(
+                        physics: ScrollPhysics(parent: NeverScrollableScrollPhysics()),
                         scrollDirection:
                         Axis.vertical,
                         itemCount: 2,
