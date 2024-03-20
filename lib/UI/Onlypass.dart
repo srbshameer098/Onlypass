@@ -116,14 +116,14 @@ class _OnlypassState extends State<Onlypass> {
                                   ),
                                 ),
                                 Positioned(
-                                    right: 2.5.w,
+                                    right: 3.w,
                                     top: 167.h,
                                     child: CircleAvatar(
                                       radius: 5,
                                       backgroundColor: Colors.white,
                                     )),
                                 Positioned(
-                                    left: 2.5.w,
+                                    left: 3.w,
                                     bottom: 167.h,
                                     child: CircleAvatar(
                                       radius: 5,
@@ -265,14 +265,14 @@ class _OnlypassState extends State<Onlypass> {
                                   ),
                                 ),
                                 Positioned(
-                                    right: 2.5.w,
+                                    right: 3.w,
                                     top: 167.h,
                                     child: CircleAvatar(
                                       radius: 5,
                                       backgroundColor: Colors.white,
                                     )),
                                 Positioned(
-                                    left: 2.5.w,
+                                    left: 3.w,
                                     bottom: 167.h,
                                     child: CircleAvatar(
                                       radius: 5,
@@ -416,14 +416,14 @@ class _OnlypassState extends State<Onlypass> {
                                   ),
                                 ),
                                 Positioned(
-                                    right: 2.5.w,
+                                    right: 3.w,
                                     top: 167.h,
                                     child: CircleAvatar(
                                       radius: 5,
                                       backgroundColor: Colors.white,
                                     )),
                                 Positioned(
-                                    left: 2.5.w,
+                                    left: 3.w,
                                     bottom: 167.h,
                                     child: CircleAvatar(
                                       radius: 5,
