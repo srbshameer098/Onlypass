@@ -7,8 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:linear_progress_bar/linear_progress_bar.dart';
 import 'package:onlypass/UI/Bottomnav.dart';
 
-
 import 'package:onlypass/bloc/Fecilities/fecilities_bloc.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../Repository/ModelClass/FacilityModel.dart';
 import 'Detailed_Page.dart';
@@ -22,6 +22,10 @@ class Home extends StatefulWidget {
 
 late List<FacilityModel> data;
 
+//int _current =0;
+ List<int> _currentIndex = [];
+// List<List<int>> listindex =[];
+
 class _HomeState extends State<Home> {
   @override
   void initState() {
@@ -29,7 +33,9 @@ class _HomeState extends State<Home> {
     // TODO: implement initState
     super.initState();
   }
-  int _current = 0;
+
+
+
   final CarouselController _controller = CarouselController();
 
   @override
@@ -185,198 +191,144 @@ class _HomeState extends State<Home> {
                                                 BlocProvider.of<FecilitiesBloc>(
                                                         context)
                                                     .fecilitiesModel;
+                                            for(int i=0;i<data.length;i++){
+                                             for(int j=0;j<data[i].images!.length;j++){
+                                               _currentIndex.add(0);
+                                             }
+                                            }
+
                                             return ListView.separated(
                                               scrollDirection: Axis.vertical,
                                               itemCount: data.length,
-                                              itemBuilder:
-                                                  (BuildContext context,
-                                                      int index) {
+                                              itemBuilder: (BuildContext context, int index) {
                                                 return GestureDetector(
                                                   onTap: () {
-                                                    Navigator.of(context).push(
-                                                        MaterialPageRoute(
-                                                            builder: (builder) =>
-                                                                Detailed_Page()));
+                                                    Navigator.of(context).push(MaterialPageRoute(builder: (builder) => Detailed_Page(detailed: data[index].images![index].toString(),)));
                                                   },
                                                   child: Container(
-                                                    width: 300.w,
-                                                    color: Color(0xffffffff),
-                                                    child: Column(
-                                                      children: [
-                                                        Stack(
+                                                      width: 300.w,
+                                                      color: Color(0xffffffff),
+                                                      child: Column(
                                                           children: [
-                                                            CarouselSlider
-                                                                .builder(
-
-                                                              itemBuilder: (BuildContext
-                                                                          context,
-                                                                      int
-                                                                          itemIndex,
-                                                                      int
-                                                                          pageViewIndex) =>
-                                                                  data[index]
-                                                                              .images!
-                                                                              .length >
-                                                                          itemIndex
-                                                                      ? Container(
-                                                                          child:
-                                                                              Image.network(
-                                                                            data[index].images![itemIndex].toString(),
-                                                                            width:
-                                                                                356.w,
-                                                                            height:
-                                                                                182.h,
-                                                                            fit:
-                                                                                BoxFit.fill,
-                                                                          ),
-                                                                        )
-                                                                      : SizedBox(),
-                                                              options:
-                                                                  CarouselOptions(
-                                                                    onPageChanged:  (index, reason) {
-                                                    setState(() {
-                                                    _current = index;
-                                                    });
-                                                    },
-                                                                height: 182.h,
-                                                                viewportFraction:
-                                                                    1,
-                                                                initialPage: 0,
-                                                                enableInfiniteScroll:
-                                                                    true,
-                                                                reverse: false,
-                                                                autoPlay: false,
-                                                                autoPlayInterval:
-                                                                    Duration(
-                                                                        seconds:
-                                                                            3),
-                                                                autoPlayAnimationDuration:
-                                                                    Duration(
-                                                                        milliseconds:
-                                                                            800),
-                                                                autoPlayCurve:
-                                                                    Curves
-                                                                        .fastOutSlowIn,
-                                                                enlargeCenterPage:
-                                                                    true,
-                                                                enlargeFactor:
-                                                                    0.1,
-                                                                scrollDirection:
-                                                                    Axis.horizontal,
-                                                                // onPageChanged:
-                                                                //     (index,
-                                                                //         reason) {
-                                                                //   setState(() {
-                                                                //     currentIndex =
-                                                                //         index;
-                                                                //   });
-                                                                // },
-                                                              ),
-                                                              itemCount:
-                                                                  data[index]
-                                                                      .images!
-                                                                      .length,
-                                                            ),
-                                                            LinearProgressBar(
-                                                              maxSteps:  data[index]
-                                                                  .images!
-                                                                  .length,
-                                                              progressType: LinearProgressBar.progressTypeDots, // Use Dots progress
-                                                              currentStep: _current,
-                                                              progressColor: Colors.red,
-                                                              backgroundColor: Colors.grey,
-                                                            )
-                                                          ],
-                                                        ),
-                                                        Padding(
-                                                          padding: EdgeInsets
-                                                              .symmetric(
-                                                                  vertical:
-                                                                      5.h),
-                                                          child: Row(
-                                                            children: [
-                                                              Center(
-                                                                child: SizedBox(
-                                                                  width: 230.w,
-                                                                  child: Text(
-                                                                      maxLines:
-                                                                          1,
-                                                                      overflow:
-                                                                          TextOverflow
-                                                                              .ellipsis,
-                                                                      data[index]
-                                                                          .facilityName
-                                                                          .toString(),
-                                                                      style: TextStyle(
-                                                                          color: Color(
-                                                                              0xff191919),
-                                                                          fontSize: 16
-                                                                              .sp,
-                                                                          fontWeight: FontWeight
-                                                                              .w600,
-                                                                          fontFamily:
-                                                                              'Montserrat')),
-                                                                ),
-                                                              ),
-                                                              SizedBox(
-                                                                width: 60.w,
-                                                              ),
-                                                              Icon(
-                                                                Icons
-                                                                    .location_on_outlined,
-                                                                size: 14.sp,
-                                                                color:
-                                                                    Colors.grey,
-                                                              ),
-                                                              Text('${150}m',
-                                                                  style: TextStyle(
-                                                                      color: Color(
-                                                                          0xff191919),
-                                                                      fontSize:
-                                                                          12.sp,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w600,
-                                                                      fontFamily:
-                                                                          'Montserrat')),
-                                                            ],
-                                                          ),
-                                                        ),
+                                                      Stack(
+                                                      children: [
+                                                      CarouselSlider.builder(
+                                                          itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) => data[index].images!.length > itemIndex
+                                                  ? Container(
+                                                  child: Image.network(
+                                                      data[index].images![itemIndex].toString(),
+                                                  width: 356.w,
+                                                  height: 182.h,
+                                                  fit: BoxFit.fill,
+                                                ),
+                                                )
+                                                    : SizedBox(),
+                                                options: CarouselOptions(
+                                                onPageChanged: (i, reason) {
+                                                setState(() {
+                                                  _currentIndex[index] = i;
+                                                });
+                                                },
+                                                height: 182.h,
+                                                viewportFraction: 1,
+                                                initialPage: 0,
+                                                enableInfiniteScroll: true,
+                                                reverse: false,
+                                                autoPlay: false,
+                                                autoPlayInterval: Duration(seconds: 3),
+                                                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                                                autoPlayCurve: Curves.fastOutSlowIn,
+                                                enlargeCenterPage: true,
+                                                enlargeFactor: 0.1,
+                                                scrollDirection: Axis.horizontal,
+                                                ),
+                                                itemCount: data[index].images!.length,
+                                                ),
+                                                Padding(
+                                                  padding:  EdgeInsets.only(top: 170.h),
+                                                  child: Center(
+                                                    child: AnimatedSmoothIndicator(
+                                                      activeIndex: _currentIndex[index],
+                                                      count: data[index].images!.length,
+                                                      effect: WormEffect(
+                                                          dotColor:Color(0xffbdbdbd),
+                                                        dotHeight: 6.h,
+                                                        dotWidth: 6.w,
+                                                        activeDotColor: Colors.white
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                ],
+                                                ),
+                                                Padding(
+                                                padding: EdgeInsets.symmetric(vertical: 5.h),
+                                                child: Row(
+                                                children: [
+                                                Center(
+                                                child: SizedBox(
+                                                width: 230.w,
+                                                child: Text(
+                                                maxLines: 1,
+                                                overflow: TextOverflow.ellipsis,
+                                                data[index].facilityName.toString(),
+                                                style: TextStyle(
+                                                color: Color(0xff191919),
+                                                fontSize: 16.sp,
+                                                fontWeight: FontWeight.w600,
+                                                fontFamily: 'Montserrat',
+                                                ),
+                                                ),
+                                                ),
+                                                ),
+                                                SizedBox(
+                                                width: 60.w,
+                                                ),
+                                                Icon(
+                                                Icons.location_on_outlined,
+                                                size: 14.sp,
+                                                color: Colors.grey,
+                                                ),
+                                                Text(
+                                                '${150}m',
+                                                style: TextStyle(
+                                                color: Color(0xff191919),
+                                                fontSize: 12.sp,
+                                                fontWeight: FontWeight.w600,
+                                                fontFamily: 'Montserrat',
+                                                ),
+                                                ),
+                                                ],
+                                                ),
+                                                ),
+                                                // Place the ListView.separated for the indicator here
                                                         Row(
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
+                                                          crossAxisAlignment: CrossAxisAlignment.start,
                                                           children: [
                                                             Icon(
                                                               Icons.star,
-                                                              color:
-                                                                  Colors.black,
+                                                              color: Colors.black,
                                                             ),
-                                                            Text('${4.3} ',
-                                                                style: TextStyle(
-                                                                    color: Color(
-                                                                        0xff191919),
-                                                                    fontSize:
-                                                                        14.sp,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontFamily:
-                                                                        'Montserrat')),
+                                                            Text(
+                                                              '${4.3} ',
+                                                              style: TextStyle(
+                                                                color: Color(0xff191919),
+                                                                fontSize: 14.sp,
+                                                                fontWeight: FontWeight.w600,
+                                                                fontFamily: 'Montserrat',
+                                                              ),
+                                                            ),
                                                             SizedBox(
                                                               width: 85.w,
                                                               child: Text(
-                                                                  '(${data[index].review!.length} Reviews)',
-                                                                  style: TextStyle(
-                                                                      color: Color(
-                                                                          0xffa2a2a2),
-                                                                      fontSize:
-                                                                          12.sp,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w400,
-                                                                      fontFamily:
-                                                                          'Montserrat')),
+                                                                '(${data[index].review!.length} Reviews)',
+                                                                style: TextStyle(
+                                                                  color: Color(0xffa2a2a2),
+                                                                  fontSize: 12.sp,
+                                                                  fontWeight: FontWeight.w400,
+                                                                  fontFamily: 'Montserrat',
+                                                                ),
+                                                              ),
                                                             ),
                                                             SizedBox(
                                                               width: 50.w,
@@ -384,60 +336,34 @@ class _HomeState extends State<Home> {
                                                             SizedBox(
                                                               width: 150.w,
                                                               height: 24.h,
-                                                              child: ListView
-                                                                  .separated(
-                                                                scrollDirection:
-                                                                    Axis.horizontal,
+                                                              child: ListView.separated(
+                                                                scrollDirection: Axis.horizontal,
                                                                 itemCount: 5,
-                                                                itemBuilder:
-                                                                    (BuildContext
-                                                                            context,
-                                                                        int index) {
+                                                                itemBuilder: (BuildContext context, int index) {
                                                                   return Container(
                                                                     width: 24.w,
-                                                                    height:
-                                                                        24.h,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                            color:
-                                                                                Color(0xfff0f0f0)),
-                                                                    child:
-                                                                        Column(
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .center,
+                                                                    height: 24.h,
+                                                                    decoration: BoxDecoration(color: Color(0xfff0f0f0)),
+                                                                    child: Column(
+                                                                      mainAxisAlignment: MainAxisAlignment.center,
                                                                       children: [
                                                                         Center(
-                                                                          // child: Image
-                                                                          //     .network(
-                                                                          // ' data[index].amenities![index].iconUrl.toString(),',
-                                                                          //   width:
-                                                                          //       20.w,
-                                                                          //   height:
-                                                                          //       20.h,
-                                                                          // ),
-
-                                                                          child:
-                                                                              Icon(
+                                                                          child: Icon(
                                                                             Icons.wifi,
-                                                                            size:
-                                                                                19.sp,
+                                                                            size: 19.sp,
                                                                           ),
                                                                         ),
                                                                       ],
                                                                     ),
                                                                   );
                                                                 },
-                                                                separatorBuilder:
-                                                                    (BuildContext
-                                                                            context,
-                                                                        int index) {
+                                                                separatorBuilder: (BuildContext context, int index) {
                                                                   return SizedBox(
                                                                     width: 8.w,
                                                                   );
                                                                 },
                                                               ),
-                                                            )
+                                                            ),
                                                           ],
                                                         ),
                                                         SizedBox(
@@ -448,14 +374,13 @@ class _HomeState extends State<Home> {
                                                   ),
                                                 );
                                               },
-                                              separatorBuilder:
-                                                  (BuildContext context,
-                                                      int index) {
+                                              separatorBuilder: (BuildContext context, int index) {
                                                 return SizedBox(
                                                   width: 14.w,
                                                 );
                                               },
                                             );
+
                                           } else {
                                             return SizedBox();
                                           }
@@ -475,8 +400,8 @@ class _HomeState extends State<Home> {
                         children: [
                           GestureDetector(
                               onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (builder) => Detailed_Page()));
+                                // Navigator.of(context).push(MaterialPageRoute(
+                                //     builder: (builder) => Detailed_Page()));
                               },
                               child: Icon(Icons.ac_unit_outlined))
                         ],
@@ -498,4 +423,9 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+
+
+
+
+
 }

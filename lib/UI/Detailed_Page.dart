@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:linear_progress_bar/linear_progress_bar.dart';
@@ -5,8 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'Home.dart';
 class Detailed_Page extends StatefulWidget {
-  const Detailed_Page({super.key});
-
+  const Detailed_Page({super.key,  required this.detailed});
+final String detailed;
   @override
   State<Detailed_Page> createState() => _Detailed_PageState();
 }
@@ -19,18 +20,37 @@ class _Detailed_PageState extends State<Detailed_Page> {
         SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                width: 393.w,
-                height: 240.h,
-                child: Stack(
-                  children: [
-                    Image.asset('assets/image/Image1 1.png',
+              CarouselSlider.builder(
+                itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) => widget.detailed.length > itemIndex
+                    ? Container(
+                  child: Image.network(
+                   widget.detailed,
+                    width: 356.w,
+                    height: 182.h,
                     fit: BoxFit.fill,
-                    )
-                  ],
-                ),
+                  ),
+                )
+                    : SizedBox(),
+
+
+
+
+
+
+
+                //Slider Container properties
+                options: CarouselOptions(
+                  height: 180.0,
+                  enlargeCenterPage: true,
+                  autoPlay: true,
+                  aspectRatio: 16 / 9,
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  enableInfiniteScroll: true,
+                  autoPlayAnimationDuration: Duration(milliseconds: 800),
+                  viewportFraction: 0.8,
+                ), itemCount: null,
               ),
-          
+
               Padding(
                 padding:  EdgeInsets.only(left: 24.w,right: 24.w),
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start,
