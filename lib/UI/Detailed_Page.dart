@@ -1,16 +1,22 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:linear_progress_bar/linear_progress_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:onlypass/UI/Bottomnav.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../Repository/ModelClass/FacilityModel.dart';
 import 'Home.dart';
 class Detailed_Page extends StatefulWidget {
-  const Detailed_Page({super.key,  required this.detailed});
-final String detailed;
+  const Detailed_Page({super.key,  required this.fecilityModel});
+final FacilityModel fecilityModel;
+
   @override
   State<Detailed_Page> createState() => _Detailed_PageState();
 }
+int activeIndex=0;
 
 class _Detailed_PageState extends State<Detailed_Page> {
   @override
@@ -20,35 +26,65 @@ class _Detailed_PageState extends State<Detailed_Page> {
         SingleChildScrollView(
           child: Column(
             children: [
-              CarouselSlider.builder(
-                itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) => widget.detailed.length > itemIndex
-                    ? Container(
-                  child: Image.network(
-                   widget.detailed,
-                    width: 356.w,
-                    height: 182.h,
-                    fit: BoxFit.fill,
+              Stack(
+                children: [
+                  CarouselSlider.builder(
+                    itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) => widget.fecilityModel.images![itemIndex].length > itemIndex
+                        ? Container(
+                      width: 393.w,
+                      height: 240.h,
+                      child: Image.network(
+                       widget.fecilityModel.images![itemIndex].toString(),
+
+                        fit: BoxFit.fill,
+                      ),
+                    )
+                        : SizedBox(),
+
+
+
+
+
+
+
+                    //Slider Container properties
+                    options: CarouselOptions(
+
+                      height: 240.h,
+                      enlargeCenterPage: false,
+                      autoPlay: true,
+
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enableInfiniteScroll: true,
+                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      viewportFraction: 1,
+
+                      onPageChanged: (index, reason) {
+                        // Update the activeIndex whenever the page changes
+                        setState(() {
+                          activeIndex = index;
+                        });
+                      },
+                    ), itemCount: widget.fecilityModel.images!.length,
                   ),
-                )
-                    : SizedBox(),
 
 
+                  Padding(
+                    padding:  EdgeInsets.only(top: 220.h),
+                    child: Center(
+                      child: AnimatedSmoothIndicator(
 
-
-
-
-
-                //Slider Container properties
-                options: CarouselOptions(
-                  height: 180.0,
-                  enlargeCenterPage: true,
-                  autoPlay: true,
-                  aspectRatio: 16 / 9,
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  enableInfiniteScroll: true,
-                  autoPlayAnimationDuration: Duration(milliseconds: 800),
-                  viewportFraction: 0.8,
-                ), itemCount: null,
+                        count: widget.fecilityModel.images!.length,
+                        effect: WormEffect(
+                            dotColor:Color(0xffbdbdbd),
+                            dotHeight: 6.h,
+                            dotWidth: 6.w,
+                            activeDotColor: Colors.white
+                        ), activeIndex: activeIndex,
+                      ),
+                    ),
+                  ),
+                ],
               ),
 
               Padding(
@@ -65,7 +101,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                               child: Text(
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
-                                  'Hulk Fit',
+                                 widget.fecilityModel.facilityName.toString(),
                                   style: TextStyle(
                                       color: Color(
                                           0xff191919),
@@ -258,7 +294,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
           
                           SizedBox(width: 200.w,
                             child: Text(
-                                '3rd Floor, BA Tower Eloor Junction, Kalamassery',
+                              widget.fecilityModel.address.toString(),
                                 style: TextStyle(
                                     color: Color(
                                         0xff191919),

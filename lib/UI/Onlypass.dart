@@ -49,7 +49,7 @@ class _OnlypassState extends State<Onlypass> {
                         Container(
                           width: 350.w,
                           height: 172.h,
-                          color: Colors.black,
+                          color: Color(0xff191919),
                           child: Row(
                             children: [
                               Padding(
@@ -162,13 +162,13 @@ class _OnlypassState extends State<Onlypass> {
                                         children: [
                                           Text('Rs. 1,999',
                                               style: TextStyle(
-                                                  color: Color(0xff000000),
+                                                  color: Color(0xff191919),
                                                   fontSize: 12.sp,
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.w600)),
                                           Text('  /Month',
                                               style: TextStyle(
-                                                  color: Color(0xfd000000),
+                                                  color: Color(0xff191919),
                                                   fontSize: 10.sp,
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.w400)),
@@ -195,7 +195,7 @@ class _OnlypassState extends State<Onlypass> {
                         Container(
                           width: 350.w,
                           height: 172.h,
-                          color: Colors.black,
+                          color: Color(0xff191919),
                           child: Row(
                             children: [
                               Padding(
@@ -311,13 +311,13 @@ class _OnlypassState extends State<Onlypass> {
                                         children: [
                                           Text('Rs. 999',
                                               style: TextStyle(
-                                                  color: Color(0xff000000),
+                                                  color: Color(0xff191919),
                                                   fontSize: 12.sp,
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.w600)),
                                           Text('  /Month',
                                               style: TextStyle(
-                                                  color: Color(0xfd000000),
+                                                  color: Color(0xff191919),
                                                   fontSize: 10.sp,
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.w400)),
@@ -349,7 +349,7 @@ class _OnlypassState extends State<Onlypass> {
                         Container(
                           width: 350.w,
                           height: 172.h,
-                          color: Colors.black,
+                          color: Color(0xff191919),
                           child: Row(
                             children: [
                               Padding(
@@ -462,13 +462,13 @@ class _OnlypassState extends State<Onlypass> {
                                         children: [
                                           Text('Rs. 3,199',
                                               style: TextStyle(
-                                                  color: Color(0xff000000),
+                                                  color: Color(0xff191919),
                                                   fontSize: 12.sp,
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.w600)),
                                           Text('  /Month',
                                               style: TextStyle(
-                                                  color: Color(0xfd000000),
+                                                  color: Color(0xff191919),
                                                   fontSize: 10.sp,
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.w400)),
