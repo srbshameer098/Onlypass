@@ -1,7 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -61,7 +59,7 @@ class _HomeState extends State<Home> {
                   myLocationEnabled:true,
                   compassEnabled:true,
                   onMapCreated: _onMapCreated,
-                  initialCameraPosition: CameraPosition(
+                  initialCameraPosition: const CameraPosition(
                     target: LatLng(16468468, 2879874657), // Set initial map position
                     zoom: 10.0, // Set initial zoom level
                   ),
@@ -77,7 +75,7 @@ class _HomeState extends State<Home> {
                 padding: EdgeInsets.symmetric(horizontal: 25.w),
                 child: Text('Find facilities near you',
                     style: TextStyle(
-                        color: Color(0xff191919),
+                        color: const Color(0xff191919),
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w600,
                         fontFamily: 'Montserrat')),
@@ -97,13 +95,13 @@ class _HomeState extends State<Home> {
                           Container(
                             width: 44.w,
                             height: 28,
-                            color: Color(0xffb7b7b7),
+                            color: const Color(0xffb7b7b7),
                             child: Center(
                               child: Image.asset(
                                 'assets/icons/filter.png',
                                 width: 24.w,
                                 height: 24.h,
-                                color: Color(0xff191919),
+                                color: const Color(0xff191919),
                               ),
                             ),
                           ),
@@ -116,17 +114,17 @@ class _HomeState extends State<Home> {
                               Container(
                                   width: 80.w,
                                   height: 30.h,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Color(0xFD000000),
                                   ),
-                                  child: Tab(child: Text('All(${38})'))),
+                                  child: const Tab(child: Text('All(${38})'))),
                               Container(
                                   width: 80.w,
                                   height: 30.h,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Color(0xFFEAEAEA),
                                   ),
-                                  child: Tab(
+                                  child: const Tab(
                                       child: Text(
                                     'Gym(${21})',
                                     style: TextStyle(
@@ -136,10 +134,10 @@ class _HomeState extends State<Home> {
                               Container(
                                   width: 80.w,
                                   height: 30.h,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Color(0xFFEAEAEA),
                                   ),
-                                  child: Tab(
+                                  child: const Tab(
                                       child: Text(
                                     'Pool(${14})',
                                     style: TextStyle(
@@ -164,7 +162,7 @@ class _HomeState extends State<Home> {
                           Container(
                             width: 393.w,
                             decoration:
-                                BoxDecoration(color: Color(0xffffffff)),
+                                const BoxDecoration(color: Color(0xffffffff)),
                             child: Padding(
                               padding: EdgeInsets.symmetric(horizontal: 18.w),
                               child: Column(
@@ -227,7 +225,7 @@ class _HomeState extends State<Home> {
                                                 },
                                                 child: Container(
                                                     width: 300.w,
-                                                    color: Color(0xffffffff),
+                                                    color: const Color(0xffffffff),
                                                     child: Column(
                                                         children: [
                                                     Stack(
@@ -242,7 +240,7 @@ class _HomeState extends State<Home> {
                                                 fit: BoxFit.fill,
                                               ),
                                               )
-                                                  : SizedBox(),
+                                                  : const SizedBox(),
                                               options: CarouselOptions(
                                               onPageChanged: (i, reason) {
                                               setState(() {
@@ -255,8 +253,8 @@ class _HomeState extends State<Home> {
                                               enableInfiniteScroll: true,
                                               reverse: false,
                                               autoPlay: false,
-                                              autoPlayInterval: Duration(seconds: 3),
-                                              autoPlayAnimationDuration: Duration(milliseconds: 800),
+                                              autoPlayInterval: const Duration(seconds: 3),
+                                              autoPlayAnimationDuration: const Duration(milliseconds: 800),
                                               autoPlayCurve: Curves.fastOutSlowIn,
                                               enlargeCenterPage: true,
                                               enlargeFactor: 0.1,
@@ -271,7 +269,7 @@ class _HomeState extends State<Home> {
                                                     activeIndex: _currentIndex[index],
                                                     count: data[index].images!.length,
                                                     effect: WormEffect(
-                                                        dotColor:Color(0xffbdbdbd),
+                                                        dotColor:const Color(0xffbdbdbd),
                                                       dotHeight: 6.h,
                                                       dotWidth: 6.w,
                                                       activeDotColor: Colors.white
@@ -293,7 +291,7 @@ class _HomeState extends State<Home> {
                                               overflow: TextOverflow.ellipsis,
                                               data[index].facilityName.toString(),
                                               style: TextStyle(
-                                              color: Color(0xff191919),
+                                              color: const Color(0xff191919),
                                               fontSize: 16.sp,
                                               fontWeight: FontWeight.w600,
                                               fontFamily: 'Montserrat',
@@ -325,14 +323,14 @@ class _HomeState extends State<Home> {
                                                       Row(
                                                         crossAxisAlignment: CrossAxisAlignment.start,
                                                         children: [
-                                                          Icon(
+                                                          const Icon(
                                                             Icons.star,
                                                             color: Colors.black,
                                                           ),
                                                           Text(
                                                             '${4.3} ',
                                                             style: TextStyle(
-                                                              color: Color(0xff191919),
+                                                              color: const Color(0xff191919),
                                                               fontSize: 14.sp,
                                                               fontWeight: FontWeight.w600,
                                                               fontFamily: 'Montserrat',
@@ -343,7 +341,7 @@ class _HomeState extends State<Home> {
                                                             child: Text(
                                                               '(${data[index].review!.length} Reviews)',
                                                               style: TextStyle(
-                                                                color: Color(0xffa2a2a2),
+                                                                color: const Color(0xffa2a2a2),
                                                                 fontSize: 12.sp,
                                                                 fontWeight: FontWeight.w400,
                                                                 fontFamily: 'Montserrat',
@@ -363,7 +361,7 @@ class _HomeState extends State<Home> {
                                                                 return Container(
                                                                   width: 24.w,
                                                                   height: 24.h,
-                                                                  decoration: BoxDecoration(color: Color(0xfff0f0f0)),
+                                                                  decoration: const BoxDecoration(color: Color(0xfff0f0f0)),
                                                                   child: Column(
                                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                                     children: [
@@ -402,7 +400,7 @@ class _HomeState extends State<Home> {
                                           );
 
                                         } else {
-                                          return SizedBox();
+                                          return const SizedBox();
                                         }
                                       }),
                                     ),
@@ -423,14 +421,14 @@ class _HomeState extends State<Home> {
                               // Navigator.of(context).push(MaterialPageRoute(
                               //     builder: (builder) => Detailed_Page()));
                             },
-                            child: Icon(Icons.ac_unit_outlined))
+                            child: const Icon(Icons.ac_unit_outlined))
                       ],
                     ),
                   ),
                   Container(
-                    child: Column(
+                    child: const Column(
                       children: [
-                        Text('dbkhhbhbhklbouhbouibbpbpbpobpb-pbpubata')
+                        Text('Can Take Next Time ')
                       ],
                     ),
                   ),

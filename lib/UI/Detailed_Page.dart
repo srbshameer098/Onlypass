@@ -410,7 +410,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                       child: Padding(
                         padding:  EdgeInsets.only(top: 16.h),
                         child: Text(
-                            'Situated in the heart of emerging Kochi, ideal place to get fit. The large open space and friendly staff make visiting here a pleasure and it’s a great place to unwind.',
+                          widget.fecilityModel.description.toString(),
                             style: TextStyle(
                                 color: Color(
                                     0xffb7b7b7),
@@ -547,7 +547,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                          ),
           
           
-                    SizedBox(height: 250.h,
+                    SizedBox(height:widget.fecilityModel.amenities!.length*18.h,
                       child: GridView.builder(
                         physics: ScrollPhysics(parent: NeverScrollableScrollPhysics()),
                           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -580,7 +580,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                     ),
                                     Padding(
                                       padding:  EdgeInsets.only(left: 8.w),
-                                      child: Text('Air Condition',
+                                      child: Text(widget.fecilityModel.amenities![index].amenitiesName.toString(),
                                         style: TextStyle(
                                           fontSize: 14.sp,
                                           color: Color(0xff191919),
