@@ -547,7 +547,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                          ),
           
           
-                    SizedBox(height:widget.fecilityModel.amenities!.length*18.h,
+                    SizedBox(height:widget.fecilityModel.amenities!.length*35.h,
                       child: GridView.builder(
                         physics: ScrollPhysics(parent: NeverScrollableScrollPhysics()),
                           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -575,7 +575,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                       color: Color(0xfff0f0f0),
                                       child: Padding(
                                         padding:  EdgeInsets.only(left:2.w,right: 2.w,top: 2.h,bottom: 2.h),
-                                        child: Icon(Icons.wifi,size: 14.sp,),
+                                        child: Image.network(widget.fecilityModel.amenities![index].iconUrl![index].toString(),width: 14.w,height: 14.h,),
                                       ),
                                     ),
                                     Padding(

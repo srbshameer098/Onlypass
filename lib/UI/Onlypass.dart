@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:onlypass/UI/Authentication/Authentication.dart';
 
 class Onlypass extends StatefulWidget {
   const Onlypass({Key? key}) : super(key: key);
@@ -24,9 +25,15 @@ class _OnlypassState extends State<Onlypass> {
         actions: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: Icon(
-              Icons.menu,
-              color: Colors.white,
+            child: GestureDetector(
+              onTap: (){
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (builder) => Authentification()));
+              },
+              child: Icon(
+                Icons.menu,
+                color: Colors.white,
+              ),
             ),
           )
         ],
