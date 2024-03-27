@@ -37,9 +37,9 @@ class _BottomNavState extends State<BottomNav> {
         },
         items: [
           const BottomNavigationBarItem(
-              icon: FaIcon(Icons.home_outlined, color: Colors.white),
+              icon: FaIcon(Icons.home_outlined, color: Colors.grey),
               label: "Home",
-              backgroundColor: Colors.black),
+              backgroundColor: Colors.black,activeIcon:FaIcon(Icons.home_outlined, color: Colors.white)),
           const BottomNavigationBarItem(
             icon: Icon(Icons.event, color: Colors.white),
             label: "Event",

@@ -547,53 +547,58 @@ class _Detailed_PageState extends State<Detailed_Page> {
                          ),
           
           
-                    SizedBox(height:widget.fecilityModel.amenities!.length*35.h,
-                      child: GridView.builder(
-                        physics: ScrollPhysics(parent: NeverScrollableScrollPhysics()),
-                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-
-                            crossAxisSpacing: 10,
-                            mainAxisSpacing: 10,
-                            childAspectRatio: 200/50,
-                          ),
-                          itemCount: 8,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Container(
-                              decoration: BoxDecoration(
-                                // border: Border.all(width: 1, color: Colors.grey.shade900),  color: Colors.amber,
-                              ),
+                    SizedBox(height:widget.fecilityModel.amenities!.length*80/2.h,
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 20.0),
+                        child: GridView.builder(
+                          physics: const ScrollPhysics(parent: NeverScrollableScrollPhysics()),
+                            shrinkWrap: true,
+                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
 
 
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      width:24.w,
-                                      height: 24.h,
-                                      color: Color(0xfff0f0f0),
-                                      child: Padding(
-                                        padding:  EdgeInsets.only(left:2.w,right: 2.w,top: 2.h,bottom: 2.h),
-                                        child: Image.network(widget.fecilityModel.amenities![index].iconUrl![index].toString(),width: 14.w,height: 14.h,),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding:  EdgeInsets.only(left: 8.w),
-                                      child: Text(widget.fecilityModel.amenities![index].amenitiesName.toString(),
-                                        style: TextStyle(
-                                          fontSize: 14.sp,
-                                          color: Color(0xff191919),
-                                          fontFamily: 'Montserrat',
-                                          fontWeight: FontWeight.w500,
+                              crossAxisSpacing: 10,
+                              mainAxisSpacing: 10,
+                              childAspectRatio: 200/45,
+                            ),
+                            itemCount: widget.fecilityModel.amenities!.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return Container(
+                                decoration: BoxDecoration(
+                                  // border: Border.all(width: 1, color: Colors.grey.shade900),  color: Colors.amber,
+                                ),
+
+
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width:24.w,
+                                        height: 24.h,
+                                        color: Color(0xfff0f0f0),
+                                        child: Padding(
+                                          padding:  EdgeInsets.only(left:2.w,right: 2.w,top: 2.h,bottom: 2.h),
+                                          child: Image.network(widget.fecilityModel.amenities![index].iconUrl!.toString(),width: 14.w,height: 14.h,),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                      Padding(
+                                        padding:  EdgeInsets.only(left: 8.w),
+                                        child: Text(widget.fecilityModel.amenities![index].amenitiesName.toString(),
+                                          style: TextStyle(
+                                            fontSize: 14.sp,
+                                            color: Color(0xff191919),
+                                            fontFamily: 'Montserrat',
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            );
-                          }
+                              );
+                            }
+                        ),
                       ),
                     ),
 

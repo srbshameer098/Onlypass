@@ -321,7 +321,8 @@ class _HomeState extends State<Home> {
                                               ),
                                               // Place the ListView.separated for the indicator here
                                                       Row(
-                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                                        mainAxisAlignment: MainAxisAlignment.end,
                                                         children: [
                                                           const Icon(
                                                             Icons.star,
@@ -351,35 +352,63 @@ class _HomeState extends State<Home> {
                                                           SizedBox(
                                                             width: 50.w,
                                                           ),
-                                                          SizedBox(
-                                                            width: 150.w,
-                                                            height: 24.h,
-                                                            child: ListView.separated(
-                                                              scrollDirection: Axis.horizontal,
-                                                              itemCount: 5,
-                                                              itemBuilder: (BuildContext context, int index) {
-                                                                return Container(
-                                                                  width: 24.w,
-                                                                  height: 24.h,
-                                                                  decoration: const BoxDecoration(color: Color(0xfff0f0f0)),
-                                                                  child: Column(
-                                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                                    children: [
-                                                                      Center(
-                                                                        child: Icon(
-                                                                          Icons.wifi,
-                                                                          size: 19.sp,
-                                                                        ),
+                                                          Align(alignment:Alignment.centerRight,
+                                                            child: SizedBox(
+                                                              width: 5*30.w,
+                                                              height: 24.h,
+                                                              child: Directionality(
+                                                                textDirection: TextDirection.ltr,
+                                                                child: ListView.separated(
+                                                                  physics: ScrollPhysics(parent: NeverScrollableScrollPhysics()),
+                                                                  scrollDirection: Axis.horizontal,
+                                                                  shrinkWrap: false,
+                                                                  itemCount: data![index].amenities!.length,
+                                                                  itemBuilder: (BuildContext context, int position) {
+                                                                    if(position<=3){
+                                                                    return Container(
+                                                                      width: 24.w,
+                                                                      height: 24.h,
+                                                                      decoration: const BoxDecoration(color: Color(0xfff0f0f0)),
+                                                                      child: Column(crossAxisAlignment: CrossAxisAlignment.end,
+                                                                        mainAxisAlignment: MainAxisAlignment.center,
+                                                                        children: [
+                                                                          Center(
+                                                                            child:Image.network(
+                                                                              data[index].amenities![position].iconUrl!.toString(),
+                                                                              width: 19.w,height: 19.h,
+                                                                            ),
+                                                                          ),
+                                                                        ],
                                                                       ),
-                                                                    ],
-                                                                  ),
-                                                                );
-                                                              },
-                                                              separatorBuilder: (BuildContext context, int index) {
-                                                                return SizedBox(
-                                                                  width: 8.w,
-                                                                );
-                                                              },
+                                                                    );}if(position==4){
+                                                                      int balance=data![index].amenities!.length-4;
+                                                                      return
+                                                                        Container(
+                                                                          width: 24.w,
+                                                                          height: 24.h,
+                                                                          decoration: const BoxDecoration(color: Color(0xfff0f0f0)),
+                                                                          child: Column(
+                                                                            mainAxisAlignment: MainAxisAlignment.center,
+                                                                            children: [
+                                                                              Center(
+                                                                                child:  Text("+${balance}")
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        );
+
+
+
+                                                                        // Text("+${balance}");
+                                                                    }else{return SizedBox();}
+                                                                  },
+                                                                  separatorBuilder: (BuildContext context, int index) {
+                                                                    return SizedBox(
+                                                                      width: 8.w,
+                                                                    );
+                                                                  },
+                                                                ),
+                                                              ),
                                                             ),
                                                           ),
                                                         ],

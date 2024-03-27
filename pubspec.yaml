@@ -48,6 +48,7 @@ dependencies:
   linear_progress_bar: ^1.1.1
   google_maps_flutter: ^2.6.0
   smooth_page_indicator: ^1.1.0
+  fluttertoast: ^8.2.4
 
 
 
