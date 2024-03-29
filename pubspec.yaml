@@ -49,6 +49,7 @@ dependencies:
   google_maps_flutter: ^2.6.0
   smooth_page_indicator: ^1.1.0
   fluttertoast: ^8.2.4
+  link_text: ^0.2.1
 
 
 

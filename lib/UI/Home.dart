@@ -93,10 +93,11 @@ class _HomeState extends State<Home> {
                       child: Row(
                         children: [
                           Container(
-                            width: 44.w,
+                            width: 40.w,
                             height: 28,
                             color: const Color(0xffb7b7b7),
-                            child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(5.0),
                               child: Image.asset(
                                 'assets/icons/filter.png',
                                 width: 24.w,
@@ -106,6 +107,9 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                           TabBar(
+                            indicator: BoxDecoration(
+                              // Creates border
+                                color: Colors.black),
                             tabAlignment: TabAlignment.start,
                             indicatorColor: Colors.transparent,
                             labelColor: Colors.white,
@@ -115,33 +119,33 @@ class _HomeState extends State<Home> {
                                   width: 80.w,
                                   height: 30.h,
                                   decoration: const BoxDecoration(
-                                    color: Color(0xFD000000),
+                                      color: Colors.transparent
                                   ),
                                   child: const Tab(child: Text('All(${38})'))),
                               Container(
                                   width: 80.w,
                                   height: 30.h,
                                   decoration: const BoxDecoration(
-                                    color: Color(0xFFEAEAEA),
+                                      color: Colors.transparent
                                   ),
                                   child: const Tab(
                                       child: Text(
                                     'Gym(${21})',
                                     style: TextStyle(
-                                      color: Colors.black,
+
                                     ),
                                   ))),
                               Container(
                                   width: 80.w,
                                   height: 30.h,
                                   decoration: const BoxDecoration(
-                                    color: Color(0xFFEAEAEA),
+                                      color: Colors.transparent
                                   ),
                                   child: const Tab(
                                       child: Text(
                                     'Pool(${14})',
                                     style: TextStyle(
-                                      color: Colors.black,
+
                                     ),
                                   ))),
                             ],

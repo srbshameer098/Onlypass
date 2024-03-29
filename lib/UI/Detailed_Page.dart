@@ -1,11 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:linear_progress_bar/linear_progress_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:onlypass/UI/Bottomnav.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../Repository/ModelClass/FacilityModel.dart';
 import 'Home.dart';
@@ -17,6 +19,7 @@ final FacilityModel fecilityModel;
   State<Detailed_Page> createState() => _Detailed_PageState();
 }
 int activeIndex=0;
+
 
 class _Detailed_PageState extends State<Detailed_Page> {
   @override
@@ -308,8 +311,8 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           ),
           
                           SizedBox(width: 34.w,),
-          
-          
+
+
                           Text(
                               'Get direction',
                               style: TextStyle(

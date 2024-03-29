@@ -216,14 +216,15 @@ class _EventState extends State<Event> {
                                   child: Padding(
                                     padding: const EdgeInsets.all(4.5),
                                     child: Container(
-                                    width: 44.w,
-                                    height: 28,
+                                    width: 40.w,
+                                    height: 32,
                                     color: Color(0xffb7b7b7),
-                                    child: Center(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(5.0),
                                       child: Image.asset(
                                         'assets/icons/filter.png',
-                                        width: 24.w,
-                                        height: 24.h,
+
+                                        height: 20.h,
                                         color: Color(0xff191919),
                                       ),
                                     ),
@@ -251,8 +252,11 @@ class _EventState extends State<Event> {
 
                         ]),
                         TabBar(
+                          indicator: BoxDecoration(
+                               // Creates border
+                              color: Colors.black),
                           tabAlignment: TabAlignment.start,
-                          indicatorColor: Colors.transparent,
+
                           labelColor: Colors.white,
                           isScrollable: true,
                           tabs: [
@@ -260,33 +264,33 @@ class _EventState extends State<Event> {
                                 width: 80.w,
                                 height: 30.h,
                                 decoration: BoxDecoration(
-                                  color: Color(0xFD000000),
+                                  color: Colors.transparent,
                                 ),
                                 child: Tab(child: Text('All(${38})'))),
                             Container(
                                 width: 80.w,
                                 height: 30.h,
                                 decoration: BoxDecoration(
-                                  color: Color(0xFFEAEAEA),
+                                  color: Colors.transparent,
                                 ),
                                 child: Tab(
                                     child: Text(
                                   'Event(${21})',
                                   style: TextStyle(
-                                    color: Colors.black,
+
                                   ),
                                 ))),
                             Container(
                                 width: 80.w,
                                 height: 30.h,
                                 decoration: BoxDecoration(
-                                  color: Color(0xFFEAEAEA),
+                                  color: Colors.transparent,
                                 ),
                                 child: Tab(
                                     child: Text(
                                   'Class(${14})',
                                   style: TextStyle(
-                                    color: Colors.black,
+
                                   ),
                                 ))),
                           ],
@@ -640,7 +644,7 @@ class _EventState extends State<Event> {
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: SizedBox(
-                                      height: 130.h,
+                                      height: 140.h,
                                       child: ListView.separated(
                                         scrollDirection: Axis.horizontal,
                                         itemCount: 6,
