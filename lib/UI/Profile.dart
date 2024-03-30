@@ -27,7 +27,7 @@ class _ProfileState extends State<Profile> {
                 height: 267.h,
                 color: Colors.black,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 25.h),
+                  padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 28.h),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -58,7 +58,7 @@ class _ProfileState extends State<Profile> {
                         ],
                       ),
                       SizedBox(
-                        height: 24.h,
+                        height: 17.h,
                       ),
                       Image.asset(
                         'assets/icons/IconProfile.png',

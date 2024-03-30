@@ -217,7 +217,7 @@ class _EventState extends State<Event> {
                                     padding: const EdgeInsets.all(4.5),
                                     child: Container(
                                     width: 40.w,
-                                    height: 32,
+                                    height: 28,
                                     color: Color(0xffb7b7b7),
                                     child: Padding(
                                       padding: const EdgeInsets.all(5.0),
