@@ -550,7 +550,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                          ),
           
           
-                    SizedBox(height:widget.fecilityModel.amenities!.length*80/2.h,
+                    SizedBox(height:(widget.fecilityModel.amenities!.length/2)*80.h,
                       child: Padding(
                         padding: const EdgeInsets.only(bottom: 20.0),
                         child: GridView.builder(
