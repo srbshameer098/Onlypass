@@ -1,3 +1,4 @@
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,7 @@ import 'package:linear_progress_bar/linear_progress_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:onlypass/UI/Bottomnav.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:url_launcher/url_launcher.dart';
+
 
 import '../Repository/ModelClass/FacilityModel.dart';
 import 'Home.dart';
@@ -22,6 +23,122 @@ int activeIndex=0;
 
 
 class _Detailed_PageState extends State<Detailed_Page> {
+  Dialog leadDialog = Dialog(
+    child: Container(
+      height: 380.h,
+      width: 394.w,
+
+      color: Colors.white,
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+
+          Padding(
+            padding:  EdgeInsets.only(top: 24.h,left: 15.w,bottom: 15.h),
+            child: Text('Opening hours',
+              style: TextStyle(
+                color: Color(0xff000000),
+                fontSize: 14.sp,
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+
+          Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 6.w,vertical: 10.h),
+            child: Row(
+              children: [
+                SizedBox(width:45.w,
+                  child: Text('Days',
+                    style: TextStyle(
+                      color: Color(0xffb7b7b7),
+                      fontSize: 14.sp,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+                SizedBox(width: 30.w,),
+                SizedBox(width:100.w,
+                  child: Text('Morning',
+                    style: TextStyle(
+                      color: Color(0xffb7b7b7),
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+                SizedBox(width: 17.w,),
+                SizedBox(width:100.w,
+                  child: Text('Evening',
+                    style: TextStyle(
+                      color: Color(0xffb7b7b7),
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+          ),
+
+          SizedBox(height: 250,
+            child: ListView.builder(
+                itemCount: 7,
+                itemBuilder: (BuildContext context, int index) {
+                  return  Padding(
+                    padding:  EdgeInsets.symmetric(horizontal: 6.w,vertical: 10.h),
+                    child: Row(
+                      children: [
+                        SizedBox(width:45.w,
+                          child: Text(
+                            widget.fecilityModel.facilityTiming![index].day.toString()
+                            ,
+                            style: TextStyle(
+                              color: Color(0xff191919),
+                              fontSize: 14.sp,
+                              fontFamily: 'Montserrat',
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 30.w,),
+                        SizedBox(width:100.w,
+                          child: Text('05.30 - 12.30',
+                            style: TextStyle(
+                              color: Color(0xff191919),
+                              fontSize: 14.sp,
+                              fontFamily: 'Montserrat',
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 17.w,),
+                        SizedBox(width:100.w,
+                          child: Text('03.00 - 12.30',
+                            style: TextStyle(
+                              color: Color(0xff191919),
+                              fontSize: 14.sp,
+
+                              fontFamily: 'Montserrat',
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }),
+          ),
+
+
+
+
+
+        ],
+      ),
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -371,21 +488,29 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                   'Montserrat')),
           
                           SizedBox(width: 64.1.w,),
-          
-          
-                          Text(
-                              'Opening hours',
-                              style: TextStyle(
-                                  decoration: TextDecoration.underline,
-                                  decorationColor: Color(0xff1e90ff),
-                                  color: Color(0xff1e90ff),
-                                  fontSize:
-                                  12.sp,
-                                  fontWeight:
-                                  FontWeight
-                                      .w400,
-                                  fontFamily:
-                                  'Montserrat')),
+
+
+                          GestureDetector(
+                            onTap: ()async {
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) => leadDialog);
+                            },
+
+                            child: Text(
+                                'Opening hours',
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    decorationColor: Color(0xff1e90ff),
+                                    color: Color(0xff1e90ff),
+                                    fontSize:
+                                    12.sp,
+                                    fontWeight:
+                                    FontWeight
+                                        .w400,
+                                    fontFamily:
+                                    'Montserrat')),
+                          ),
           
           
                         ],
@@ -550,58 +675,58 @@ class _Detailed_PageState extends State<Detailed_Page> {
                          ),
           
           
-                    SizedBox(height:(widget.fecilityModel.amenities!.length/2)*80.h,
-                      child: Padding(
-                        padding: const EdgeInsets.only(bottom: 20.0),
-                        child: GridView.builder(
-                          physics: const ScrollPhysics(parent: NeverScrollableScrollPhysics()),
-                            shrinkWrap: true,
-                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
+                    SizedBox(height:(widget.fecilityModel.amenities!.length/1.2)*50.h,
+                      child: GridView.builder(
+                        physics: const ScrollPhysics(parent: NeverScrollableScrollPhysics()),
+                          shrinkWrap: true,
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
 
 
-                              crossAxisSpacing: 10,
-                              mainAxisSpacing: 10,
-                              childAspectRatio: 200/45,
-                            ),
-                            itemCount: widget.fecilityModel.amenities!.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              return Container(
-                                decoration: BoxDecoration(
-                                  // border: Border.all(width: 1, color: Colors.grey.shade900),  color: Colors.amber,
-                                ),
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10,
+                            childAspectRatio: 200/50,
+                          ),
+                          itemCount: widget.fecilityModel.amenities!.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Container(
+                              height: 80,
+                              decoration: BoxDecoration(
+                                // border: Border.all(width: 1,
+                                // color: Colors.grey.shade900),
+                                //  color: Colors.amber,
+                              ),
 
 
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        width:24.w,
-                                        height: 24.h,
-                                        color: Color(0xfff0f0f0),
-                                        child: Padding(
-                                          padding:  EdgeInsets.only(left:2.w,right: 2.w,top: 2.h,bottom: 2.h),
-                                          child: Image.network(widget.fecilityModel.amenities![index].iconUrl!.toString(),width: 14.w,height: 14.h,),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width:24.w,
+                                      height: 24.h,
+                                      color: Color(0xfff0f0f0),
+                                      child: Padding(
+                                        padding:  EdgeInsets.only(left:2.w,right: 2.w,top: 2.h,bottom: 2.h),
+                                        child: Image.network(widget.fecilityModel.amenities![index].iconUrl!.toString(),width: 14.w,height: 14.h,),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding:  EdgeInsets.only(left: 8.w),
+                                      child: Text(widget.fecilityModel.amenities![index].amenitiesName.toString(),
+                                        style: TextStyle(
+                                          fontSize: 14.sp,
+                                          color: Color(0xff191919),
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w500,
                                         ),
                                       ),
-                                      Padding(
-                                        padding:  EdgeInsets.only(left: 8.w),
-                                        child: Text(widget.fecilityModel.amenities![index].amenitiesName.toString(),
-                                          style: TextStyle(
-                                            fontSize: 14.sp,
-                                            color: Color(0xff191919),
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              );
-                            }
-                        ),
+                              ),
+                            );
+                          }
                       ),
                     ),
 
