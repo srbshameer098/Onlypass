@@ -23,121 +23,7 @@ int activeIndex=0;
 
 
 class _Detailed_PageState extends State<Detailed_Page> {
-  Dialog leadDialog = Dialog(
-    child: Container(
-      height: 380.h,
-      width: 394.w,
 
-      color: Colors.white,
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-
-          Padding(
-            padding:  EdgeInsets.only(top: 24.h,left: 15.w,bottom: 15.h),
-            child: Text('Opening hours',
-              style: TextStyle(
-                color: Color(0xff000000),
-                fontSize: 14.sp,
-                fontFamily: 'Montserrat',
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-
-          Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 6.w,vertical: 10.h),
-            child: Row(
-              children: [
-                SizedBox(width:45.w,
-                  child: Text('Days',
-                    style: TextStyle(
-                      color: Color(0xffb7b7b7),
-                      fontSize: 14.sp,
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-                SizedBox(width: 30.w,),
-                SizedBox(width:100.w,
-                  child: Text('Morning',
-                    style: TextStyle(
-                      color: Color(0xffb7b7b7),
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-                SizedBox(width: 17.w,),
-                SizedBox(width:100.w,
-                  child: Text('Evening',
-                    style: TextStyle(
-                      color: Color(0xffb7b7b7),
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-
-          ),
-
-          SizedBox(height: 250,
-            child: ListView.builder(
-                itemCount: 7,
-                itemBuilder: (BuildContext context, int index) {
-                  return  Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: 6.w,vertical: 10.h),
-                    child: Row(
-                      children: [
-                        SizedBox(width:45.w,
-                          child: Text(
-                            widget.fecilityModel.facilityTiming![index].day.toString()
-                            ,
-                            style: TextStyle(
-                              color: Color(0xff191919),
-                              fontSize: 14.sp,
-                              fontFamily: 'Montserrat',
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 30.w,),
-                        SizedBox(width:100.w,
-                          child: Text('05.30 - 12.30',
-                            style: TextStyle(
-                              color: Color(0xff191919),
-                              fontSize: 14.sp,
-                              fontFamily: 'Montserrat',
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 17.w,),
-                        SizedBox(width:100.w,
-                          child: Text('03.00 - 12.30',
-                            style: TextStyle(
-                              color: Color(0xff191919),
-                              fontSize: 14.sp,
-
-                              fontFamily: 'Montserrat',
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                }),
-          ),
-
-
-
-
-
-        ],
-      ),
-    ),
-  );
 
   @override
   Widget build(BuildContext context) {
@@ -494,7 +380,121 @@ class _Detailed_PageState extends State<Detailed_Page> {
                             onTap: ()async {
                               showDialog(
                                   context: context,
-                                  builder: (BuildContext context) => leadDialog);
+                                  builder: (BuildContext context) =>  Dialog(
+                              child: Container(
+                              height: 380.h,
+                                width: 394.w,
+
+                                color: Colors.white,
+                                child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: <Widget>[
+
+                                    Padding(
+                                      padding:  EdgeInsets.only(top: 24.h,left: 15.w,bottom: 15.h),
+                                      child: Text('Opening hours',
+                                        style: TextStyle(
+                                          color: Color(0xff000000),
+                                          fontSize: 14.sp,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ),
+
+                                    Padding(
+                                      padding:  EdgeInsets.symmetric(horizontal: 6.w,vertical: 10.h),
+                                      child: Row(
+                                        children: [
+                                          SizedBox(width:65.w,
+                                            child: Text('Days',
+                                              style: TextStyle(
+                                                color: Color(0xffb7b7b7),
+                                                fontSize: 14.sp,
+                                                fontFamily: 'Montserrat',
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(width: 19.w,),
+                                          SizedBox(width:100.w,
+                                            child: Text('Morning',
+                                              style: TextStyle(
+                                                color: Color(0xffb7b7b7),
+                                                fontFamily: 'Montserrat',
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(width: 8.w,),
+                                          SizedBox(width:100.w,
+                                            child: Text('Evening',
+                                              style: TextStyle(
+                                                color: Color(0xffb7b7b7),
+                                                fontFamily: 'Montserrat',
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+
+                                    ),
+
+                                    SizedBox(height: 250,
+                                      child: ListView.builder(
+                                          itemCount: widget.fecilityModel.facilityTiming!.length,
+                                          itemBuilder: (BuildContext context, int index) {
+                                            return  Padding(
+                                              padding:  EdgeInsets.symmetric(horizontal: 6.w,vertical: 10.h),
+                                              child: Row(
+                                                children: [
+                                                  SizedBox(width:65.w,
+                                                    child: Text(
+                                                      widget.fecilityModel.facilityTiming![index].day.toString()
+                                                      ,
+                                                      style: TextStyle(
+                                                        color: Color(0xff191919),
+                                                        fontSize: 12.sp,
+                                                        fontFamily: 'Montserrat',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  SizedBox(width: 19.w,),
+                                                  SizedBox(width:100.w,
+                                                    child: Text('05.30 - 12.30',
+                                                      style: TextStyle(
+                                                        color: Color(0xff191919),
+                                                        fontSize: 12.sp,
+                                                        fontFamily: 'Montserrat',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  SizedBox(width: 8.w,),
+                                                  SizedBox(width:100.w,
+                                                    child: Text('03.00 - 12.30',
+                                                      style: TextStyle(
+                                                        color: Color(0xff191919),
+                                                        fontSize: 12.sp,
+
+                                                        fontFamily: 'Montserrat',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          }),
+                                    ),
+
+
+
+
+
+                                  ],
+                                ),
+                              ),
+                              ));
                             },
 
                             child: Text(
