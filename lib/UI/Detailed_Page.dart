@@ -343,12 +343,12 @@ class _Detailed_PageState extends State<Detailed_Page> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Icon(Icons.access_time_outlined,size: 16.sp,
-                            color:Color(0xffb7b7b7) ,),
+                            color:Color(0xffb7b7b7),),
           
                           SizedBox(width: 8.w,),
           
                           Text(
-                              'Open now ',
+                              'Open now',
                               style: TextStyle(
           
                                   color: Color(0xff36fa00),
@@ -403,10 +403,10 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                     ),
 
                                     Padding(
-                                      padding:  EdgeInsets.symmetric(horizontal: 6.w,vertical: 10.h),
+                                      padding:  EdgeInsets.symmetric(horizontal: 9.w,vertical: 10.h),
                                       child: Row(
                                         children: [
-                                          SizedBox(width:65.w,
+                                          SizedBox(width:50.w,
                                             child: Text('Days',
                                               style: TextStyle(
                                                 color: Color(0xffb7b7b7),
@@ -446,16 +446,16 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                           itemCount: widget.fecilityModel.facilityTiming!.length,
                                           itemBuilder: (BuildContext context, int index) {
                                             return  Padding(
-                                              padding:  EdgeInsets.symmetric(horizontal: 6.w,vertical: 10.h),
+                                              padding:  EdgeInsets.symmetric(horizontal: 10.w,vertical: 10.h),
                                               child: Row(
                                                 children: [
-                                                  SizedBox(width:65.w,
+                                                  SizedBox(width:50.w,
                                                     child: Text(
                                                       widget.fecilityModel.facilityTiming![index].day.toString()
                                                       ,
                                                       style: TextStyle(
                                                         color: Color(0xff191919),
-                                                        fontSize: 12.sp,
+                                                        fontSize: 14.sp,
                                                         fontFamily: 'Montserrat',
                                                       ),
                                                     ),
@@ -465,7 +465,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                                     child: Text('05.30 - 12.30',
                                                       style: TextStyle(
                                                         color: Color(0xff191919),
-                                                        fontSize: 12.sp,
+                                                        fontSize: 14.sp,
                                                         fontFamily: 'Montserrat',
                                                       ),
                                                     ),
@@ -475,7 +475,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                                     child: Text('03.00 - 12.30',
                                                       style: TextStyle(
                                                         color: Color(0xff191919),
-                                                        fontSize: 12.sp,
+                                                        fontSize: 14.sp,
 
                                                         fontFamily: 'Montserrat',
                                                       ),
