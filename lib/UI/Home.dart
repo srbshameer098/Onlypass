@@ -431,94 +431,107 @@ class _HomeState extends State<Home> {
                                                             width: 50.w,
                                                           ),
                                                           SizedBox(
-                                                            width: 5*30.w,
+                                                            width: 5 * 30.w,
                                                             height: 24.h,
-                                                            child:
-                                                                ListView
-                                                                    .separated(
-                                                                  reverse: true,
-                                                                  physics: ScrollPhysics(
-                                                                      parent:
-                                                                          NeverScrollableScrollPhysics()),
-                                                                  scrollDirection:
-                                                                      Axis.horizontal,
-                                                                  shrinkWrap:
-                                                                      false,
-                                                                  itemCount: data![
+                                                            child: ListView
+                                                                .separated(
+                                                              // Set reverse based on amenity list length
+                                                              reverse: data[
                                                                           index]
                                                                       .amenities!
-                                                                      .length,
-                                                                  itemBuilder:
-                                                                      (BuildContext
-                                                                              context,
-                                                                          int position) {
-                                                                    if (position <=
-                                                                        3) {
-                                                                      return Container(
-                                                                        width:
-                                                                            24.w,
-                                                                        height:
-                                                                            24.h,
-                                                                        decoration:
-                                                                            const BoxDecoration(color: Color(0xfff0f0f0)),
-                                                                        child:
-                                                                            Column(
-                                                                          crossAxisAlignment:
-                                                                              CrossAxisAlignment.end,
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.center,
-                                                                          children: [
-                                                                            Center(
-                                                                              child: Image.network(
-                                                                                data[index].amenities![position].iconUrl!.toString(),
-                                                                                width: 19.w,
-                                                                                height: 19.h,
-                                                                              ),
-                                                                            ),
-                                                                          ],
+                                                                      .length <=
+                                                                  4,
+                                                              physics:
+                                                                  ScrollPhysics(
+                                                                      parent:
+                                                                          NeverScrollableScrollPhysics()),
+                                                              scrollDirection:
+                                                                  Axis.horizontal,
+                                                              shrinkWrap: false,
+                                                              itemCount: data[
+                                                                      index]
+                                                                  .amenities!
+                                                                  .length,
+                                                              itemBuilder:
+                                                                  (BuildContext
+                                                                          context,
+                                                                      int position) {
+                                                                if (position <=
+                                                                    3) {
+                                                                  return Container(
+                                                                    width: 24.w,
+                                                                    height:
+                                                                        24.h,
+                                                                    decoration:
+                                                                        const BoxDecoration(
+                                                                            color:
+                                                                                Color(0xfff0f0f0)),
+                                                                    child:
+                                                                        Column(
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .end,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .center,
+                                                                      children: [
+                                                                        Center(
+                                                                          child:
+                                                                              Image.network(
+                                                                            data[index].amenities![position].iconUrl!.toString(),
+                                                                            width:
+                                                                                19.w,
+                                                                            height:
+                                                                                19.h,
+                                                                          ),
                                                                         ),
-                                                                      );
-                                                                    }
-                                                                    if (position ==
-                                                                        4) {
-                                                                      int balance =
-                                                                          data![index].amenities!.length -
-                                                                              4;
-                                                                      return Container(
-                                                                        width:
-                                                                            24.w,
-                                                                        height:
-                                                                            24.h,
-                                                                        decoration:
-                                                                            const BoxDecoration(color: Color(0xfff0f0f0)),
-                                                                        child:
-                                                                            Column(
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.center,
-                                                                          children: [
-                                                                            Center(child: Text("+${balance}")),
-                                                                          ],
-                                                                        ),
-                                                                      );
-
-                                                                      // Text("+${balance}");
-                                                                    } else {
-                                                                      return SizedBox();
-                                                                    }
-                                                                  },
-                                                                  separatorBuilder:
-                                                                      (BuildContext
-                                                                              context,
-                                                                          int index) {
-                                                                    return SizedBox(
-                                                                      width:
-                                                                          8.w,
-                                                                    );
-                                                                  },
-                                                                ),
+                                                                      ],
+                                                                    ),
+                                                                  );
+                                                                } else if (position ==
+                                                                    4) {
+                                                                  int balance =
+                                                                      data[index]
+                                                                              .amenities!
+                                                                              .length -
+                                                                          4;
+                                                                  return Container(
+                                                                    width: 24.w,
+                                                                    height:
+                                                                        24.h,
+                                                                    decoration:
+                                                                        const BoxDecoration(
+                                                                            color:
+                                                                                Color(0xfff0f0f0)),
+                                                                    child:
+                                                                        Column(
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .center,
+                                                                      children: [
+                                                                        Center(
+                                                                            child:
+                                                                                Text("+${balance}")),
+                                                                      ],
+                                                                    ),
+                                                                  );
+                                                                } else {
+                                                                  return SizedBox();
+                                                                }
+                                                              },
+                                                              separatorBuilder:
+                                                                  (BuildContext
+                                                                          context,
+                                                                      int index) {
+                                                                return SizedBox(
+                                                                  width: 8.w,
+                                                                );
+                                                              },
+                                                            ),
                                                           ),
                                                         ],
                                                       ),
+
                                                       SizedBox(
                                                         height: 5.h,
                                                       ),

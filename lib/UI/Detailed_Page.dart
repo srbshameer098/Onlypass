@@ -379,13 +379,15 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           GestureDetector(
                             onTap: ()async {
                               showDialog(
+
                                   context: context,
                                   builder: (BuildContext context) =>  Dialog(
+                                    backgroundColor: Color(0xff000000),
                               child: Container(
                               height: 380.h,
-                                width: 394.w,
+                                // width: 394.w,
 
-                                color: Colors.white,
+                                color: Color(0xff000000),
                                 child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: <Widget>[
@@ -394,7 +396,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                       padding:  EdgeInsets.only(top: 24.h,left: 15.w,bottom: 15.h),
                                       child: Text('Opening hours',
                                         style: TextStyle(
-                                          color: Color(0xff000000),
+                                          color: Color(0xffFEFEFE),
                                           fontSize: 14.sp,
                                           fontFamily: 'Montserrat',
                                           fontWeight: FontWeight.w600,
@@ -454,7 +456,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                                       widget.fecilityModel.facilityTiming![index].day.toString()
                                                       ,
                                                       style: TextStyle(
-                                                        color: Color(0xff191919),
+                                                        color: Color(0xffFEFEFE),
                                                         fontSize: 14.sp,
                                                         fontFamily: 'Montserrat',
                                                       ),
@@ -462,9 +464,10 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                                   ),
                                                   SizedBox(width: 19.w,),
                                                   SizedBox(width:100.w,
-                                                    child: Text('05.30 - 12.30',
+                                                    child: Text(
+                                                      widget.fecilityModel.facilityTiming![index].morning!.start.toString(),
                                                       style: TextStyle(
-                                                        color: Color(0xff191919),
+                                                        color: Color(0xffFEFEFE),
                                                         fontSize: 14.sp,
                                                         fontFamily: 'Montserrat',
                                                       ),
@@ -474,7 +477,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                                   SizedBox(width:100.w,
                                                     child: Text('03.00 - 12.30',
                                                       style: TextStyle(
-                                                        color: Color(0xff191919),
+                                                        color: Color(0xffFEFEFE),
                                                         fontSize: 14.sp,
 
                                                         fontFamily: 'Montserrat',

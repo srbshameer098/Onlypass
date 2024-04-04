@@ -5,10 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:scrollable_clean_calendar/controllers/clean_calendar_controller.dart';
-import 'package:scrollable_clean_calendar/scrollable_clean_calendar.dart';
-import 'package:scrollable_clean_calendar/utils/enums.dart';
-
+import 'package:flutter_calendar_week/flutter_calendar_week.dart';
 bool _visible = false;
 
 class Event extends StatefulWidget {
@@ -19,19 +16,9 @@ class Event extends StatefulWidget {
 }
 
 class _EventState extends State<Event> {
-  final calendarController = CleanCalendarController(
-    minDate: DateTime.now(),
-    maxDate: DateTime.now().add(const Duration(days: 365)),
-    onRangeSelected: (firstDate, secondDate) {},
-    onDayTapped: (date) {},
-    // readOnly: true,
-    onPreviousMinDateTapped: (date) {},
-    onAfterMaxDateTapped: (date) {},
-    weekdayStart: DateTime.monday,
-    // initialFocusDate: DateTime(2023, 5),
-    // initialDateSelected: DateTime(2022, 3, 15),
-    // endDateSelected: DateTime(2022, 3, 20),
-  );
+  final CalendarWeekController _controller = CalendarWeekController();
+
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -143,14 +130,14 @@ class _EventState extends State<Event> {
                             setState(() {
                               _visible = !_visible;
                             });
-                            calendarController.clearSelectedDates();
+                            _controller.jumpToDate(DateTime.now());
 
                           },
                           // _visible==true?
                           child: Container(
                             width: 42.w,
                             // height: 40,
-                            // color: Color(0xfff0f0f0),
+                            //  color: Color(0xfff0f0f0),
                             color: _visible==true?Color(0xff191919):
                             Color(0xfff0f0f0),
                             child: Center(
@@ -169,27 +156,71 @@ class _EventState extends State<Event> {
 
                   _visible==true?  SizedBox(
                      width: 345.w,
-                    height: 370.h,
+                    height: 150.h,
                     child: Padding(
                       padding:  EdgeInsets.only(top: 15.h),
                       child: Container(
                         color: Colors.black,
-                        child: ScrollableCleanCalendar(
-                          monthTextStyle:TextStyle(color: Colors.white,fontSize: 14.sp,fontWeight: FontWeight.w500 ),
-                           weekdayTextStyle:TextStyle(color:Color(0xff5c5c5c),fontSize: 14.sp,fontWeight: FontWeight.w500),
-                          dayTextStyle:TextStyle(color:Color(0xfffefefe),fontSize: 14.sp,fontWeight: FontWeight.w400),
-                          calendarController: calendarController,
-                          layout: Layout.DEFAULT,
+                        child: CalendarWeek(
 
-                            dayDisableColor:Color(0xfdffffff),
-                            dayBackgroundColor:Color(0xfd000000),
-                            dayDisableBackgroundColor:Color(0xfd000000),
-                          daySelectedBackgroundColor:Color(0xffffffff),
-                          calendarCrossAxisSpacing: 0,
+dayShapeBorder: BoxShape.rectangle,
+                            controller: _controller,
+                            height: 80,
+                            showMonth: true,
+                           todayBackgroundColor: Colors.white,
+                          marginDayOfWeek:const EdgeInsets.symmetric(horizontal: 0) ,
+                           weekendsStyle:  TextStyle(color: Colors.grey, fontWeight: FontWeight.w600,fontSize: 12.sp),
+                           weekendsIndexes: [DateTime.sunday],
+                           todayDateStyle:  TextStyle(color: Colors.black, fontWeight: FontWeight.w300,fontSize: 12.sp),
+                            dayOfWeekStyle: TextStyle(color: Colors.grey, fontWeight: FontWeight.w600,fontSize: 12.sp) ,
+                            backgroundColor: Color(0xff000000),
+                            minDate: DateTime.now().add(
+                              Duration(days: -365),
+                            ),
+                            maxDate: DateTime.now().add(
+                              Duration(days: 365),
+                            ),
+                            onDatePressed: (DateTime datetime) {
+                              // Do something
+                              setState(() {});
+                            },
+                            onDateLongPressed: (DateTime datetime) {
+                              // Do something
+                            },
+                            onWeekChanged: () {
+                              // Do something
+                            },
+                            // monthViewBuilder: (DateTime time) => Align(
+                            //   alignment: FractionalOffset.center,
+                            //   child: Container(
+                            //       margin: const EdgeInsets.symmetric(vertical: 4),
+                            //       child: Text(
+                            //         yMMMM().format(time),
+                            //         overflow: TextOverflow.ellipsis,
+                            //         textAlign: TextAlign.center,
+                            //         style: TextStyle(
+                            //             color: Colors.blue, fontWeight: FontWeight.w600),
+                            //       )),
+                            // ),
+                            decorations: [
+                            DecorationItem(
+                            decorationAlignment: FractionalOffset.bottomRight,
+                            date: DateTime.now(),
+                            ),
+                        DecorationItem(
+                            date: DateTime.now().add(Duration(days: 3)),
+                            // decoration: Text(
+                            //   'Holiday',
+                            //   style: TextStyle(
+                            //     color: Colors.brown,
+                            //     fontWeight: FontWeight.w600,
+                            //   ),
+                            // )
                         ),
-                      ),
+                      ]
+                          ),
                     ),
-                  ):SizedBox(),
+                  )):SizedBox(),
                 ],
               ),
             ),
@@ -887,3 +918,4 @@ class _EventState extends State<Event> {
     );
   }
 }
+
