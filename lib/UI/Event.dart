@@ -44,7 +44,7 @@ class _EventState extends State<Event> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+              padding:  EdgeInsets.symmetric(horizontal: 0.w, vertical: 10.h),
               child: Column(
                 children: [
                   Row(
@@ -130,7 +130,7 @@ class _EventState extends State<Event> {
                             setState(() {
                               _visible = !_visible;
                             });
-                            _controller.jumpToDate(DateTime.now());
+
 
                           },
                           // _visible==true?
@@ -155,7 +155,7 @@ class _EventState extends State<Event> {
                   ),
 
                   _visible==true?  SizedBox(
-                     width: 345.w,
+
                     height: 150.h,
                     child: Padding(
                       padding:  EdgeInsets.only(top: 15.h),
