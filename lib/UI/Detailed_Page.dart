@@ -8,6 +8,7 @@ import 'package:linear_progress_bar/linear_progress_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:onlypass/UI/Bottomnav.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 import '../Repository/ModelClass/FacilityModel.dart';
@@ -20,7 +21,7 @@ final FacilityModel fecilityModel;
   State<Detailed_Page> createState() => _Detailed_PageState();
 }
 int activeIndex=0;
-
+https://www.freepik.com/free-vector/islamic-eid-mubarak-card-with-stylish-crescent-moon_8306887.htm#fromView=search&page=1&position=2&uuid=7c13cd0a-4bb7-42ba-bc8b-c1ba2927da1d
 
 class _Detailed_PageState extends State<Detailed_Page> {
 
@@ -316,19 +317,32 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           SizedBox(width: 34.w,),
 
 
-                          Text(
-                              'Get direction',
-                              style: TextStyle(
-                                  decoration: TextDecoration.underline,
-                                  decorationColor: Color(0xff1e90ff),
-                                  color: Color(0xff1e90ff),
-                                  fontSize:
-                                  12.sp,
-                                  fontWeight:
-                                  FontWeight
-                                      .w400,
-                                  fontFamily:
-                                  'Montserrat')),
+                          GestureDetector(
+                            onTap: (){
+                              _launchURLApp() async {
+                                // Replace with the desired Google Maps URL (location or directions)
+                                var url = Uri.parse("https://www.google.com/maps/@11.01035796133147, 76.01419308465528,zoom"); // or "https://www.google.com/maps?dir=waid:your+origin:your+destination"
+                                if (await canLaunchUrl(url)) {
+                                  await launchUrl(url);
+                                } else {
+                                  throw 'Could not launch Google Maps';
+                                }
+                              }
+                            },
+                            child: Text(
+                                'Get direction',
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    decorationColor: Color(0xff1e90ff),
+                                    color: Color(0xff1e90ff),
+                                    fontSize:
+                                    12.sp,
+                                    fontWeight:
+                                    FontWeight
+                                        .w400,
+                                    fontFamily:
+                                    'Montserrat')),
+                          ),
           
           
                         ],

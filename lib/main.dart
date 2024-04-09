@@ -3,13 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:onlypass/UI/Bottomnav.dart';
-import 'package:intl/date_symbol_data_local.dart';
+
 import 'package:onlypass/bloc/Fecilities/fecilities_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'UI/Home.dart';
 
 void main() {
-  initializeDateFormatting().then((_) => runApp(const MyApp()));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -56,4 +57,3 @@ class MyApp extends StatelessWidget {
         });
   }
 }
-

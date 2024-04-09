@@ -1,3 +1,5 @@
+
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,6 +26,15 @@ late List<FacilityModel> data;
 List<int> _currentIndex = [];
 
 class _HomeState extends State<Home> {
+  // MapView showMap() {
+  //   return _mapView.show(new MapOptions(
+  //     mapViewType: MapViewType.normal,
+  //     initialCameraPosition:
+  //     new CameraPosition(new Location(10.31264, 123.91139), 12.0),
+  //     showUserLocation: true,
+  //   ));
+  // }
+
   @override
   void initState() {
     BlocProvider.of<FecilitiesBloc>(context).add(FetchFecilities());
@@ -48,20 +59,19 @@ class _HomeState extends State<Home> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ///-----------Google Map  -------------------///
-              //
+
               // Expanded(
-              //   flex: 2, // Adjust flex value as needed
-              //   child: GoogleMap(
-              //     myLocationEnabled:true,
-              //     compassEnabled:true,
-              //     onMapCreated: _onMapCreated,
-              //     initialCameraPosition: const CameraPosition(
-              //       target: LatLng(16468468, 2879874657), // Set initial map position
-              //       zoom: 10.0, // Set initial zoom level
-              //     ),
-              //     // Add more options as needed
-              //   ),
-              // ),
+                // flex: 2, // Adjust flex value as needed
+                // child:MapView
+        //       showMap() {
+        // return _mapView.show(new MapOptions(
+        // mapViewType: MapViewType.normal,
+        // initialCameraPosition:
+        // new CameraPosition(new Location(10.31264, 123.91139), 12.0),
+        // showUserLocation: true,
+        // ));
+        // }
+        //       ),
 
               ///-----------Head Line  -------------------///
 

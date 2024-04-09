@@ -1,11 +1,16 @@
+
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_calendar_week/flutter_calendar_week.dart';
+
+import 'package:onlypass/UI/sample.dart';
+
+
 bool _visible = false;
 
 class Event extends StatefulWidget {
@@ -16,7 +21,8 @@ class Event extends StatefulWidget {
 }
 
 class _EventState extends State<Event> {
-  final CalendarWeekController _controller = CalendarWeekController();
+
+
 
 
   @override
@@ -44,39 +50,42 @@ class _EventState extends State<Event> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+              padding:  EdgeInsets.symmetric(horizontal: 0.w, vertical: 10.h),
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.location_on_outlined,
-                        size: 20.sp,
-                      ),
-                      Text('Kalamassery, Kochi ',
-                          style: TextStyle(
-                              color: Color(0xff191919),
-                              fontSize: 12.sp,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w600)),
-                      Text('(6 km around)',
-                          style: TextStyle(
-                              color: Color(0xff191919),
-                              fontSize: 12.sp,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w400)),
-                      SizedBox(
-                        width: 5.w,
-                      ),
-                      Text('Change',
-                          style: TextStyle(
-                              color: Color(0xff1e90ff),
-                              fontSize: 12.sp,
-                              decoration: TextDecoration.underline,
-                              decorationColor: Color(0xff1e90ff),
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w400)),
-                    ],
+                  Padding(
+                    padding:EdgeInsets.symmetric(horizontal: 20.w, vertical: 0.h),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.location_on_outlined,
+                          size: 20.sp,
+                        ),
+                        Text('Kalamassery, Kochi ',
+                            style: TextStyle(
+                                color: Color(0xff191919),
+                                fontSize: 12.sp,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w600)),
+                        Text('(6 km around)',
+                            style: TextStyle(
+                                color: Color(0xff191919),
+                                fontSize: 12.sp,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w400)),
+                        SizedBox(
+                          width: 5.w,
+                        ),
+                        Text('Change',
+                            style: TextStyle(
+                                color: Color(0xff1e90ff),
+                                fontSize: 12.sp,
+                                decoration: TextDecoration.underline,
+                                decorationColor: Color(0xff1e90ff),
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w400)),
+                      ],
+                    ),
                   ),
 
                   ///-----------Search Container  -------------------///
@@ -130,7 +139,7 @@ class _EventState extends State<Event> {
                             setState(() {
                               _visible = !_visible;
                             });
-                            _controller.jumpToDate(DateTime.now());
+
 
                           },
                           // _visible==true?
@@ -155,71 +164,56 @@ class _EventState extends State<Event> {
                   ),
 
                   _visible==true?  SizedBox(
-                     width: 345.w,
+
                     height: 150.h,
                     child: Padding(
-                      padding:  EdgeInsets.only(top: 15.h),
-                      child: Container(
-                        color: Colors.black,
-                        child: CalendarWeek(
+                      padding:  EdgeInsets.only(top: 10.h),
+                      child:Container(
 
-dayShapeBorder: BoxShape.rectangle,
-                            controller: _controller,
-                            height: 80,
-                            showMonth: true,
-                           todayBackgroundColor: Colors.white,
-                          marginDayOfWeek:const EdgeInsets.symmetric(horizontal: 0) ,
-                           weekendsStyle:  TextStyle(color: Colors.grey, fontWeight: FontWeight.w600,fontSize: 12.sp),
-                           weekendsIndexes: [DateTime.sunday],
-                           todayDateStyle:  TextStyle(color: Colors.black, fontWeight: FontWeight.w300,fontSize: 12.sp),
-                            dayOfWeekStyle: TextStyle(color: Colors.grey, fontWeight: FontWeight.w600,fontSize: 12.sp) ,
-                            backgroundColor: Color(0xff000000),
-                            minDate: DateTime.now().add(
-                              Duration(days: -365),
-                            ),
-                            maxDate: DateTime.now().add(
-                              Duration(days: 365),
-                            ),
-                            onDatePressed: (DateTime datetime) {
-                              // Do something
-                              setState(() {});
-                            },
-                            onDateLongPressed: (DateTime datetime) {
-                              // Do something
-                            },
-                            onWeekChanged: () {
-                              // Do something
-                            },
-                            // monthViewBuilder: (DateTime time) => Align(
-                            //   alignment: FractionalOffset.center,
-                            //   child: Container(
-                            //       margin: const EdgeInsets.symmetric(vertical: 4),
-                            //       child: Text(
-                            //         yMMMM().format(time),
-                            //         overflow: TextOverflow.ellipsis,
-                            //         textAlign: TextAlign.center,
-                            //         style: TextStyle(
-                            //             color: Colors.blue, fontWeight: FontWeight.w600),
-                            //       )),
-                            // ),
-                            decorations: [
-                            DecorationItem(
-                            decorationAlignment: FractionalOffset.bottomRight,
-                            date: DateTime.now(),
-                            ),
-                        DecorationItem(
-                            date: DateTime.now().add(Duration(days: 3)),
-                            // decoration: Text(
-                            //   'Holiday',
-                            //   style: TextStyle(
-                            //     color: Colors.brown,
-                            //     fontWeight: FontWeight.w600,
-                            //   ),
-                            // )
-                        ),
-                      ]
-                          ),
-                    ),
+                          decoration: BoxDecoration(boxShadow: [
+                            BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                blurRadius: 0,
+                                spreadRadius: 0)
+                          ]),
+                          // child: CalendarWeek(
+                          //   backgroundColor: Colors.black,
+                          //   // controller: _controller,
+                          //   height: 100,
+                          //
+                          //   showMonth: true,
+                          //   minDate: DateTime.now().add(
+                          //     Duration(days: -365),
+                          //   ),
+                          //   maxDate: DateTime.now().add(
+                          //     Duration(days: 365),
+                          //   ),
+                          //   onDatePressed: (DateTime datetime) {
+                          //     // Do something
+                          //     setState(() {});
+                          //   },
+                          //   onDateLongPressed: (DateTime datetime) {
+                          //     // Do something
+                          //   },
+                          //   onWeekChanged: () {
+                          //     // Do something
+                          //   },
+                          //   monthViewBuilder: (DateTime time) => Align(
+                          //     alignment: FractionalOffset.center,
+                          //     child: Container(
+                          //         margin: const EdgeInsets.symmetric(vertical: 4),
+                          //         // child: Text(
+                          //         //   DateFormat.yMMMM().format(time),
+                          //         //   overflow: TextOverflow.ellipsis,
+                          //         //   textAlign: TextAlign.center,
+                          //         //   style: TextStyle(
+                          //         //       color: Colors.blue, fontWeight: FontWeight.w600),
+                          //         // )
+                          //       ),
+                          //   ),
+                          //
+                          // )
+                      ),
                   )):SizedBox(),
                 ],
               ),
@@ -246,20 +240,26 @@ dayShapeBorder: BoxShape.rectangle,
                                 SizedBox(
                                   child: Padding(
                                     padding: const EdgeInsets.all(4.5),
-                                    child: Container(
-                                    width: 40.w,
-                                    height: 28,
-                                    color: Color(0xffb7b7b7),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(5.0),
-                                      child: Image.asset(
-                                        'assets/icons/filter.png',
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        // Navigator.of(context).push(MaterialPageRoute(
+                                        //     builder: (builder) => sample()));
+                                      },
+                                      child: Container(
+                                      width: 40.w,
+                                      height: 28,
+                                      color: Color(0xffb7b7b7),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(5.0),
+                                        child: Image.asset(
+                                          'assets/icons/filter.png',
 
-                                        height: 20.h,
-                                        color: Color(0xff191919),
+                                          height: 20.h,
+                                          color: Color(0xff191919),
+                                        ),
                                       ),
+                                                                            ),
                                     ),
-                                                                          ),
                                   ),
                                 ),
                               ],
@@ -367,7 +367,7 @@ dayShapeBorder: BoxShape.rectangle,
                                         width: 83.w,
                                       ),
                                       Icon(
-                                        textDirection:TextDirection.ltr,
+
                                         Icons.arrow_forward_ios_outlined,
                                         size: 14,
                                       )
@@ -917,5 +917,6 @@ dayShapeBorder: BoxShape.rectangle,
       ),
     );
   }
+
 }
 
