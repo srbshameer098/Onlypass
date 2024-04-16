@@ -12,7 +12,7 @@ class FecilitiesApi {
 
 
   Future<List<FacilityModel>> getFecilities() async {
-    String trendingpath = 'http://192.168.1.16:5000/api/facilities';
+    String trendingpath = 'http://178.18.254.224:8654/api/facilities';
     var body = {
 
     };

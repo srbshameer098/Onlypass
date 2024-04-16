@@ -82,7 +82,7 @@ class _HomeState extends State<Home> {
               Stack(
                 children:[ Container(
                   width: 394.w,
-                  height:_visible1==true? 244.h:618.h,
+                  height:_visible1==true? 618.h:244.h,
                   child: Image.asset("assets/image/MapPreview.png",
 
                                     fit: BoxFit.cover,
