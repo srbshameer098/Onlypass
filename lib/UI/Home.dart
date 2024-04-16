@@ -1,7 +1,9 @@
 
 
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,6 +13,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../Repository/ModelClass/FacilityModel.dart';
 import 'Detailed_Page.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+bool _visible1 = false;
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -54,7 +58,7 @@ class _HomeState extends State<Home> {
       length: 3,
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.only(top: 10.h),
+          padding: EdgeInsets.only(top: 0.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -73,10 +77,139 @@ class _HomeState extends State<Home> {
         // }
         //       ),
 
+
+
+              Stack(
+                children:[ Container(
+                  width: 394.w,
+                  height:_visible1==true? 244.h:618.h,
+                  child: Image.asset("assets/image/MapPreview.png",
+
+                                    fit: BoxFit.cover,
+                  ),
+                ),
+
+                  Positioned(bottom: 20.h,right: 30.w,
+                      child: GestureDetector(
+                        onTap: (){
+                          setState(() {
+                            _visible1 = !_visible1;
+                          });
+
+
+                        },
+                          child: Image.asset("assets/icons/fullScreen.png",
+                            width: 24.w,
+                            height: 24.h,
+                          ),
+                      )),
+
+          ///-----------Search Container  -------------------///
+
+
+          Padding(
+            padding:  EdgeInsets.only(top: 60.h),
+            child: Center(
+              child: Positioned(
+
+
+
+                child: Container(
+                  width: 345.w,
+                  height: 40.h,
+                  decoration: BoxDecoration(
+
+
+                      border: Border.all(
+                          color: Colors.grey,
+                          width: .5.w,
+                          style: BorderStyle.solid),
+                    color: Colors.white
+
+
+
+                  ),
+
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 8.h),
+                        child: Icon(Icons.search_outlined,
+                            size: 28.sp, color: Color(0xffb7b7b7)),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 10.0),
+                        child: SizedBox(
+                          width: 273.w,
+                          child: Center(
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderSide: BorderSide.none,
+                                  ),
+                                  hintText: 'Kalamassery',
+
+                                  counterText: '- 6 km around  ',
+                                  counterStyle: TextStyle(color: Colors.grey),
+                                  contentPadding: EdgeInsets.symmetric(vertical: 0.h),
+                                  hintStyle: TextStyle(
+                                    fontSize: 14.sp,
+                                    color: Color(0xffb7b7b7),
+                                  )),
+                              onSaved: (String? value) {},
+                            ),
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+
+                        // _visible==true?
+                        child: Container(
+                          width: 42.w,
+                          // height: 40,
+                          //  color: Color(0xfff0f0f0),
+                          color:
+                          Color(0xfff0f0f0),
+                          child: Center(
+                              child: _visible1==true?Image.asset(
+                                'assets/icons/filter.png',
+                                width: 24.w,
+                                // height: 24.h,
+                                color:
+                                Color(0xff191919),
+                              ):Image.asset(
+                                'assets/icons/notificationbell.png',
+                                width: 24.w,
+                                // height: 24.h,
+                                color:
+                                Color(0xff191919),
+                              )
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+
+
+
+
+
+
+              ]),
+
+
+
               ///-----------Head Line  -------------------///
 
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25.w),
+                padding: EdgeInsets.symmetric(horizontal: 25.w,vertical: 20.h),
                 child: Text('Find facilities near you',
                     style: TextStyle(
                         color: const Color(0xff191919),
@@ -89,9 +222,10 @@ class _HomeState extends State<Home> {
 
               Stack(children: [
                 Container(
+                  color: Colors.grey,
                   child: Padding(
                     padding:
-                        EdgeInsets.symmetric(vertical: 20.w, horizontal: 25.w),
+                        EdgeInsets.symmetric(vertical: 10.w, horizontal: 24.w),
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
@@ -111,6 +245,7 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                           TabBar(
+                              dividerHeight:0,
                             indicator: BoxDecoration(
                                 // Creates border
                                 color: Colors.black),

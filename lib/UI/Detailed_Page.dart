@@ -21,7 +21,7 @@ final FacilityModel fecilityModel;
   State<Detailed_Page> createState() => _Detailed_PageState();
 }
 int activeIndex=0;
-https://www.freepik.com/free-vector/islamic-eid-mubarak-card-with-stylish-crescent-moon_8306887.htm#fromView=search&page=1&position=2&uuid=7c13cd0a-4bb7-42ba-bc8b-c1ba2927da1d
+
 
 class _Detailed_PageState extends State<Detailed_Page> {
 
