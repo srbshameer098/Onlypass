@@ -1,4 +1,5 @@
 
+import 'dart:async';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
@@ -6,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
 
 import 'package:onlypass/bloc/Fecilities/fecilities_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -14,8 +17,10 @@ import '../Repository/ModelClass/FacilityModel.dart';
 import 'Detailed_Page.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-bool _visible1 = false;
+import 'Location.dart';
 
+bool _visible1 = false;
+bool _location = true;
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -51,6 +56,70 @@ class _HomeState extends State<Home> {
   }
 
   final CarouselController _controller = CarouselController();
+
+
+
+  // geoLocator//
+
+  Future<Position> _determinePosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    // Test if location services are enabled.
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      // Location services are not enabled don't continue
+      // accessing the position and request users of the
+      // App to enable the location services.
+      return Future.error('Location services are disabled.');
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        // Permissions are denied, next time you could try
+        // requesting permissions again (this is also where
+        // Android's shouldShowRequestPermissionRationale
+        // returned true. According to Android guidelines
+        // your App should show an explanatory UI now.
+        return Future.error('Location permissions are denied');
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      // Permissions are denied forever, handle appropriately.
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
+
+    // When we reach here, permissions are granted and we can
+    // continue accessing the position of the device.
+    return await Geolocator.getCurrentPosition();
+  }
+
+  String _currentAdess = '';
+  String _currentAdess1 = '';
+  double lat = 0.0;
+  double long = 0.0;
+
+  _getAdressFromCordinates(double lat, double long) async {
+    try {
+      List<Placemark> Placesmarks = await placemarkFromCoordinates(lat, long);
+
+      Placemark place = Placesmarks[0];
+
+      setState(() {
+        _currentAdess = place.locality!;
+        _currentAdess1 = place.name!;
+        print(_currentAdess);
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +185,7 @@ class _HomeState extends State<Home> {
 
                 child: Container(
                   width: 345.w,
-                  height: 40.h,
+                  height: 48.h,
                   decoration: BoxDecoration(
 
 
@@ -131,38 +200,34 @@ class _HomeState extends State<Home> {
                   ),
 
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 8.h),
+                        padding: EdgeInsets.only(top: 0.h),
                         child: Icon(Icons.search_outlined,
                             size: 28.sp, color: Color(0xffb7b7b7)),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 10.0),
-                        child: SizedBox(
-                          width: 273.w,
-                          child: Center(
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderSide: BorderSide.none,
-                                  ),
-                                  hintText: 'Kalamassery',
+                      SizedBox(
+                        width: 175.w,
 
-                                  counterText: '- 6 km around  ',
-                                  counterStyle: TextStyle(color: Colors.grey),
-                                  contentPadding: EdgeInsets.symmetric(vertical: 0.h),
-                                  hintStyle: TextStyle(
-                                    fontSize: 14.sp,
-                                    color: Color(0xffb7b7b7),
-                                  )),
-                              onSaved: (String? value) {},
-                            ),
+                        child: TextFormField(
+                          minLines: 1,
+                          decoration: InputDecoration(
+                            hintText: '${_currentAdess}',
+                            enabledBorder: InputBorder.none,
+                            disabledBorder: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+
                           ),
                         ),
                       ),
+
+                      Text("- 6 km around",
+                        style: TextStyle(fontSize: 12.sp,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey),),
+                      SizedBox(width: 10.w,),
                       GestureDetector(
 
                         // _visible==true?
@@ -173,18 +238,22 @@ class _HomeState extends State<Home> {
                           color:
                           Color(0xfff0f0f0),
                           child: Center(
-                              child: _visible1==true?Image.asset(
-                                'assets/icons/filter.png',
-                                width: 24.w,
-                                // height: 24.h,
-                                color:
-                                Color(0xff191919),
-                              ):Image.asset(
-                                'assets/icons/notificationbell.png',
-                                width: 24.w,
-                                // height: 24.h,
-                                color:
-                                Color(0xff191919),
+                              child: _visible1==true?Center(
+                                child: Image.asset(
+                                  'assets/icons/filter.png',
+                                  width: 24.w,
+                                  // height: 24.h,
+                                  color:
+                                  Color(0xff191919),
+                                ),
+                              ):Center(
+                                child: Image.asset(
+                                  'assets/icons/notificationbell.png',
+                                  width: 24.w,
+                                  // height: 24.h,
+                                  color:
+                                  Color(0xff191919),
+                                ),
                               )
                           ),
                         ),
@@ -711,11 +780,89 @@ class _HomeState extends State<Home> {
                     child: Column(
                       children: [
                         GestureDetector(
+                            // onTap: () {
+                            //   Navigator.of(context).push(MaterialPageRoute(
+                            //       builder: (builder) => Location()));
+                            // },
+                            child: const Icon(Icons.ac_unit_outlined)),
+
+
+
+                        Padding(
+                          padding: EdgeInsets.only(left: 23.w, top: 30.h),
+                          child: Container(
+                            width: 310.w,
+                            height: 80.h,
+                            decoration: BoxDecoration(
+                                color: Color(0xffFFFFFF),
+                                borderRadius: BorderRadius.circular(8.r),
+                                border: Border.all(color: Color(0xff000000))),
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 20.w,
+                                ),
+                                Text(
+                                  '${_currentAdess}',
+                                  style: TextStyle(
+                                      fontSize: 20.sp,
+                                      fontWeight: FontWeight.w500,
+                                      color: Color(0xff000000)),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+
+
+
+
+
+                        Padding(
+                          padding: EdgeInsets.only(left: 100.w, top: 40.h),
+                          child: GestureDetector(
                             onTap: () {
-                              // Navigator.of(context).push(MaterialPageRoute(
-                              //     builder: (builder) => Detailed_Page()));
+                              _determinePosition();
+                              final LocationSettings locationSettings = LocationSettings(
+                                accuracy: LocationAccuracy.high,
+                                distanceFilter: 100,
+                              );
+                              StreamSubscription<Position> positionStream =
+                              Geolocator.getPositionStream(
+                                  locationSettings: locationSettings)
+                                  .listen((Position? position) {
+                                setState(() {
+                                  lat=position!.latitude;
+                                  long=position.longitude;
+                                });
+                                print(position == null
+                                    ? 'Unknown'
+                                    : '${position.latitude.toString()}, ${position.longitude.toString()}');
+                                _getAdressFromCordinates(
+                                    position!.latitude, position.longitude);
+                              });
                             },
-                            child: const Icon(Icons.ac_unit_outlined))
+                            child: Container(
+                              width: 150.w,
+                              height: 40.h,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: Colors.blue,
+                                borderRadius: BorderRadius.circular(8.r),
+                              ),
+                              child: Text(
+                                "Get Location",
+                                style: TextStyle(
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xffFFFFFF),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+
                       ],
                     ),
                   ),
