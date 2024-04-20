@@ -52,6 +52,7 @@ dependencies:
   url_launcher: ^6.2.5
   geolocator: ^8.0.1
   geocoding: 2.1.1
+  readmore: ^3.0.0
 
 
 

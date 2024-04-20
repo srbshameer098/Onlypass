@@ -9,7 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:onlypass/UI/Bottomnav.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:readmore/readmore.dart';
 
 import '../Repository/ModelClass/FacilityModel.dart';
 import 'Home.dart';
@@ -554,8 +554,13 @@ class _Detailed_PageState extends State<Detailed_Page> {
                     SizedBox(width: 351.w,
                       child: Padding(
                         padding:  EdgeInsets.only(top: 16.h),
-                        child: Text(
+                        child: ReadMoreText(
                           widget.fecilityModel.description.toString(),
+                            trimMode: TrimMode.Line,
+    trimLines: 4,
+    colorClickableText: Colors.black,
+    trimCollapsedText: 'Read more',
+    trimExpandedText: 'Show less',
                             style: TextStyle(
                                 color: Color(
                                     0xffb7b7b7),
