@@ -562,8 +562,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
     trimCollapsedText: 'Read more',
     trimExpandedText: 'Show less',
                             style: TextStyle(
-                                color: Color(
-                                    0xffb7b7b7),
+                                color: Color(0xffb7b7b7),
                                 fontSize:
                                 14.sp,
                                 fontWeight:

@@ -8,7 +8,27 @@ import 'package:onlypass/bloc/Fecilities/fecilities_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'UI/Home.dart';
-
+import 'color customize/Colors.dart';
+class ThemeProvider with ChangeNotifier {
+  late ThemeMode _themeMode = ThemeMode.system;
+  late ColorScheme _darkScheme = darkColorScheme;
+  late ColorScheme _lightScheme = lightColorScheme;
+  ThemeMode get themeMode => _themeMode;
+  void setThemeMode(ThemeMode value) {
+    _themeMode = value;
+    notifyListeners();
+  }
+  ColorScheme get darkScheme => _darkScheme;
+  void setDarkScheme(ColorScheme value) {
+    _darkScheme = value;
+    notifyListeners();
+  }
+  ColorScheme get lightScheme => _lightScheme;
+  void setLightScheme(ColorScheme value) {
+    _lightScheme = value;
+    notifyListeners();
+  }
+}
 void main() {
   runApp(const MyApp());
 }
@@ -31,26 +51,19 @@ class MyApp extends StatelessWidget {
               child: MaterialApp(debugShowCheckedModeBanner: false,
                 title: 'Onlypass',
                 theme: ThemeData(
-                  fontFamily: 'Montserrat',
-                  // This is the theme of your application.
-                  //
-                  // TRY THIS: Try running your application with "flutter run". You'll see
-                  // the application has a purple toolbar. Then, without quitting the app,
-                  // try changing the seedColor in the colorScheme below to Colors.green
-                  // and then invoke "hot reload" (save your changes or press the "hot
-                  // reload" button in a Flutter-supported IDE, or press "r" if you used
-                  // the command line to start the app).
-                  //
-                  // Notice that the counter didn't reset back to zero; the application
-                  // state is not lost during the reload. To reset the state, use hot
-                  // restart instead.
-                  //
-                  // This works for code too, not just values: Most code changes can be
-                  // tested with just a hot reload.
-                  colorScheme: ColorScheme.fromSeed(
-                      seedColor: Colors.deepPurple),
                   useMaterial3: true,
+                  colorScheme: darkColorScheme ,
+                  fontFamily: 'Montserrat',
+
+
+
                 ),
+                darkTheme: ThemeData(
+                  useMaterial3: true,
+                    colorScheme: lightColorScheme
+                ),
+
+                themeMode: ThemeMode.system,
                 home: const BottomNav(),
               ),
             );
