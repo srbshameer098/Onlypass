@@ -110,8 +110,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                   overflow: TextOverflow.ellipsis,
                                  widget.fecilityModel.facilityName.toString(),
                                   style: TextStyle(
-                                      color: Color(
-                                          0xff191919),
+                                      color:Theme.of(context).colorScheme.onSecondary,
                                       fontSize:
                                       16.sp,
                                       fontWeight:
@@ -126,12 +125,11 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           ),
                           Icon(
                             Icons.star,
-                            color: Colors.black,size: 20.sp,
+                            color:Theme.of(context).colorScheme.onSecondary,size: 20.sp,
                           ),
                           Text('${4.3} ',
                               style: TextStyle(
-                                  color: Color(
-                                      0xff191919),
+                                  color: Theme.of(context).colorScheme.onSecondary,
                                   fontSize:
                                   14.sp,
                                   fontWeight:
@@ -235,7 +233,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                               child: Row(crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
           
-                                  Icon(Icons.male,size: 16.sp,),
+                                  Icon(Icons.male,size: 16.sp,  color: Color(0xff191919),),
                                   Text(
                                       'Male',
                                       style: TextStyle(
@@ -265,7 +263,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                               child: Row(crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
           
-                                  Icon(Icons.female,size: 16.sp,),
+                                  Icon(Icons.female,size: 16.sp,  color: Color(0xff191919),),
                                   Text(
                                       'Female',
                                       style: TextStyle(
@@ -303,8 +301,10 @@ class _Detailed_PageState extends State<Detailed_Page> {
                             child: Text(
                               widget.fecilityModel.address.toString(),
                                 style: TextStyle(
-                                    color: Color(
-                                        0xff191919),
+                                    color: Theme.of(context).colorScheme.onSecondary,
+
+
+
                                     fontSize:
                                     14.sp,
                                     fontWeight:
@@ -377,8 +377,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           Text(
                               '- until 11pm',
                               style: TextStyle(
-                                  color: Color(
-                                      0xff191919),
+                                 color: Theme.of(context).colorScheme.onSecondary,
                                   fontSize:
                                   14.sp,
                                   fontWeight:
@@ -396,12 +395,12 @@ class _Detailed_PageState extends State<Detailed_Page> {
 
                                   context: context,
                                   builder: (BuildContext context) =>  Dialog(
-                                    backgroundColor: Color(0xff000000),
+                                    backgroundColor:   Theme.of(context).colorScheme.onSecondary,
                               child: Container(
                               height: 380.h,
                                 // width: 394.w,
 
-                                color: Color(0xff000000),
+                                color: Theme.of(context).colorScheme.onSecondary,
                                 child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: <Widget>[
@@ -410,7 +409,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                       padding:  EdgeInsets.only(top: 24.h,left: 15.w,bottom: 15.h),
                                       child: Text('Opening hours',
                                         style: TextStyle(
-                                          color: Color(0xffFEFEFE),
+                                          color: Theme.of(context).colorScheme.secondary,
                                           fontSize: 14.sp,
                                           fontFamily: 'Montserrat',
                                           fontWeight: FontWeight.w600,
@@ -470,7 +469,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                                       widget.fecilityModel.facilityTiming![index].day.toString()
                                                       ,
                                                       style: TextStyle(
-                                                        color: Color(0xffFEFEFE),
+                                                        color: Theme.of(context).colorScheme.secondary,
                                                         fontSize: 14.sp,
                                                         fontFamily: 'Montserrat',
                                                       ),
@@ -481,7 +480,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                                     child: Text(
                                                       widget.fecilityModel.facilityTiming![index].morning!.start.toString(),
                                                       style: TextStyle(
-                                                        color: Color(0xffFEFEFE),
+                                                        color: Theme.of(context).colorScheme.secondary,
                                                         fontSize: 14.sp,
                                                         fontFamily: 'Montserrat',
                                                       ),
@@ -491,7 +490,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                                   SizedBox(width:100.w,
                                                     child: Text('03.00 - 12.30',
                                                       style: TextStyle(
-                                                        color: Color(0xffFEFEFE),
+                                                        color: Theme.of(context).colorScheme.secondary,
                                                         fontSize: 14.sp,
 
                                                         fontFamily: 'Montserrat',
@@ -540,8 +539,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                       child: Text(
                           'About',
                           style: TextStyle(
-                              color: Color(
-                                  0xff000000),
+                              color: Theme.of(context).colorScheme.onSecondary,
                               fontSize:
                               14.sp,
                               fontWeight:
@@ -558,7 +556,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           widget.fecilityModel.description.toString(),
                             trimMode: TrimMode.Line,
     trimLines: 4,
-    colorClickableText: Colors.black,
+    colorClickableText:   Theme.of(context).colorScheme.onSecondary,
     trimCollapsedText: 'Read more',
     trimExpandedText: 'Show less',
                             style: TextStyle(
@@ -666,8 +664,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                               Text(
                                   'Facilities and amenities',
                                   style: TextStyle(
-                                      color: Color(
-                                          0xff000000),
+                                      color: Theme.of(context).colorScheme.onSecondary,
                                       fontSize:
                                       14.sp,
                                       fontWeight:
@@ -737,7 +734,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                       child: Text(widget.fecilityModel.amenities![index].amenitiesName.toString(),
                                         style: TextStyle(
                                           fontSize: 14.sp,
-                                          color: Color(0xff191919),
+                                          color: Theme.of(context).colorScheme.onSecondary,
                                           fontFamily: 'Montserrat',
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -753,7 +750,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
 
                     Text('Opening hours',
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.onSecondary,
                         fontSize: 14.sp,
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w600,
@@ -797,7 +794,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                         children: [
                           Text('Weekdays',
                             style: TextStyle(
-                              color: Color(0xff191919),
+                              color: Theme.of(context).colorScheme.onSecondary,
                               fontSize: 14.sp,
                               fontFamily: 'Montserrat',
                             ),
@@ -805,7 +802,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           SizedBox(width: 37.w,),
                           Text('05.30 - 12.30',
                             style: TextStyle(
-                              color: Color(0xff191919),
+                              color: Theme.of(context).colorScheme.onSecondary,
                               fontSize: 14.sp,
                               fontFamily: 'Montserrat',
                             ),
@@ -813,7 +810,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           SizedBox(width: 51.w,),
                           Text('03.00 - 12.30',
                             style: TextStyle(
-                              color: Color(0xff191919),
+                              color: Theme.of(context).colorScheme.onSecondary,
                               fontSize: 14.sp,
 
                               fontFamily: 'Montserrat',
@@ -862,7 +859,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                       padding:  EdgeInsets.only(top: 32.h,bottom: 30.h),
                       child: Text('Reviews',
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Theme.of(context).colorScheme.onSecondary,
                           fontSize: 14.sp,
                           fontFamily: 'Montserrat',
                           fontWeight: FontWeight.w600,
@@ -886,7 +883,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                 itemPadding: EdgeInsets.symmetric(horizontal: 0.0),
                 itemBuilder: (context, _) => Icon(
                   Icons.star,
-                  color: Colors.black,
+                  color: Theme.of(context).colorScheme.onSecondary,
 
                 ),
                 onRatingUpdate: (rating) {
@@ -897,7 +894,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
               Text(
                 '4.5',
                 style: TextStyle(
-                  color: Color(0xFF191919),
+                  color: Theme.of(context).colorScheme.onSecondary,
                   fontSize: 14,
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w600,
@@ -917,7 +914,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                               maxSteps: 200,
                               progressType: LinearProgressBar.progressTypeLinear, // Use Linear progress
                               currentStep: 174,
-                              progressColor: Colors.black,
+                              progressColor: Theme.of(context).colorScheme.onSecondary,
                               backgroundColor: Colors.grey.shade300,
                             ),
                           ),
@@ -957,23 +954,22 @@ class _Detailed_PageState extends State<Detailed_Page> {
                             // height: 130.h,
                             decoration:
                             BoxDecoration(
-                                color:
-                                Color(0xffffffff)),
+                              color: Theme.of(context).colorScheme.secondary,),
                             child: Column(mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                               Row(
                                 children: [
                                   CircleAvatar(
                                     radius: 16.r,
-                                    backgroundColor: Color(0xff191919),
-                                    child: Icon(Icons.person_2_outlined,color: Colors.white,),
+                                    backgroundColor: Theme.of(context).colorScheme.onSecondary,
+                                    child: Icon(Icons.person_2_outlined,color: Theme.of(context).colorScheme.secondary,),
                                   ),
                                   SizedBox(width: 8.w,),
                                   Column(crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Text('user1076',
                                         style: TextStyle(
-                                          color: Color(0xff191919),
+                                          color: Theme.of(context).colorScheme.onSecondary,
                                           fontFamily: 'Montserrat',
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -995,7 +991,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                   child: SizedBox(width:345,
                                     child: Text('Solid equipment and friendly staff, but the locker rooms could use a refresh. Overall, a great workout experience!',
                                       style: TextStyle(
-                                        color: Color(0xff191919),
+                                        color: Theme.of(context).colorScheme.onSecondary,
                                         fontFamily: 'Montserrat',
                                       ),
                                     ),
@@ -1021,7 +1017,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                         children: [
                           Text('Have issues? Any error? ',
                             style: TextStyle(
-                              color:Color(0xff191919),
+                              color: Theme.of(context).colorScheme.onSecondary,
                               fontFamily: 'Montserrat',
                               fontWeight: FontWeight.w600,
                             ),

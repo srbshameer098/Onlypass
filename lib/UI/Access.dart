@@ -101,6 +101,7 @@ class _AccessState extends State<Access> {
                   Container(
                     decoration: BoxDecoration(
                       border: Border.all(width: 1, color: Colors.grey.shade900),
+                      color: Colors.white
                     ),
                     child: Padding(
                       padding:

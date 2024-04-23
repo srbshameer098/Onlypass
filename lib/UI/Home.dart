@@ -222,6 +222,7 @@ class _HomeState extends State<Home> {
                                 minLines: 1,
                                 decoration: InputDecoration(
                                   hintText:  '${loca='${_currentAdess}'}',
+                                  hintStyle:TextStyle(color: Color(0xff191919)),
                                   enabledBorder: InputBorder.none,
                                   disabledBorder: InputBorder.none,
                                   focusedBorder: InputBorder.none,
@@ -279,7 +280,7 @@ class _HomeState extends State<Home> {
                 padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 20.h),
                 child: Text('Find facilities near you',
                     style: TextStyle(
-                        color: const Color(0xff191919),
+                        color: Theme.of(context).colorScheme.onSecondary,
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w600,
                         fontFamily: 'Montserrat')),
@@ -289,7 +290,7 @@ class _HomeState extends State<Home> {
 
               Stack(children: [
                 Container(
-                  color: Colors.grey,
+                  color: Colors.transparent,
                   child: Padding(
                     padding:
                         EdgeInsets.symmetric(vertical: 10.w, horizontal: 24.w),
@@ -312,13 +313,12 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                           TabBar(
-                            dividerHeight: 0,
                             indicator: BoxDecoration(
-                                // Creates border
-                                color: Colors.black),
+                              // Creates border
+                              color: Theme.of(context).colorScheme.onSecondary,),
                             tabAlignment: TabAlignment.start,
                             indicatorColor: Colors.transparent,
-                            labelColor: Colors.white,
+                            labelColor:  Theme.of(context).colorScheme.secondary,
                             isScrollable: true,
                             tabs: [
                               Container(
@@ -326,26 +326,26 @@ class _HomeState extends State<Home> {
                                   height: 30.h,
                                   decoration: const BoxDecoration(
                                       color: Colors.transparent),
-                                  child: const Tab(child: Text('All(${38})'))),
+                                  child:  Tab(child: Text('All(${38})',style:TextStyle(color:  Theme.of(context).colorScheme.onSecondary,)))),
                               Container(
                                   width: 80.w,
                                   height: 30.h,
                                   decoration: const BoxDecoration(
                                       color: Colors.transparent),
-                                  child: const Tab(
+                                  child:  Tab(
                                       child: Text(
                                     'Gym(${21})',
-                                    style: TextStyle(),
+                                    style: TextStyle(color:  Theme.of(context).colorScheme.onSecondary,),
                                   ))),
                               Container(
                                   width: 80.w,
                                   height: 30.h,
                                   decoration: const BoxDecoration(
-                                      color: Colors.transparent),
-                                  child: const Tab(
+                                    ),
+                                  child:  Tab(
                                       child: Text(
                                     'Pool(${14})',
-                                    style: TextStyle(),
+                                    style: TextStyle(color:  Theme.of(context).colorScheme.onSecondary,),
                                   ))),
                             ],
                           ),
@@ -365,7 +365,7 @@ class _HomeState extends State<Home> {
                           Container(
                             width: 393.w,
                             decoration:
-                                const BoxDecoration(color: Color(0xffffffff)),
+                                 BoxDecoration(color: Theme.of(context).colorScheme.secondary,),
                             child: Padding(
                               padding: EdgeInsets.symmetric(horizontal: 22.w),
                               child: Column(
