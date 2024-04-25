@@ -212,7 +212,7 @@ class _HomeState extends State<Home> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(top: 0.h),
+                              padding: EdgeInsets.only(top: 0.h,right: 1.3.w),
                               child: Icon(Icons.search_outlined,
                                   size: 28.sp, color: Color(0xffb7b7b7)),
                             ),
@@ -221,8 +221,8 @@ class _HomeState extends State<Home> {
                               child: TextFormField(
                                 minLines: 1,
                                 decoration: InputDecoration(
-                                  hintText:  '${loca='${_currentAdess}'}',
-                                  hintStyle:TextStyle(color: Color(0xff191919)),
+                                  hintText:loca=_currentAdess,
+                                  hintStyle:const TextStyle(color: Color(0xff191919)),
                                   enabledBorder: InputBorder.none,
                                   disabledBorder: InputBorder.none,
                                   focusedBorder: InputBorder.none,
@@ -318,7 +318,8 @@ class _HomeState extends State<Home> {
                               color: Theme.of(context).colorScheme.onSecondary,),
                             tabAlignment: TabAlignment.start,
                             indicatorColor: Colors.transparent,
-                            labelColor:  Theme.of(context).colorScheme.secondary,
+                              unselectedLabelColor:Theme.of(context).colorScheme.onSecondary,
+                            labelColor:  Theme.of(context).colorScheme.onSecondary,
                             isScrollable: true,
                             tabs: [
                               Container(
@@ -436,7 +437,7 @@ class _HomeState extends State<Home> {
                                               child: Container(
                                                 width: 300.w,
                                                 color:
-                                                    const Color(0xffffffff),
+                                                Theme.of(context).colorScheme.secondary,
                                                 child: Column(
                                                   children: [
                                                     Stack(
@@ -551,13 +552,15 @@ class _HomeState extends State<Home> {
                                                                   overflow:
                                                                       TextOverflow
                                                                           .ellipsis,
+
+                                                                  ///--image name--///
+
                                                                   data[index]
                                                                       .facilityName
                                                                       .toString(),
                                                                   style:
                                                                       TextStyle(
-                                                                    color: const Color(
-                                                                        0xff191919),
+                                                                    color:Theme.of(context).colorScheme.onSecondary,
                                                                     fontSize:
                                                                         16.sp,
                                                                     fontWeight:
@@ -580,11 +583,13 @@ class _HomeState extends State<Home> {
                                                             color:
                                                                 Colors.grey,
                                                           ),
+
+                                                          ///-- distance --///
+
                                                           Text(
                                                             '${150}m',
                                                             style: TextStyle(
-                                                              color: Color(
-                                                                  0xff191919),
+                                                              color: Theme.of(context).colorScheme.onSecondary,
                                                               fontSize: 12.sp,
                                                               fontWeight:
                                                                   FontWeight
@@ -605,15 +610,17 @@ class _HomeState extends State<Home> {
                                                           MainAxisAlignment
                                                               .spaceBetween,
                                                       children: [
-                                                        const Icon(
+
+                                                        ///--Rating --///
+
+                                                         Icon(
                                                           Icons.star,
-                                                          color: Colors.black,
+                                                          color: Theme.of(context).colorScheme.onSecondary,
                                                         ),
                                                         Text(
                                                           '${4.3} ',
                                                           style: TextStyle(
-                                                            color: const Color(
-                                                                0xff191919),
+                                                            color: Theme.of(context).colorScheme.onSecondary,
                                                             fontSize: 14.sp,
                                                             fontWeight:
                                                                 FontWeight
@@ -622,6 +629,7 @@ class _HomeState extends State<Home> {
                                                                 'Montserrat',
                                                           ),
                                                         ),
+                                                        ///--Review count --///
                                                         SizedBox(
                                                           width: 85.w,
                                                           child: Text(
@@ -722,7 +730,11 @@ class _HomeState extends State<Home> {
                                                                     children: [
                                                                       Center(
                                                                           child:
-                                                                              Text("+${balance}")),
+                                                                              Text("+${balance}",
+                                                                                 style:  TextStyle(
+                                                                                   color: Colors.black,
+                                                                                 )
+                                                                              )),
                                                                     ],
                                                                   ),
                                                                 );

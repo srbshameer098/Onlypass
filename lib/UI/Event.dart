@@ -60,16 +60,17 @@ class _EventState extends State<Event> {
                         Icon(
                           Icons.location_on_outlined,
                           size: 20.sp,
+                          color: Theme.of(context).colorScheme.onSecondary,
                         ),
                         Text('Kalamassery, Kochi ',
                             style: TextStyle(
-                                color: Color(0xff191919),
+                                color: Theme.of(context).colorScheme.onSecondary,
                                 fontSize: 12.sp,
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.w600)),
                         Text('(6 km around)',
                             style: TextStyle(
-                                color: Color(0xff191919),
+                                color:Theme.of(context).colorScheme.onSecondary,
                                 fontSize: 12.sp,
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.w400)),
@@ -98,9 +99,10 @@ class _EventState extends State<Event> {
                     height: 40.h,
                     decoration: BoxDecoration(
 
-
+color: Colors.white,
                       border: Border.all(
-                          color: _visible==true?Colors.black: Colors.grey,
+                          color: _visible==true?Theme.of(context).colorScheme.onSecondary
+                              : Colors.grey,
                           width: 1.w,
                           style: BorderStyle.solid)
 
@@ -285,10 +287,11 @@ class _EventState extends State<Event> {
                         TabBar(
                           indicator: BoxDecoration(
                                // Creates border
-                              color: Colors.black),
+                              color:  Colors.black),
                           tabAlignment: TabAlignment.start,
 
-                          labelColor: Colors.white,
+                          labelColor: Theme.of(context).colorScheme.background,
+
                           isScrollable: true,
                           tabs: [
                             Container(
@@ -297,7 +300,7 @@ class _EventState extends State<Event> {
                                 decoration: BoxDecoration(
                                   color: Colors.transparent,
                                 ),
-                                child: Tab(child: Text('All(${38})'))),
+                                child: Tab(child: Text('All(${38})',style: TextStyle(color: Theme.of(context).colorScheme.onSecondary),))),
                             Container(
                                 width: 80.w,
                                 height: 30.h,
@@ -308,7 +311,7 @@ class _EventState extends State<Event> {
                                     child: Text(
                                   'Event(${21})',
                                   style: TextStyle(
-
+                                      color: Theme.of(context).colorScheme.onSecondary
                                   ),
                                 ))),
                             Container(
@@ -321,7 +324,7 @@ class _EventState extends State<Event> {
                                     child: Text(
                                   'Class(${14})',
                                   style: TextStyle(
-
+                                      color: Theme.of(context).colorScheme.onSecondary
                                   ),
                                 ))),
                           ],

@@ -60,7 +60,8 @@ class MyApp extends StatelessWidget {
                 ),
                 darkTheme: ThemeData(
                   useMaterial3: true,
-                    colorScheme: lightColorScheme
+                    colorScheme: lightColorScheme,
+                  fontFamily: 'Montserrat',
                 ),
 
                 themeMode: ThemeMode.system,
