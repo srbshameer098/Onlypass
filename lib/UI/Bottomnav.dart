@@ -11,13 +11,13 @@ import 'Home.dart';
 int currentIndex = 0;
 
 class BottomNav extends StatefulWidget {
-  const BottomNav({Key? key}) : super(key: key);
+  const BottomNav({super.key});
 
   @override
   State<BottomNav> createState() => _BottomNavState();
 }
 
-final screens = [Home(), Event(), Onlypass(),  Access(), Profile()];
+final screens = [const Home(), const Event(), const Onlypass(),  const Access(), const Profile()];
 
 class _BottomNavState extends State<BottomNav> {
   @override

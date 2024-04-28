@@ -1,18 +1,14 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:linear_progress_bar/linear_progress_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:onlypass/UI/Bottomnav.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:readmore/readmore.dart';
 
 import '../Repository/ModelClass/FacilityModel.dart';
-import 'Home.dart';
 class Detailed_Page extends StatefulWidget {
   const Detailed_Page({super.key,  required this.fecilityModel});
 final FacilityModel fecilityModel;
@@ -37,7 +33,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                 children: [
                   CarouselSlider.builder(
                     itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) => widget.fecilityModel.images![itemIndex].length > itemIndex
-                        ? Container(
+                        ? SizedBox(
                       width: 393.w,
                       height: 240.h,
                       child: Image.network(
@@ -46,7 +42,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                         fit: BoxFit.fill,
                       ),
                     )
-                        : SizedBox(),
+                        : const SizedBox(),
 
 
 
@@ -63,7 +59,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
 
                       autoPlayCurve: Curves.fastOutSlowIn,
                       enableInfiniteScroll: true,
-                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      autoPlayAnimationDuration: const Duration(milliseconds: 800),
                       viewportFraction: 1,
 
                       onPageChanged: (index, reason) {
@@ -83,7 +79,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
 
                         count: widget.fecilityModel.images!.length,
                         effect: WormEffect(
-                            dotColor:Color(0xffbdbdbd),
+                            dotColor:const Color(0xffbdbdbd),
                             dotHeight: 6.h,
                             dotWidth: 6.w,
                             activeDotColor: Colors.white
@@ -141,7 +137,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                             child: Text(
                                 '(${240})',
                                 style: TextStyle(
-                                    color: Color(
+                                    color: const Color(
                                         0xffa2a2a2),
                                     fontSize:
                                     12.sp,
@@ -161,7 +157,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           Container(
                             width: 70.w,
                             height: 24.h,
-                              color: Color(0xFFF0F0F0),
+                              color: const Color(0xFFF0F0F0),
           
                             child: Padding(
                               padding:  EdgeInsets.symmetric(horizontal: 8.w),
@@ -174,7 +170,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                   Text(
                                       'GYM',
                                       style: TextStyle(
-                                          color: Color(
+                                          color: const Color(
                                               0xff191919),
                                           fontSize:
                                           12.sp,
@@ -191,7 +187,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           Container(
                             width: 64.w,
                             height: 24.h,
-                            color: Color(0xFFF0F0F0),
+                            color: const Color(0xFFF0F0F0),
           
                             child: Padding(
                               padding:  EdgeInsets.symmetric(horizontal: 7.w),
@@ -204,7 +200,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                   Text(
                                       'Pool',
                                       style: TextStyle(
-                                          color: Color(
+                                          color: const Color(
                                               0xff191919),
                                           fontSize:
                                           12.sp,
@@ -226,18 +222,18 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           Container(
                             width: 59.w,
                             height: 24.h,
-                            color: Color(0xFFF0F0F0),
+                            color: const Color(0xFFF0F0F0),
           
                             child: Padding(
                               padding:  EdgeInsets.symmetric(horizontal: 6.w),
                               child: Row(crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
           
-                                  Icon(Icons.male,size: 16.sp,  color: Color(0xff191919),),
+                                  Icon(Icons.male,size: 16.sp,  color: const Color(0xff191919),),
                                   Text(
                                       'Male',
                                       style: TextStyle(
-                                          color: Color(
+                                          color: const Color(
                                               0xff191919),
                                           fontSize:
                                           12.sp,
@@ -256,18 +252,18 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           Container(
                             width: 82.w,
                             height: 24.h,
-                            color: Color(0xFFF0F0F0),
+                            color: const Color(0xFFF0F0F0),
           
                             child: Padding(
                               padding:  EdgeInsets.symmetric(horizontal: 8.w),
                               child: Row(crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
           
-                                  Icon(Icons.female,size: 16.sp,  color: Color(0xff191919),),
+                                  Icon(Icons.female,size: 16.sp,  color: const Color(0xff191919),),
                                   Text(
                                       'Female',
                                       style: TextStyle(
-                                          color: Color(
+                                          color: const Color(
                                               0xff191919),
                                           fontSize:
                                           12.sp,
@@ -293,7 +289,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Icon(Icons.location_on_outlined,size: 16.sp,
-                            color:Color(0xffb7b7b7) ,),
+                            color:const Color(0xffb7b7b7) ,),
           
                           SizedBox(width: 8.w,),
           
@@ -319,7 +315,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
 
                           GestureDetector(
                             onTap: (){
-                              _launchURLApp() async {
+                              launchURLApp() async {
                                 // Replace with the desired Google Maps URL (location or directions)
                                 var url = Uri.parse("https://www.google.com/maps/@11.01035796133147, 76.01419308465528,zoom"); // or "https://www.google.com/maps?dir=waid:your+origin:your+destination"
                                 if (await canLaunchUrl(url)) {
@@ -333,8 +329,8 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                 'Get direction',
                                 style: TextStyle(
                                     decoration: TextDecoration.underline,
-                                    decorationColor: Color(0xff1e90ff),
-                                    color: Color(0xff1e90ff),
+                                    decorationColor: const Color(0xff1e90ff),
+                                    color: const Color(0xff1e90ff),
                                     fontSize:
                                     12.sp,
                                     fontWeight:
@@ -357,7 +353,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Icon(Icons.access_time_outlined,size: 16.sp,
-                            color:Color(0xffb7b7b7),),
+                            color:const Color(0xffb7b7b7),),
           
                           SizedBox(width: 8.w,),
           
@@ -365,7 +361,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                               'Open now',
                               style: TextStyle(
           
-                                  color: Color(0xff36fa00),
+                                  color: const Color(0xff36fa00),
                                   fontSize:
                                   14.sp,
                                   fontWeight:
@@ -424,7 +420,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                           SizedBox(width:50.w,
                                             child: Text('Days',
                                               style: TextStyle(
-                                                color: Color(0xffb7b7b7),
+                                                color: const Color(0xffb7b7b7),
                                                 fontSize: 14.sp,
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.w500,
@@ -433,7 +429,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                           ),
                                           SizedBox(width: 19.w,),
                                           SizedBox(width:100.w,
-                                            child: Text('Morning',
+                                            child: const Text('Morning',
                                               style: TextStyle(
                                                 color: Color(0xffb7b7b7),
                                                 fontFamily: 'Montserrat',
@@ -443,7 +439,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                           ),
                                           SizedBox(width: 8.w,),
                                           SizedBox(width:100.w,
-                                            child: Text('Evening',
+                                            child: const Text('Evening',
                                               style: TextStyle(
                                                 color: Color(0xffb7b7b7),
                                                 fontFamily: 'Montserrat',
@@ -517,8 +513,8 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                 'Opening hours',
                                 style: TextStyle(
                                     decoration: TextDecoration.underline,
-                                    decorationColor: Color(0xff1e90ff),
-                                    color: Color(0xff1e90ff),
+                                    decorationColor: const Color(0xff1e90ff),
+                                    color: const Color(0xff1e90ff),
                                     fontSize:
                                     12.sp,
                                     fontWeight:
@@ -560,7 +556,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
     trimCollapsedText: 'Read more',
     trimExpandedText: 'Show less',
                             style: TextStyle(
-                                color: Color(0xffb7b7b7),
+                                color: const Color(0xffb7b7b7),
                                 fontSize:
                                 14.sp,
                                 fontWeight:
@@ -582,7 +578,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                             height: 32,
                             decoration: BoxDecoration(
                               border: Border.all(width: 1, color: Colors.grey.shade900),
-                              color: Color(0xFFFFFFFF),
+                              color: const Color(0xFFFFFFFF),
                             ),
                             child: Padding(
                               padding:  EdgeInsets.symmetric(horizontal: 6.w),
@@ -594,7 +590,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                   Text(
                                       'Save',
                                       style: TextStyle(
-                                          color: Color(
+                                          color: const Color(
                                               0xff191919),
                                           fontSize:
                                           12.sp,
@@ -619,7 +615,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                             height: 32,
                             decoration: BoxDecoration(
                                border: Border.all(width: 1.w, color: Colors.grey.shade900),
-                               color: Color(0xFFFFFFFF),
+                               color: const Color(0xFFFFFFFF),
                             ),
           
           
@@ -633,7 +629,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                   Text(
                                       'share',
                                       style: TextStyle(
-                                          color: Color(
+                                          color: const Color(
                                               0xff191919),
                                           fontSize:
                                           12.sp,
@@ -677,8 +673,8 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                   'Equipment list',
                                   style: TextStyle(
                                       decoration: TextDecoration.underline,
-                                      decorationColor: Color(0xff1e90ff),
-                                      color: Color(0xff1e90ff),
+                                      decorationColor: const Color(0xff1e90ff),
+                                      color: const Color(0xff1e90ff),
                                       fontSize:
                                       12.sp,
                                       fontWeight:
@@ -709,7 +705,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           itemBuilder: (BuildContext context, int index) {
                             return Container(
                               height: 80,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 // border: Border.all(width: 1,
                                 // color: Colors.grey.shade900),
                                 //  color: Colors.amber,
@@ -723,7 +719,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                     Container(
                                       width:24.w,
                                       height: 24.h,
-                                      color: Color(0xfff0f0f0),
+                                      color: const Color(0xfff0f0f0),
                                       child: Padding(
                                         padding:  EdgeInsets.only(left:2.w,right: 2.w,top: 2.h,bottom: 2.h),
                                         child: Image.network(widget.fecilityModel.amenities![index].iconUrl!.toString(),width: 14.w,height: 14.h,),
@@ -761,7 +757,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
             padding:  EdgeInsets.only(top: 26.h),
             child: Row(
               children: [
-                Text('Days',
+                const Text('Days',
                   style: TextStyle(
                     color: Color(0xffb7b7b7),
                     fontFamily: 'Montserrat',
@@ -769,7 +765,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                   ),
                 ),
                 SizedBox(width: 74.w,),
-                Text('Morning',
+                const Text('Morning',
                   style: TextStyle(
                     color: Color(0xffb7b7b7),
                     fontFamily: 'Montserrat',
@@ -777,7 +773,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                   ),
                 ),
                 SizedBox(width: 74.w,),
-                Text('Evening',
+                const Text('Evening',
                   style: TextStyle(
                     color: Color(0xffb7b7b7),
                     fontFamily: 'Montserrat',
@@ -824,12 +820,12 @@ class _Detailed_PageState extends State<Detailed_Page> {
                       padding:  EdgeInsets.only(top: 9.h),
                       child: Container(
                         height: 20.h,
-                        color: Color(0x6600ff00),
+                        color: const Color(0x6600ff00),
                         child: Row(
                           children: [
                             Text('Weekend',
                               style: TextStyle(
-                                color: Color(0xff191919),
+                                color: const Color(0xff191919),
                                 fontSize: 14.sp,
                                 fontFamily: 'Montserrat',
                               ),
@@ -837,7 +833,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                             SizedBox(width: 37.w,),
                             Text('05.30 - 02.00',
                               style: TextStyle(
-                                color: Color(0xff191919),
+                                color: const Color(0xff191919),
                                 fontSize: 14.sp,
                                 fontFamily: 'Montserrat',
                               ),
@@ -845,7 +841,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                             SizedBox(width: 51.w,),
                             Text('03.00 -  01.00',
                               style: TextStyle(
-                                color: Color(0xff191919),
+                                color: const Color(0xff191919),
                                 fontSize: 14.sp,
 
                                 fontFamily: 'Montserrat',
@@ -880,7 +876,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                 ignoreGestures: true,
 
                 itemCount: 5,
-                itemPadding: EdgeInsets.symmetric(horizontal: 0.0),
+                itemPadding: const EdgeInsets.symmetric(horizontal: 0.0),
                 itemBuilder: (context, _) => Icon(
                   Icons.star,
                   color: Theme.of(context).colorScheme.onSecondary,
@@ -924,7 +920,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                           Text(
                             '174 Reviews',
                             style: TextStyle(
-                              color: Color(0xFFB7B7B7),
+                              color: const Color(0xFFB7B7B7),
                               fontSize: 13.sp,
                               fontFamily: 'Montserrat',
                               fontWeight: FontWeight.w500,
@@ -941,7 +937,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                       height: 2*150.h,
                       child: ListView
                           .separated(
-                        physics: ScrollPhysics(parent: NeverScrollableScrollPhysics()),
+                        physics: const ScrollPhysics(parent: NeverScrollableScrollPhysics()),
                         scrollDirection:
                         Axis.vertical,
                         itemCount: 2,
@@ -975,7 +971,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                         ),
                                       ),
 
-                                      Text('21 March 2023',
+                                      const Text('21 March 2023',
                                         style: TextStyle(
                                           color: Color(0xffb7b7b7),
                                           fontSize: 12,
@@ -1023,7 +1019,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
                             ),
                           ),
 
-                          Text('Contact us',
+                          const Text('Contact us',
                             style: TextStyle(
                               color: Color(0xff00ff00),
                               fontFamily: 'Montserrat',

@@ -1,20 +1,15 @@
 
-import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:onlypass/UI/sample.dart';
 
 
 bool _visible = false;
 
 class Event extends StatefulWidget {
-  const Event({Key? key}) : super(key: key);
+  const Event({super.key});
 
   @override
   State<Event> createState() => _EventState();
@@ -32,14 +27,14 @@ class _EventState extends State<Event> {
       child: Scaffold(resizeToAvoidBottomInset: false,
         appBar: AppBar(
           backgroundColor: Colors.black,
-          title: Text(
+          title: const Text(
             'Event & Sessions',
             style: TextStyle(color: Colors.white, fontSize: 16),
           ),
           actions: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: Icon(
+              child: const Icon(
                 Icons.notifications_none,
                 color: Colors.white,
               ),
@@ -79,10 +74,10 @@ class _EventState extends State<Event> {
                         ),
                         Text('Change',
                             style: TextStyle(
-                                color: Color(0xff1e90ff),
+                                color: const Color(0xff1e90ff),
                                 fontSize: 12.sp,
                                 decoration: TextDecoration.underline,
-                                decorationColor: Color(0xff1e90ff),
+                                decorationColor: const Color(0xff1e90ff),
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.w400)),
                       ],
@@ -116,21 +111,21 @@ color: Colors.white,
                         Padding(
                           padding: EdgeInsets.only(top: 8.h),
                           child: Icon(Icons.search_outlined,
-                              size: 28.sp, color: Color(0xffb7b7b7)),
+                              size: 28.sp, color: const Color(0xffb7b7b7)),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 15.0),
+                          padding: const EdgeInsets.only(top: 15.0),
                           child: SizedBox(
                             width: 273.w,
                             child: TextFormField(
                               decoration: InputDecoration(
-                                  border: OutlineInputBorder(
+                                  border: const OutlineInputBorder(
                                     borderSide: BorderSide.none,
                                   ),
                                   hintText: 'Event, venue, organizer, session..',
                                   hintStyle: TextStyle(
                                     fontSize: 14.sp,
-                                    color: Color(0xffb7b7b7),
+                                    color: const Color(0xffb7b7b7),
                                   )),
                               onSaved: (String? value) {},
                             ),
@@ -149,15 +144,15 @@ color: Colors.white,
                             width: 42.w,
                             // height: 40,
                             //  color: Color(0xfff0f0f0),
-                            color: _visible==true?Color(0xff191919):
-                            Color(0xfff0f0f0),
+                            color: _visible==true?const Color(0xff191919):
+                            const Color(0xfff0f0f0),
                             child: Center(
                                 child: Image.asset(
                               'assets/icons/calender.png',
                               width: 24.w,
                               // height: 24.h,
-                                  color: _visible==true?Color(0xfff0f0f0):
-                                  Color(0xff191919),
+                                  color: _visible==true?const Color(0xfff0f0f0):
+                                  const Color(0xff191919),
                             )),
                           ),
                         )
@@ -216,7 +211,7 @@ color: Colors.white,
                           //
                           // )
                       ),
-                  )):SizedBox(),
+                  )):const SizedBox(),
                 ],
               ),
             ),
@@ -234,7 +229,7 @@ color: Colors.white,
                     child: Row(
                       children: [
                         Stack(
-                          children: [Container(
+                          children: [SizedBox(
                             width: 60.w,
                             height: 42.h,
                             child: Column(
@@ -250,14 +245,14 @@ color: Colors.white,
                                       child: Container(
                                       width: 40.w,
                                       height: 28,
-                                      color: Color(0xffb7b7b7),
+                                      color: const Color(0xffb7b7b7),
                                       child: Padding(
                                         padding: const EdgeInsets.all(5.0),
                                         child: Image.asset(
                                           'assets/icons/filter.png',
 
                                           height: 20.h,
-                                          color: Color(0xff191919),
+                                          color: const Color(0xff191919),
                                         ),
                                       ),
                                                                             ),
@@ -273,10 +268,10 @@ color: Colors.white,
                               left: 40.w,
                               bottom: 25.h,
                               child: CircleAvatar(radius: 8.r,
-                                backgroundColor:Color(0xff00ff00),
+                                backgroundColor:const Color(0xff00ff00),
                                 child:    Text('${4}',
                                     style: TextStyle(
-                                        color: Color(0xff191919),
+                                        color: const Color(0xff191919),
                                         fontSize: 8.sp,
                                         fontFamily: 'Montserrat',
                                         fontWeight: FontWeight.w400)),),
@@ -285,7 +280,7 @@ color: Colors.white,
 
                         ]),
                         TabBar(
-                          indicator: BoxDecoration(
+                          indicator: const BoxDecoration(
                                // Creates border
                               color:  Colors.black),
                           tabAlignment: TabAlignment.start,
@@ -297,14 +292,14 @@ color: Colors.white,
                             Container(
                                 width: 80.w,
                                 height: 30.h,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Colors.transparent,
                                 ),
                                 child: Tab(child: Text('All(${38})',style: TextStyle(color: Theme.of(context).colorScheme.onSecondary),))),
                             Container(
                                 width: 80.w,
                                 height: 30.h,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Colors.transparent,
                                 ),
                                 child: Tab(
@@ -317,7 +312,7 @@ color: Colors.white,
                             Container(
                                 width: 80.w,
                                 height: 30.h,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Colors.transparent,
                                 ),
                                 child: Tab(
@@ -348,7 +343,7 @@ color: Colors.white,
                           Container(
                             width: 393.w,
                             height: 248.h,
-                            decoration: BoxDecoration(color: Color(0xffffffff)),
+                            decoration: const BoxDecoration(color: Color(0xffffffff)),
                             child: Column(
                               children: [
                                 Padding(
@@ -359,7 +354,7 @@ color: Colors.white,
                                         child: Text(
                                             'Events happening nearby you',
                                             style: TextStyle(
-                                                color: Color(0xff191919),
+                                                color: const Color(0xff191919),
                                                 fontSize: 16.sp,
                                                 fontWeight:
                                                     FontWeight.w600,
@@ -369,7 +364,7 @@ color: Colors.white,
                                       SizedBox(
                                         width: 83.w,
                                       ),
-                                      Icon(
+                                      const Icon(
 
                                         Icons.arrow_forward_ios_outlined,
                                         size: 14,
@@ -395,7 +390,7 @@ color: Colors.white,
                                         return Container(
                                           width: 300.w,
                                           height: 174.h,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
 
                                               color: Color(0xffffffff)),
                                           child: Column(crossAxisAlignment: CrossAxisAlignment.start,
@@ -439,7 +434,7 @@ color: Colors.white,
                                                           Text(
                                                               'Kalamassery, Kochi ',
                                                               style: TextStyle(
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xffffffff),
                                                                   fontSize:
                                                                       10.sp,
@@ -460,11 +455,11 @@ color: Colors.white,
                                                   child: Container(
                                                     width: 61.w,
                                                     height: 20.h,
-                                                    color: Color(0x6B000000),
+                                                    color: const Color(0x6B000000),
                                                     child: Center(
                                                       child: Text('Business',
                                                           style: TextStyle(
-                                                              color: Color(
+                                                              color: const Color(
                                                                   0xfffefefe),
                                                               fontSize: 10.sp,
                                                               fontFamily: 'Montserrat',
@@ -495,7 +490,7 @@ color: Colors.white,
                           Container(
                             width: 393.w,
                             height: 380.h,
-                            decoration: BoxDecoration(color: Color(0xffffffff)),
+                            decoration: const BoxDecoration(color: Color(0xffffffff)),
                             child: Column(
                               children: [
                                 Padding(
@@ -505,7 +500,7 @@ color: Colors.white,
                                       Center(
                                         child: Text('Book a class',
                                             style: TextStyle(
-                                                color: Color(0xff191919),
+                                                color: const Color(0xff191919),
                                                 fontSize: 16.sp,
                                                 fontWeight: FontWeight.w600,
                                                 fontFamily: 'Montserrat')),
@@ -513,7 +508,7 @@ color: Colors.white,
                                       SizedBox(
                                         width: 231.w,
                                       ),
-                                      Icon(
+                                      const Icon(
 
                                         Icons.arrow_forward_ios_outlined,
                                         size: 14,
@@ -542,7 +537,7 @@ color: Colors.white,
                                           decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(0),
-                                              color: Color(0xffffffff)),
+                                              color: const Color(0xffffffff)),
                                           child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
                                               Stack(children: [
@@ -580,7 +575,7 @@ color: Colors.white,
                                                           Text(
                                                               'Beginner - Nidhi Mohan',
                                                               style: TextStyle(
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xffffffff),
                                                                   fontSize:
                                                                       10.sp,
@@ -603,11 +598,11 @@ color: Colors.white,
                                                   child: Container(
                                                     width: 61.w,
                                                     height: 20.h,
-                                                    color: Color(0xFF191919),
+                                                    color: const Color(0xFF191919),
                                                     child: Center(
                                                       child: Text('Regular',
                                                           style: TextStyle(
-                                                              color: Color(
+                                                              color: const Color(
                                                                   0xfffefefe),
                                                               fontSize: 10.sp,
                                                               fontFamily: 'Montserrat',
@@ -639,7 +634,7 @@ color: Colors.white,
                           Container(
                             width: 375.w,
                             height: 207.h,
-                            decoration: BoxDecoration(color: Color(0xffffffff)),
+                            decoration: const BoxDecoration(color: Color(0xffffffff)),
                             child: Column(
                               children: [
                                 Padding(
@@ -650,7 +645,7 @@ color: Colors.white,
                                         child: Text(
                                             'Organizers',
                                             style: TextStyle(
-                                                color: Color(0xff191919),
+                                                color: const Color(0xff191919),
                                                 fontSize: 16.sp,
                                                 fontWeight:
                                                 FontWeight.w600,
@@ -705,7 +700,7 @@ color: Colors.white,
                                                     textAlign: TextAlign.center,
                                                       'Rootsys Technologies school',
                                                       style: TextStyle(
-                                                          color: Color(0xff191919),
+                                                          color: const Color(0xff191919),
                                                           fontSize: 16.sp,
                                                           fontWeight:
                                                           FontWeight.w600,
@@ -740,7 +735,7 @@ color: Colors.white,
                           Container(
                             width: 375.w,
                             height: 298.h,
-                            decoration: BoxDecoration(color: Color(0xffffffff)),
+                            decoration: const BoxDecoration(color: Color(0xffffffff)),
                             child: Column(
                               children: [
                                 Row(
@@ -753,7 +748,7 @@ color: Colors.white,
                                             child: Text(
                                                 'Challenges',
                                                 style: TextStyle(
-                                                    color: Color(0xff191919),
+                                                    color: const Color(0xff191919),
                                                     fontSize: 16.sp,
                                                     fontWeight:
                                                     FontWeight.w600,
@@ -763,7 +758,7 @@ color: Colors.white,
                                           SizedBox(
                                             width: 242.w,
                                           ),
-                                          Icon(
+                                          const Icon(
                                             Icons.arrow_forward_ios_outlined,
                                             size: 14,
                                           )
@@ -794,7 +789,7 @@ color: Colors.white,
                                           decoration: BoxDecoration(
                                               borderRadius:
                                               BorderRadius.circular(0),
-                                              color: Color(0xffffffff)),
+                                              color: const Color(0xffffffff)),
                                           child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
                                               Stack(children: [
@@ -832,7 +827,7 @@ color: Colors.white,
                                                           Text(
                                                               'Flex Yoga - Subash Park Kaloor',
                                                               style: TextStyle(
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xffffffff),
                                                                   fontSize:
                                                                   12.sp,
@@ -853,11 +848,11 @@ color: Colors.white,
                                                   child: Container(
                                                     width: 61.w,
                                                     height: 20.h,
-                                                    color: Color(0x6B000000),
+                                                    color: const Color(0x6B000000),
                                                     child: Center(
                                                       child: Text('Business',
                                                           style: TextStyle(
-                                                              color: Color(
+                                                              color: const Color(
                                                                   0xfffefefe),
                                                               fontSize: 10.sp,
                                                               fontFamily: 'Montserrat',
@@ -896,7 +891,7 @@ color: Colors.white,
                 Container(
                   child: Padding(
                     padding:  EdgeInsets.only(left: 20.w),
-                    child: Column(
+                    child: const Column(
                       children: [
                         Text('dbkhhbhbhklbouhbouibbpbpbpobpb-pbpubata')
                       ],
@@ -906,7 +901,7 @@ color: Colors.white,
                 Container(
                   child: Padding(
                     padding:  EdgeInsets.only(left: 20.w),
-                    child: Column(
+                    child: const Column(
                       children: [
                         Text('dbkhhbhbhklbouhbouibbpbpbpobpb-pbpubata')
                       ],

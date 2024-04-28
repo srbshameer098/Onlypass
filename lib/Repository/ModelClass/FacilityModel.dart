@@ -115,44 +115,44 @@ class FacilityModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["_id"] = id;
-    _data["tier"] = tier;
-    _data["gender"] = gender;
-    _data["facilityName"] = facilityName;
-    _data["contactPerson"] = contactPerson;
-    _data["facility_type"] = facilityType;
-    _data["emailAddress"] = emailAddress;
-    _data["phoneNumber"] = phoneNumber;
-    _data["websiteURL"] = websiteUrl;
-    _data["logoUrl"] = logoUrl;
-    _data["description"] = description;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["_id"] = id;
+    data["tier"] = tier;
+    data["gender"] = gender;
+    data["facilityName"] = facilityName;
+    data["contactPerson"] = contactPerson;
+    data["facility_type"] = facilityType;
+    data["emailAddress"] = emailAddress;
+    data["phoneNumber"] = phoneNumber;
+    data["websiteURL"] = websiteUrl;
+    data["logoUrl"] = logoUrl;
+    data["description"] = description;
     if(images != null) {
-      _data["images"] = images;
+      data["images"] = images;
     }
-    _data["address"] = address;
-    _data["pin_code"] = pinCode;
-    _data["country"] = country;
-    _data["state"] = state;
-    _data["latitude_longitude"] = latitudeLongitude;
+    data["address"] = address;
+    data["pin_code"] = pinCode;
+    data["country"] = country;
+    data["state"] = state;
+    data["latitude_longitude"] = latitudeLongitude;
     if(amenities != null) {
-      _data["amenities"] = amenities?.map((e) => e.toJson()).toList();
+      data["amenities"] = amenities?.map((e) => e.toJson()).toList();
     }
     if(equipments != null) {
-      _data["equipments"] = equipments?.map((e) => e.toJson()).toList();
+      data["equipments"] = equipments?.map((e) => e.toJson()).toList();
     }
     if(facilityTiming != null) {
-      _data["facilityTiming"] = facilityTiming?.map((e) => e.toJson()).toList();
+      data["facilityTiming"] = facilityTiming?.map((e) => e.toJson()).toList();
     }
-    _data["admission_fee"] = admissionFee;
-    _data["other"] = other;
+    data["admission_fee"] = admissionFee;
+    data["other"] = other;
     if(review != null) {
-      _data["review"] = review;
+      data["review"] = review;
     }
-    _data["createdAt"] = createdAt;
-    _data["updatedAt"] = updatedAt;
-    _data["__v"] = v;
-    return _data;
+    data["createdAt"] = createdAt;
+    data["updatedAt"] = updatedAt;
+    data["__v"] = v;
+    return data;
   }
 
   FacilityModel copyWith({
@@ -240,16 +240,16 @@ class FacilityTiming {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
     if(morning != null) {
-      _data["morning"] = morning?.toJson();
+      data["morning"] = morning?.toJson();
     }
     if(evening != null) {
-      _data["evening"] = evening?.toJson();
+      data["evening"] = evening?.toJson();
     }
-    _data["day"] = day;
-    _data["_id"] = id;
-    return _data;
+    data["day"] = day;
+    data["_id"] = id;
+    return data;
   }
 
   FacilityTiming copyWith({
@@ -289,11 +289,11 @@ class Evening {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["start"] = start;
-    _data["end"] = end;
-    _data["holiday"] = holiday;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["start"] = start;
+    data["end"] = end;
+    data["holiday"] = holiday;
+    return data;
   }
 
   Evening copyWith({
@@ -331,11 +331,11 @@ class Morning {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["start"] = start;
-    _data["end"] = end;
-    _data["holiday"] = holiday;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["start"] = start;
+    data["end"] = end;
+    data["holiday"] = holiday;
+    return data;
   }
 
   Morning copyWith({
@@ -373,11 +373,11 @@ class Equipments {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["equipment_name"] = equipmentName;
-    _data["equipment_img"] = equipmentImg;
-    _data["_id"] = id;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["equipment_name"] = equipmentName;
+    data["equipment_img"] = equipmentImg;
+    data["_id"] = id;
+    return data;
   }
 
   Equipments copyWith({
@@ -419,12 +419,12 @@ class Amenities {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["amenities_name"] = amenitiesName;
-    _data["isPaid"] = isPaid;
-    _data["iconUrl"] = iconUrl;
-    _data["_id"] = id;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["amenities_name"] = amenitiesName;
+    data["isPaid"] = isPaid;
+    data["iconUrl"] = iconUrl;
+    data["_id"] = id;
+    return data;
   }
 
   Amenities copyWith({

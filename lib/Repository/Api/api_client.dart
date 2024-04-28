@@ -77,14 +77,10 @@ class ApiClient {
         });
     }
 
-    print('status of $path =>' + (response.statusCode).toString());
+    print('status of $path =>${response.statusCode}');
     print(response.body);
     if (response.statusCode >= 400) {
-      log(path +
-          ' : ' +
-          response.statusCode.toString() +
-          ' : ' +
-          response.body);
+      log('$path : ${response.statusCode} : ${response.body}');
 
       throw ApiException(_decodeBodyBytes(response), response.statusCode);
     }

@@ -5,9 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:onlypass/UI/Bottomnav.dart';
 
 import 'package:onlypass/bloc/Fecilities/fecilities_bloc.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-import 'UI/Home.dart';
 import 'color customize/Colors.dart';
 class ThemeProvider with ChangeNotifier {
   late ThemeMode _themeMode = ThemeMode.system;

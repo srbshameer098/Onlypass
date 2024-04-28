@@ -1,9 +1,7 @@
 import 'dart:async';
 
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geocoding/geocoding.dart';
@@ -16,13 +14,12 @@ import '../Repository/ModelClass/FacilityModel.dart';
 import 'Detailed_Page.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import 'Location.dart';
 
 bool _visible1 = false;
 bool _location = true;
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
@@ -50,7 +47,7 @@ class _HomeState extends State<Home> {
     // TODO: implement initState
     super.initState();
     _determinePosition();
-          final LocationSettings locationSettings = LocationSettings(
+          const LocationSettings locationSettings = LocationSettings(
             accuracy: LocationAccuracy.high,
             distanceFilter: 100,
           );
@@ -167,7 +164,7 @@ class _HomeState extends State<Home> {
               //       ),
 
               Stack(children: [
-                Container(
+                SizedBox(
                   width: 394.w,
                   height: _visible1 == true ? 618.h : 244.h,
                   child: Image.asset(
@@ -194,82 +191,79 @@ class _HomeState extends State<Home> {
 
                 ///-----------Search Container  -------------------///
 
-                Padding(
-                  padding: EdgeInsets.only(top: 60.h),
-                  child: Center(
-                    child: Positioned(
-                      child: Container(
-                        width: 345.w,
-                        height: 48.h,
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                                color: Colors.grey,
-                                width: .5.w,
-                                style: BorderStyle.solid),
-                            color: Colors.white),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(top: 0.h,right: 1.3.w),
-                              child: Icon(Icons.search_outlined,
-                                  size: 28.sp, color: Color(0xffb7b7b7)),
-                            ),
-                            SizedBox(
-                              width: 175.w,
-                              child: TextFormField(
-                                minLines: 1,
-                                decoration: InputDecoration(
-                                  hintText:loca=_currentAdess,
-                                  hintStyle:const TextStyle(color: Color(0xff191919)),
-                                  enabledBorder: InputBorder.none,
-                                  disabledBorder: InputBorder.none,
-                                  focusedBorder: InputBorder.none,
-                                ),
-                              ),
-                            ),
-
-                            Text(
-                              "- 6 km around",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w400,
-                                  color: Colors.grey),
-                            ),
-                            SizedBox(
-                              width: 10.w,
-                            ),
-                            GestureDetector(
-                              // _visible==true?
-                              child: Container(
-                                width: 42.w,
-                                // height: 40,
-                                //  color: Color(0xfff0f0f0),
-                                color: Color(0xfff0f0f0),
-                                child: Center(
-                                    child: _visible1 == true
-                                        ? Center(
-                                            child: Image.asset(
-                                              'assets/icons/filter.png',
-                                              width: 24.w,
-                                              // height: 24.h,
-                                              color: Color(0xff191919),
-                                            ),
-                                          )
-                                        : Center(
-                                            child: Image.asset(
-                                              'assets/icons/notificationbell.png',
-                                              width: 24.w,
-                                              // height: 24.h,
-                                              color: Color(0xff191919),
-                                            ),
-                                          )),
-                              ),
-                            )
-                          ],
+                Positioned(
+                  top: 60,
+                  left: 25,
+                  child: Container(
+                    width: 345.w,
+                    height: 48.h,
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                            color: Colors.grey,
+                            width: .5.w,
+                            style: BorderStyle.solid),
+                        color: Colors.white),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(top: 0.h,right: 1.3.w),
+                          child: Icon(Icons.search_outlined,
+                              size: 28.sp, color: const Color(0xffb7b7b7)),
                         ),
-                      ),
+                        SizedBox(
+                          width: 175.w,
+                          child: TextFormField(
+                            minLines: 1,
+                            decoration: InputDecoration(
+                              hintText:loca=_currentAdess,
+                              hintStyle:const TextStyle(color: Color(0xff191919)),
+                              enabledBorder: InputBorder.none,
+                              disabledBorder: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                            ),
+                          ),
+                        ),
+
+                        Text(
+                          "- 6 km around",
+                          style: TextStyle(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.grey),
+                        ),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                        GestureDetector(
+                          // _visible==true?
+                          child: Container(
+                            width: 42.w,
+                            // height: 40,
+                            //  color: Color(0xfff0f0f0),
+                            color: const Color(0xfff0f0f0),
+                            child: Center(
+                                child: _visible1 == true
+                                    ? Center(
+                                        child: Image.asset(
+                                          'assets/icons/filter.png',
+                                          width: 24.w,
+                                          // height: 24.h,
+                                          color: const Color(0xff191919),
+                                        ),
+                                      )
+                                    : Center(
+                                        child: Image.asset(
+                                          'assets/icons/notificationbell.png',
+                                          width: 24.w,
+                                          // height: 24.h,
+                                          color: const Color(0xff191919),
+                                        ),
+                                      )),
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 ),
@@ -661,7 +655,7 @@ class _HomeState extends State<Home> {
                                                                     .length <=
                                                                 4,
                                                             physics:
-                                                                ScrollPhysics(
+                                                                const ScrollPhysics(
                                                                     parent:
                                                                         NeverScrollableScrollPhysics()),
                                                             scrollDirection:
@@ -730,8 +724,8 @@ class _HomeState extends State<Home> {
                                                                     children: [
                                                                       Center(
                                                                           child:
-                                                                              Text("+${balance}",
-                                                                                 style:  TextStyle(
+                                                                              Text("+$balance",
+                                                                                 style:  const TextStyle(
                                                                                    color: Colors.black,
                                                                                  )
                                                                               )),
@@ -739,7 +733,7 @@ class _HomeState extends State<Home> {
                                                                   ),
                                                                 );
                                                               } else {
-                                                                return SizedBox();
+                                                                return const SizedBox();
                                                               }
                                                             },
                                                             separatorBuilder:
@@ -808,9 +802,9 @@ class _HomeState extends State<Home> {
                               width: 310.w,
                               height: 80.h,
                               decoration: BoxDecoration(
-                                  color: Color(0xfe7a3a3),
+                                  color: const Color(0x0fe7a3a3),
                                   borderRadius: BorderRadius.circular(8.r),
-                                  border: Border.all(color: Color(0xff000000))),
+                                  border: Border.all(color: const Color(0xff000000))),
                               child: Row(
                                 children: [
                                   SizedBox(
@@ -823,7 +817,7 @@ class _HomeState extends State<Home> {
                                  ,   style: TextStyle(
                                         fontSize: 20.sp,
                                         fontWeight: FontWeight.w500,
-                                        color: Color(0xff000000)),
+                                        color: const Color(0xff000000)),
                                   ),
                                 ],
                               ),

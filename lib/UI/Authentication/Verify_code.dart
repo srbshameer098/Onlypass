@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 class Verify_code extends StatefulWidget {
   const Verify_code({super.key});
 
@@ -10,6 +9,6 @@ class Verify_code extends StatefulWidget {
 class _Verify_codeState extends State<Verify_code> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold();
+    return  const Scaffold();
   }
 }

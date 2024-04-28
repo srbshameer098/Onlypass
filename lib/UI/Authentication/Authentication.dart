@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:lottie/lottie.dart';
 
-import 'Verify_code.dart';
 class Authentification extends StatefulWidget {
   const Authentification({super.key});
 
@@ -36,7 +35,7 @@ class _AuthentificationState extends State<Authentification> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
                   // border: Border.all(width: 1,color: Colors.grey),
-                  color: Color(0xfce5e5e5)),child:  Padding(
+                  color: const Color(0xfce5e5e5)),child:  Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -61,7 +60,7 @@ class _AuthentificationState extends State<Authentification> {
                   TextFormField(
                     keyboardType: TextInputType.phone,
                     controller: PhoneNumberController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         prefixText: '+91',
                         hintText: '99999 99999'
                     ),
@@ -100,7 +99,7 @@ class _AuthentificationState extends State<Authentification> {
                     //         loading = false ;
                     //       });
                     //     });
-                  }, child: Text('Next'))
+                  }, child: const Text('Next'))
 
                 ],
               ),

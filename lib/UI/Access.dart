@@ -1,16 +1,10 @@
-import 'dart:developer';
-import 'dart:io';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:qr_flutter/qr_flutter.dart';
 
 class Access extends StatefulWidget {
-  const Access({Key? key}) : super(key: key);
+  const Access({super.key});
 
   @override
   State<Access> createState() => _AccessState();
@@ -25,14 +19,14 @@ class _AccessState extends State<Access> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
-          title: Text(
+          title: const Text(
             'Access',
             style: TextStyle(color: Colors.white),
           ),
           actions: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: Icon(
+              child: const Icon(
                 Icons.menu,
                 color: Colors.white,
               ),
@@ -63,9 +57,9 @@ class _AccessState extends State<Access> {
                               version: QrVersions.auto,
                               size: 320,
                               gapless: false,
-                              embeddedImage: AssetImage(
+                              embeddedImage: const AssetImage(
                                   'assets/images/my_embedded_image.png'),
-                              embeddedImageStyle: QrEmbeddedImageStyle(
+                              embeddedImageStyle: const QrEmbeddedImageStyle(
                                 size: Size(80, 80),
                               ),
                             ),
@@ -88,7 +82,7 @@ class _AccessState extends State<Access> {
 
                   Text('Active membership',
                       style: TextStyle(
-                          color: Color(0xff191919),
+                          color: const Color(0xff191919),
                           fontSize: 18.sp,
                           fontFamily: 'Montserrat',
                           fontWeight: FontWeight.w600)),
@@ -113,7 +107,7 @@ class _AccessState extends State<Access> {
                             children: [
                               Text('Gold Club Pass',
                                   style: TextStyle(
-                                      color: Color(0xffd2ad63),
+                                      color: const Color(0xffd2ad63),
                                       fontSize: 16.sp,
                                       fontFamily: 'Montserrat',
                                       fontWeight: FontWeight.w600)),
@@ -121,13 +115,13 @@ class _AccessState extends State<Access> {
                                 children: [
                                   Text('Ends on ',
                                       style: TextStyle(
-                                          color: Color(0xff191919),
+                                          color: const Color(0xff191919),
                                           fontSize: 14.sp,
                                           fontFamily: 'Montserrat',
                                           fontWeight: FontWeight.w400)),
                                   Text('June 24, 2024',
                                       style: TextStyle(
-                                          color: Color(0xff191919),
+                                          color: const Color(0xff191919),
                                           fontSize: 14.sp,
                                           fontFamily: 'Montserrat',
                                           fontWeight: FontWeight.w600)),
@@ -141,13 +135,13 @@ class _AccessState extends State<Access> {
                           Container(
                             width: 66.w,
                             height: 22,
-                            color: Color(0xff191919),
+                            color: const Color(0xff191919),
                             child: Padding(
                               padding: EdgeInsets.symmetric(horizontal: 8.w),
                               child: Center(
                                 child: Text('Renew',
                                     style: TextStyle(
-                                        color: Color(0xffffffff),
+                                        color: const Color(0xffffffff),
                                         fontSize: 12.sp,
                                         fontFamily: 'Montserrat',
                                         fontWeight: FontWeight.w400)),
@@ -165,7 +159,7 @@ class _AccessState extends State<Access> {
 
                   Text('Active membership',
                       style: TextStyle(
-                          color: Color(0xff191919),
+                          color: const Color(0xff191919),
                           fontSize: 18.sp,
                           fontFamily: 'Montserrat',
                           fontWeight: FontWeight.w600)),
@@ -189,7 +183,7 @@ class _AccessState extends State<Access> {
                             children: [
                               Text('Skyline Hotel (Silver)',
                                   style: TextStyle(
-                                      color: Color(0xff191919),
+                                      color: const Color(0xff191919),
                                       fontSize: 16.sp,
                                       fontFamily: 'Montserrat',
                                       fontWeight: FontWeight.w600)),
@@ -197,13 +191,13 @@ class _AccessState extends State<Access> {
                                 children: [
                                   Text('Ends on ',
                                       style: TextStyle(
-                                          color: Color(0xfff44336),
+                                          color: const Color(0xfff44336),
                                           fontSize: 14.sp,
                                           fontFamily: 'Montserrat',
                                           fontWeight: FontWeight.w400)),
                                   Text('May 16, 2024',
                                       style: TextStyle(
-                                          color: Color(0xfff44336),
+                                          color: const Color(0xfff44336),
                                           fontSize: 14.sp,
                                           fontFamily: 'Montserrat',
                                           fontWeight: FontWeight.w600)),
@@ -221,13 +215,13 @@ class _AccessState extends State<Access> {
                           Container(
                             width: 66.w,
                             height: 22,
-                            color: Color(0xff191919),
+                            color: const Color(0xff191919),
                             child: Padding(
                               padding: EdgeInsets.symmetric(horizontal: 8.w),
                               child: Center(
                                 child: Text('Contact',
                                     style: TextStyle(
-                                        color: Color(0xffffffff),
+                                        color: const Color(0xffffffff),
                                         fontSize: 12.sp,
                                         fontFamily: 'Montserrat',
                                         fontWeight: FontWeight.w400)),
@@ -276,7 +270,7 @@ class _AccessState extends State<Access> {
                           Text(
                               'Upgrade your membership to Platinum\nPass to access all fitness centers.',
                               style: TextStyle(
-                                  color: Color(0xffffffff),
+                                  color: const Color(0xffffffff),
                                   fontSize: 14.sp,
                                   fontFamily: 'Montserrat',
                                   fontWeight: FontWeight.w400)),

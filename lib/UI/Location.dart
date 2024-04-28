@@ -1,7 +1,6 @@
 import 'dart:async';
 
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geocoding/geocoding.dart';
@@ -84,18 +83,18 @@ class _LocationState extends State<Location> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffFFFFFF),
+      backgroundColor: const Color(0xffFFFFFF),
       appBar: AppBar(
         title: Text(
           "Confirm Your Location",
           style: TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 20.sp,
-              color: Color(0xff0E697C)),
+              color: const Color(0xff0E697C)),
         ),
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
             color: Color(0xff0E697C),
           ),
@@ -114,20 +113,20 @@ class _LocationState extends State<Location> {
                 width: 310.w,
                 height: 80.h,
                 decoration: BoxDecoration(
-                    color: Color(0xffFFFFFF),
+                    color: const Color(0xffFFFFFF),
                     borderRadius: BorderRadius.circular(8.r),
-                    border: Border.all(color: Color(0xff000000))),
+                    border: Border.all(color: const Color(0xff000000))),
                 child: Row(
                   children: [
                     SizedBox(
                       width: 20.w,
                     ),
                     Text(
-                      '${_currentAdess}',
+                      _currentAdess,
                       style: TextStyle(
                           fontSize: 20.sp,
                           fontWeight: FontWeight.w500,
-                          color: Color(0xff000000)),
+                          color: const Color(0xff000000)),
                     ),
                   ],
                 ),
@@ -138,7 +137,7 @@ class _LocationState extends State<Location> {
               child: GestureDetector(
                 onTap: () {
                   _determinePosition();
-                  final LocationSettings locationSettings = LocationSettings(
+                  const LocationSettings locationSettings = LocationSettings(
                     accuracy: LocationAccuracy.high,
                     distanceFilter: 100,
                   );
@@ -171,7 +170,7 @@ class _LocationState extends State<Location> {
                     style: TextStyle(
                       fontSize: 18.sp,
                       fontWeight: FontWeight.w400,
-                      color: Color(0xffFFFFFF),
+                      color: const Color(0xffFFFFFF),
                     ),
                   ),
                 ),

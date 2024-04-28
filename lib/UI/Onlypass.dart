@@ -1,12 +1,10 @@
 import 'package:dotted_line/dotted_line.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:onlypass/UI/Authentication/Authentication.dart';
 
 class Onlypass extends StatefulWidget {
-  const Onlypass({Key? key}) : super(key: key);
+  const Onlypass({super.key});
 
   @override
   State<Onlypass> createState() => _OnlypassState();
@@ -18,7 +16,7 @@ class _OnlypassState extends State<Onlypass> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text(
+        title: const Text(
           'Onlypass',
           style: TextStyle(color: Colors.white),
         ),
@@ -28,9 +26,9 @@ class _OnlypassState extends State<Onlypass> {
             child: GestureDetector(
               onTap: (){
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (builder) => Authentification()));
+                    builder: (builder) => const Authentification()));
               },
-              child: Icon(
+              child: const Icon(
                 Icons.menu,
                 color: Colors.white,
               ),
@@ -56,7 +54,7 @@ class _OnlypassState extends State<Onlypass> {
                         Container(
                           width: 350.w,
                           height: 172.h,
-                          color: Color(0xff191919),
+                          color: const Color(0xff191919),
                           child: Row(
                             children: [
                               Padding(
@@ -67,13 +65,13 @@ class _OnlypassState extends State<Onlypass> {
                                   children: [
                                     Text('Gold Pass',
                                         style: TextStyle(
-                                            color: Color(0xffd2ad63),
+                                            color: const Color(0xffd2ad63),
                                             fontSize: 16.sp,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.w700)),
                                     Text('Best value for money.',
                                         style: TextStyle(
-                                            color: Color(0xffdadada),
+                                            color: const Color(0xffdadada),
                                             fontSize: 12.sp,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.w400)),
@@ -83,7 +81,7 @@ class _OnlypassState extends State<Onlypass> {
                                     Text(
                                         'Unlimited Visit to ${1165}+ \nFitness Centers in Kerala',
                                         style: TextStyle(
-                                            color: Color(0xffffffff),
+                                            color: const Color(0xffffffff),
                                             fontSize: 14.sp,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.w400)),
@@ -92,7 +90,7 @@ class _OnlypassState extends State<Onlypass> {
                                     ),
                                     Text('Free access to training videos',
                                         style: TextStyle(
-                                            color: Color(0xffdadada),
+                                            color: const Color(0xffdadada),
                                             fontSize: 14.sp,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.w400)),
@@ -102,7 +100,7 @@ class _OnlypassState extends State<Onlypass> {
                               Stack(children: [
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 0.w,
                                     height: 170,
                                     child: Padding(
@@ -125,14 +123,14 @@ class _OnlypassState extends State<Onlypass> {
                                 Positioned(
                                     right: 3.w,
                                     top: 167.h,
-                                    child: CircleAvatar(
+                                    child: const CircleAvatar(
                                       radius: 5,
                                       backgroundColor: Colors.white,
                                     )),
                                 Positioned(
                                     left: 3.w,
                                     bottom: 167.h,
-                                    child: CircleAvatar(
+                                    child: const CircleAvatar(
                                       radius: 5,
                                       backgroundColor: Colors.white,
                                     ))
@@ -144,7 +142,7 @@ class _OnlypassState extends State<Onlypass> {
                                   children: [
                                     Text('30 Days\nAccess',
                                         style: TextStyle(
-                                            color: Color(0xffffffff),
+                                            color: const Color(0xffffffff),
                                             fontSize: 14.sp,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.w400)),
@@ -153,14 +151,14 @@ class _OnlypassState extends State<Onlypass> {
                                     ),
                                     Text('Starts from',
                                         style: TextStyle(
-                                            color: Color(0xffdadada),
+                                            color: const Color(0xffdadada),
                                             fontSize: 12.sp,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.w400)),
                                     Container(
                                       width: 72.w,
                                       height: 36.h,
-                                      color: Color(0xff00ff00),
+                                      color: const Color(0xff00ff00),
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
@@ -169,13 +167,13 @@ class _OnlypassState extends State<Onlypass> {
                                         children: [
                                           Text('Rs. 1,999',
                                               style: TextStyle(
-                                                  color: Color(0xff191919),
+                                                  color: const Color(0xff191919),
                                                   fontSize: 12.sp,
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.w600)),
                                           Text('  /Month',
                                               style: TextStyle(
-                                                  color: Color(0xff191919),
+                                                  color: const Color(0xff191919),
                                                   fontSize: 10.sp,
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.w400)),
@@ -202,7 +200,7 @@ class _OnlypassState extends State<Onlypass> {
                         Container(
                           width: 350.w,
                           height: 172.h,
-                          color: Color(0xff191919),
+                          color: const Color(0xff191919),
                           child: Row(
                             children: [
                               Padding(
@@ -213,13 +211,13 @@ class _OnlypassState extends State<Onlypass> {
                                   children: [
                                     Text('Silver Pass',
                                         style: TextStyle(
-                                            color: Color(0xffececec),
+                                            color: const Color(0xffececec),
                                             fontSize: 16.sp,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.w700)),
                                     Text('Budget-friendly for everyone.',
                                         style: TextStyle(
-                                            color: Color(0xffdadada),
+                                            color: const Color(0xffdadada),
                                             fontSize: 12.sp,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.w400)),
@@ -229,7 +227,7 @@ class _OnlypassState extends State<Onlypass> {
                                     Text(
                                         'Unlimited Visit to ${11076}+ \nFitness Centers in Kerala',
                                         style: TextStyle(
-                                            color: Color(0xffffffff),
+                                            color: const Color(0xffffffff),
                                             fontSize: 14.sp,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.w400)),
@@ -241,7 +239,7 @@ class _OnlypassState extends State<Onlypass> {
                                             decoration:
                                                 TextDecoration.underline,
                                             decorationColor: Colors.white,
-                                            color: Color(0xffdadada),
+                                            color: const Color(0xffdadada),
                                             fontSize: 14.sp,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.w600)),
@@ -251,7 +249,7 @@ class _OnlypassState extends State<Onlypass> {
                               Stack(children: [
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 0.w,
                                     height: 170,
                                     child: Padding(
@@ -274,14 +272,14 @@ class _OnlypassState extends State<Onlypass> {
                                 Positioned(
                                     right: 3.w,
                                     top: 167.h,
-                                    child: CircleAvatar(
+                                    child: const CircleAvatar(
                                       radius: 5,
                                       backgroundColor: Colors.white,
                                     )),
                                 Positioned(
                                     left: 3.w,
                                     bottom: 167.h,
-                                    child: CircleAvatar(
+                                    child: const CircleAvatar(
                                       radius: 5,
                                       backgroundColor: Colors.white,
                                     ))
@@ -293,7 +291,7 @@ class _OnlypassState extends State<Onlypass> {
                                   children: [
                                     Text('30 Days\nAccess',
                                         style: TextStyle(
-                                            color: Color(0xffffffff),
+                                            color: const Color(0xffffffff),
                                             fontSize: 14.sp,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.w400)),
@@ -302,14 +300,14 @@ class _OnlypassState extends State<Onlypass> {
                                     ),
                                     Text('Starts from',
                                         style: TextStyle(
-                                            color: Color(0xffdadada),
+                                            color: const Color(0xffdadada),
                                             fontSize: 12.sp,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.w400)),
                                     Container(
                                       width: 72.w,
                                       height: 36.h,
-                                      color: Color(0xff00ff00),
+                                      color: const Color(0xff00ff00),
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
@@ -318,13 +316,13 @@ class _OnlypassState extends State<Onlypass> {
                                         children: [
                                           Text('Rs. 999',
                                               style: TextStyle(
-                                                  color: Color(0xff191919),
+                                                  color: const Color(0xff191919),
                                                   fontSize: 12.sp,
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.w600)),
                                           Text('  /Month',
                                               style: TextStyle(
-                                                  color: Color(0xff191919),
+                                                  color: const Color(0xff191919),
                                                   fontSize: 10.sp,
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.w400)),
@@ -356,7 +354,7 @@ class _OnlypassState extends State<Onlypass> {
                         Container(
                           width: 350.w,
                           height: 172.h,
-                          color: Color(0xff191919),
+                          color: const Color(0xff191919),
                           child: Row(
                             children: [
                               Padding(
@@ -367,13 +365,13 @@ class _OnlypassState extends State<Onlypass> {
                                   children: [
                                     Text('Platinum Pass',
                                         style: TextStyle(
-                                            color: Color(0xff8ca9b1),
+                                            color: const Color(0xff8ca9b1),
                                             fontSize: 16.sp,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.w700)),
                                     Text('VIP full access with no restriction.',
                                         style: TextStyle(
-                                            color: Color(0xffdadada),
+                                            color: const Color(0xffdadada),
                                             fontSize: 12.sp,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.w400)),
@@ -383,7 +381,7 @@ class _OnlypassState extends State<Onlypass> {
                                     Text(
                                         'Access any fitness center in\nthe network with premium pass',
                                         style: TextStyle(
-                                            color: Color(0xffffffff),
+                                            color: const Color(0xffffffff),
                                             fontSize: 14.sp,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.w400)),
@@ -392,7 +390,7 @@ class _OnlypassState extends State<Onlypass> {
                                     ),
                                     Text('Elite access to whole content',
                                         style: TextStyle(
-                                            color: Color(0xffdadada),
+                                            color: const Color(0xffdadada),
                                             fontSize: 14.sp,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.w400)),
@@ -402,7 +400,7 @@ class _OnlypassState extends State<Onlypass> {
                               Stack(children: [
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 0.w,
                                     height: 170,
                                     child: Padding(
@@ -425,14 +423,14 @@ class _OnlypassState extends State<Onlypass> {
                                 Positioned(
                                     right: 3.w,
                                     top: 167.h,
-                                    child: CircleAvatar(
+                                    child: const CircleAvatar(
                                       radius: 5,
                                       backgroundColor: Colors.white,
                                     )),
                                 Positioned(
                                     left: 3.w,
                                     bottom: 167.h,
-                                    child: CircleAvatar(
+                                    child: const CircleAvatar(
                                       radius: 5,
                                       backgroundColor: Colors.white,
                                     ))
@@ -444,7 +442,7 @@ class _OnlypassState extends State<Onlypass> {
                                   children: [
                                     Text('30 Days\nAccess',
                                         style: TextStyle(
-                                            color: Color(0xffffffff),
+                                            color: const Color(0xffffffff),
                                             fontSize: 14.sp,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.w400)),
@@ -453,14 +451,14 @@ class _OnlypassState extends State<Onlypass> {
                                     ),
                                     Text('Starts from',
                                         style: TextStyle(
-                                            color: Color(0xffdadada),
+                                            color: const Color(0xffdadada),
                                             fontSize: 12.sp,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.w400)),
                                     Container(
                                       width: 72.w,
                                       height: 36.h,
-                                      color: Color(0xff00ff00),
+                                      color: const Color(0xff00ff00),
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
@@ -469,13 +467,13 @@ class _OnlypassState extends State<Onlypass> {
                                         children: [
                                           Text('Rs. 3,199',
                                               style: TextStyle(
-                                                  color: Color(0xff191919),
+                                                  color: const Color(0xff191919),
                                                   fontSize: 12.sp,
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.w600)),
                                           Text('  /Month',
                                               style: TextStyle(
-                                                  color: Color(0xff191919),
+                                                  color: const Color(0xff191919),
                                                   fontSize: 10.sp,
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.w400)),
@@ -499,8 +497,8 @@ class _OnlypassState extends State<Onlypass> {
               child: Text('I have a membership plan already',
                   style: TextStyle(
                       decoration: TextDecoration.underline,
-                      decorationColor: Color(0xff1e90ff),
-                      color: Color(0xff1e90ff),
+                      decorationColor: const Color(0xff1e90ff),
+                      color: const Color(0xff1e90ff),
                       fontSize: 14.sp,
                       fontFamily: 'Montserrat',
                       fontWeight: FontWeight.w600)),

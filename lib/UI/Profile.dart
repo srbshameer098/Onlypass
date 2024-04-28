@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
+  const Profile({super.key});
 
   @override
   State<Profile> createState() => _ProfileState();
@@ -121,7 +121,7 @@ class _ProfileState extends State<Profile> {
                       child: GridView.count(
                         primary: false,
                         padding: const EdgeInsets.all(0),
-                        physics: ScrollPhysics(parent: NeverScrollableScrollPhysics()),
+                        physics: const ScrollPhysics(parent: NeverScrollableScrollPhysics()),
                         crossAxisSpacing: 2.w,
                         mainAxisSpacing: 2.h,
                         crossAxisCount: 2,
