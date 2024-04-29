@@ -216,6 +216,7 @@ class _HomeState extends State<Home> {
                           width: 175.w,
                           child: TextFormField(
                             minLines: 1,
+                            style:TextStyle(color: Colors.black),
                             decoration: InputDecoration(
                               hintText:loca=_currentAdess,
                               hintStyle:const TextStyle(color: Color(0xff191919)),
@@ -306,43 +307,56 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                           ),
-                          TabBar(
-                            indicator: BoxDecoration(
-                              // Creates border
-                              color: Theme.of(context).colorScheme.onSecondary,),
-                            tabAlignment: TabAlignment.start,
-                            indicatorColor: Colors.transparent,
-                              unselectedLabelColor:Theme.of(context).colorScheme.onSecondary,
-                            labelColor:  Theme.of(context).colorScheme.onSecondary,
-                            isScrollable: true,
-                            tabs: [
-                              Container(
-                                  width: 80.w,
-                                  height: 30.h,
-                                  decoration: const BoxDecoration(
-                                      color: Colors.transparent),
-                                  child:  Tab(child: Text('All(${38})',style:TextStyle(color:  Theme.of(context).colorScheme.onSecondary,)))),
-                              Container(
-                                  width: 80.w,
-                                  height: 30.h,
-                                  decoration: const BoxDecoration(
-                                      color: Colors.transparent),
-                                  child:  Tab(
-                                      child: Text(
-                                    'Gym(${21})',
-                                    style: TextStyle(color:  Theme.of(context).colorScheme.onSecondary,),
-                                  ))),
-                              Container(
-                                  width: 80.w,
-                                  height: 30.h,
-                                  decoration: const BoxDecoration(
-                                    ),
-                                  child:  Tab(
-                                      child: Text(
-                                    'Pool(${14})',
-                                    style: TextStyle(color:  Theme.of(context).colorScheme.onSecondary,),
-                                  ))),
-                            ],
+
+
+
+
+                          Container(
+
+                            child: TabBar(
+                              indicator: BoxDecoration(
+                                // Creates border
+                                color:  Color(0xff191919),
+                             ),
+                              labelStyle:TextStyle(color: Colors.white),
+                                unselectedLabelColor: Colors.black,
+                                dividerColor:Colors.transparent,
+                              tabAlignment: TabAlignment.start,
+                              indicatorColor: Colors.transparent,
+
+
+                              isScrollable: true,
+                              tabs: [
+                                Container(
+                                    width: 80.w,
+                                    height: 30.h,
+                                    decoration: const BoxDecoration(
+                                        color: Colors.transparent),
+                                    child:  Tab(child: Text('All(${38})',style:TextStyle()))),
+                                Container(
+                                    width: 80.w,
+                                    height: 30.h,
+                                    decoration:  BoxDecoration(
+                                        color: Colors.transparent),
+                                    child:  Tab(
+                                        child: Text(
+                                      'Gym(${21})',
+                                      style: TextStyle( ),
+                                    ))),
+                                Container(
+                                    width: 80.w,
+                                    height: 30.h,
+
+                                    decoration: const BoxDecoration(
+                                      color: Colors.grey
+                                      ),
+                                    child:  Tab(
+                                        child: Text(
+                                      'Pool(${14})',
+                                      style: TextStyle(),
+                                    ))),
+                              ],
+                            ),
                           ),
                         ],
                       ),

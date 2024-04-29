@@ -94,9 +94,9 @@ class _EventState extends State<Event> {
                     height: 40.h,
                     decoration: BoxDecoration(
 
-color: Colors.white,
+
                       border: Border.all(
-                          color: _visible==true?Theme.of(context).colorScheme.onSecondary
+                          color: _visible==true?Colors.black
                               : Colors.grey,
                           width: 1.w,
                           style: BorderStyle.solid)
@@ -118,6 +118,7 @@ color: Colors.white,
                           child: SizedBox(
                             width: 273.w,
                             child: TextFormField(
+                              style:TextStyle(color: Colors.black),
                               decoration: InputDecoration(
                                   border: const OutlineInputBorder(
                                     borderSide: BorderSide.none,
@@ -282,10 +283,11 @@ color: Colors.white,
                         TabBar(
                           indicator: const BoxDecoration(
                                // Creates border
-                              color:  Colors.black),
+                            color: const Color(0xff191919),),
                           tabAlignment: TabAlignment.start,
 
-                          labelColor: Theme.of(context).colorScheme.background,
+                          labelColor: Colors.white,
+                          unselectedLabelColor: Colors.black,
 
                           isScrollable: true,
                           tabs: [
@@ -295,7 +297,7 @@ color: Colors.white,
                                 decoration: const BoxDecoration(
                                   color: Colors.transparent,
                                 ),
-                                child: Tab(child: Text('All(${38})',style: TextStyle(color: Theme.of(context).colorScheme.onSecondary),))),
+                                child: Tab(child: Text('All(${38})',style: TextStyle(),))),
                             Container(
                                 width: 80.w,
                                 height: 30.h,
@@ -306,7 +308,7 @@ color: Colors.white,
                                     child: Text(
                                   'Event(${21})',
                                   style: TextStyle(
-                                      color: Theme.of(context).colorScheme.onSecondary
+
                                   ),
                                 ))),
                             Container(
@@ -319,7 +321,7 @@ color: Colors.white,
                                     child: Text(
                                   'Class(${14})',
                                   style: TextStyle(
-                                      color: Theme.of(context).colorScheme.onSecondary
+
                                   ),
                                 ))),
                           ],

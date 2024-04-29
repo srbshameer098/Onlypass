@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
                   fontFamily: 'Montserrat',
                 ),
 
-                themeMode: ThemeMode.system,
+                themeMode: ThemeMode.light,
                 home: const BottomNav(),
               ),
             );
