@@ -1,13 +1,19 @@
 
 
+import 'package:buttons_tabbar/buttons_tabbar.dart';
+import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+
 
 
 
 bool _visible = false;
-
+String _selectedValue ='' ;
+final EasyInfiniteDateTimelineController _controller =
+EasyInfiniteDateTimelineController();
 class Event extends StatefulWidget {
   const Event({super.key});
 
@@ -91,7 +97,7 @@ class _EventState extends State<Event> {
                   ),
                   Container(
                      width: 345.w,
-                    height: 40.h,
+                    height: 45.h,
                     decoration: BoxDecoration(
 
 
@@ -109,14 +115,14 @@ class _EventState extends State<Event> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(top: 8.h),
+                          padding: EdgeInsets.only(top: 8.h,left: 12),
                           child: Icon(Icons.search_outlined,
                               size: 28.sp, color: const Color(0xffb7b7b7)),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 15.0),
                           child: SizedBox(
-                            width: 273.w,
+                            width: 261.8.w,
                             child: TextFormField(
                               style:TextStyle(color: Colors.black),
                               decoration: InputDecoration(
@@ -163,54 +169,69 @@ class _EventState extends State<Event> {
 
                   _visible==true?  SizedBox(
 
-                    height: 150.h,
+                    height: 165.h,
+                    width: 345.w,
                     child: Padding(
                       padding:  EdgeInsets.only(top: 10.h),
                       child:Container(
 
-                          decoration: BoxDecoration(boxShadow: [
+                          decoration: BoxDecoration(
+              color: Colors.black,
+                              boxShadow: [
                             BoxShadow(
                                 color: Colors.black.withOpacity(0.2),
                                 blurRadius: 0,
                                 spreadRadius: 0)
                           ]),
-                          // child: CalendarWeek(
-                          //   backgroundColor: Colors.black,
-                          //   // controller: _controller,
-                          //   height: 100,
-                          //
-                          //   showMonth: true,
-                          //   minDate: DateTime.now().add(
-                          //     Duration(days: -365),
-                          //   ),
-                          //   maxDate: DateTime.now().add(
-                          //     Duration(days: 365),
-                          //   ),
-                          //   onDatePressed: (DateTime datetime) {
-                          //     // Do something
-                          //     setState(() {});
-                          //   },
-                          //   onDateLongPressed: (DateTime datetime) {
-                          //     // Do something
-                          //   },
-                          //   onWeekChanged: () {
-                          //     // Do something
-                          //   },
-                          //   monthViewBuilder: (DateTime time) => Align(
-                          //     alignment: FractionalOffset.center,
-                          //     child: Container(
-                          //         margin: const EdgeInsets.symmetric(vertical: 4),
-                          //         // child: Text(
-                          //         //   DateFormat.yMMMM().format(time),
-                          //         //   overflow: TextOverflow.ellipsis,
-                          //         //   textAlign: TextAlign.center,
-                          //         //   style: TextStyle(
-                          //         //       color: Colors.blue, fontWeight: FontWeight.w600),
-                          //         // )
-                          //       ),
-                          //   ),
-                          //
-                          // )
+
+child:  EasyDateTimeLine(
+
+  initialDate: DateTime.now(),
+  onDateChange: (selectedDate) {
+    //`selectedDate` the new date selected.
+  },
+  headerProps: const EasyHeaderProps(
+
+    showHeader: true,
+    showMonthPicker: true,
+    showSelectedDate: false,
+    centerHeader: true,
+    monthPickerType: MonthPickerType.switcher,
+    dateFormatter: DateFormatter.fullDateDMY(),
+  ),
+  dayProps:  EasyDayProps(
+    height: 90,
+    width: 55,
+
+    todayNumStyle:     const TextStyle(color: Colors.white),
+todayStyle: DayStyle(borderRadius: 0.r,decoration: const BoxDecoration()),
+
+    dayStructure: DayStructure.dayStrDayNum,
+    inactiveDayNumStyle: const TextStyle(color: Colors.white),
+    inactiveDayStyle: const DayStyle(borderRadius: 0,decoration: BoxDecoration()),
+    activeDayStyle: DayStyle(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(0.r)),
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Color(0xffffffff),
+            Color(0xffffffff),
+          ],
+        ),
+      ),
+    ),
+  ),
+),
+
+
+
+
+
+
+
+
                       ),
                   )):const SizedBox(),
                 ],
@@ -222,35 +243,36 @@ class _EventState extends State<Event> {
 
             Stack(
               children: [
-                Container(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 20.w),
+                Padding(
+                  padding:  EdgeInsets.symmetric(vertical: 32.h,horizontal: 24.w),
+                  child: Container(
+
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                    child: Row(
+                    child: Row(crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Stack(
-                          children: [SizedBox(
-                            width: 60.w,
-                            height: 42.h,
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(4.5),
+                          children: [Padding(
+                            padding:  EdgeInsets.only(top: 8.h,left: 0.w),
+                            child: SizedBox(
+                              width: 60.w,
+                              height: 35.h,
+                              child: Column(
+                                children: [
+                                  SizedBox(
                                     child: GestureDetector(
                                       onTap: () {
                                         // Navigator.of(context).push(MaterialPageRoute(
                                         //     builder: (builder) => sample()));
                                       },
                                       child: Container(
-                                      width: 40.w,
-                                      height: 28,
+                                      width: 44.w,
+                                      height: 30,
                                       color: const Color(0xffb7b7b7),
                                       child: Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Image.asset(
-                                          'assets/icons/filter.png',
+                                        padding: const EdgeInsets.symmetric(vertical: 6,horizontal: 14),
+                                        child: SvgPicture.asset(
+                                          'assets/icons/filter1.svg',
 
                                           height: 20.h,
                                           color: const Color(0xff191919),
@@ -259,8 +281,8 @@ class _EventState extends State<Event> {
                                                                             ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
 
@@ -280,57 +302,42 @@ class _EventState extends State<Event> {
 
 
                         ]),
-                        TabBar(
-                          indicator: const BoxDecoration(
-                               // Creates border
-                            color: const Color(0xff191919),),
-                          tabAlignment: TabAlignment.start,
+                        ButtonsTabBar(
 
-                          labelColor: Colors.white,
-                          unselectedLabelColor: Colors.black,
-
-                          isScrollable: true,
+                          buttonMargin:EdgeInsets.only(left: 16),
+                          contentPadding: EdgeInsets.symmetric(horizontal: 20),
+                          height: 30,
+                          radius: 0,
+                          backgroundColor: Colors.black,
+                          unselectedBackgroundColor: Colors.grey[300],
+                          unselectedLabelStyle:
+                          TextStyle(color: Colors.black),
+                          labelStyle: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400),
                           tabs: [
-                            Container(
-                                width: 80.w,
-                                height: 30.h,
-                                decoration: const BoxDecoration(
-                                  color: Colors.transparent,
-                                ),
-                                child: Tab(child: Text('All(${38})',style: TextStyle(),))),
-                            Container(
-                                width: 80.w,
-                                height: 30.h,
-                                decoration: const BoxDecoration(
-                                  color: Colors.transparent,
-                                ),
-                                child: Tab(
-                                    child: Text(
-                                  'Event(${21})',
-                                  style: TextStyle(
+                            Tab(child: Text('All(${38})',style: TextStyle(),)),
+                            Tab(
+                                child: Text(
+                              'Event(${21})',
+                              style: TextStyle(
 
-                                  ),
-                                ))),
-                            Container(
-                                width: 80.w,
-                                height: 30.h,
-                                decoration: const BoxDecoration(
-                                  color: Colors.transparent,
-                                ),
-                                child: Tab(
-                                    child: Text(
-                                  'Class(${14})',
-                                  style: TextStyle(
+                              ),
+                            )),
+                            Tab(
+                                child: Text(
+                              'Class(${14})',
+                              style: TextStyle(
 
-                                  ),
-                                ))),
+                              ),
+                            )),
                           ],
                         ),
                       ],
                     ),
                   ),
+                                ),
                 ),
-              ),
 
             ]),
             Expanded(
@@ -349,7 +356,7 @@ class _EventState extends State<Event> {
                             child: Column(
                               children: [
                                 Padding(
-                                  padding:  EdgeInsets.only(right: 20.w),
+                                  padding:  EdgeInsets.only(right: 5.w),
                                   child: Row(
                                     children: [
                                       Center(
@@ -919,4 +926,6 @@ class _EventState extends State<Event> {
   }
 
 }
+
+
 

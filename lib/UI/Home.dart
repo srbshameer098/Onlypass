@@ -6,6 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:buttons_tabbar/buttons_tabbar.dart';
 
 import 'package:onlypass/bloc/Fecilities/fecilities_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -13,7 +15,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../Repository/ModelClass/FacilityModel.dart';
 import 'Detailed_Page.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 
 bool _visible1 = false;
 bool _location = true;
@@ -24,6 +25,7 @@ class Home extends StatefulWidget {
   @override
   State<Home> createState() => _HomeState();
 }
+
 late GoogleMapController _mapController;
 
 late List<FacilityModel> data;
@@ -40,31 +42,28 @@ class _HomeState extends State<Home> {
   //   ));
   // }
 
-
   @override
   void initState() {
     BlocProvider.of<FecilitiesBloc>(context).add(FetchFecilities());
     // TODO: implement initState
     super.initState();
     _determinePosition();
-          const LocationSettings locationSettings = LocationSettings(
-            accuracy: LocationAccuracy.high,
-            distanceFilter: 100,
-          );
-          StreamSubscription<Position> positionStream =
-          Geolocator.getPositionStream(
-              locationSettings: locationSettings)
-              .listen((Position? position) {
-            setState(() {
-              lat=position!.latitude;
-              long=position.longitude;
-            });
-            print(position == null
-                ? 'Unknown'
-                : '${position.latitude.toString()}, ${position.longitude.toString()}');
-            _getAdressFromCordinates(
-                position!.latitude, position.longitude);
-          });
+    const LocationSettings locationSettings = LocationSettings(
+      accuracy: LocationAccuracy.high,
+      distanceFilter: 100,
+    );
+    StreamSubscription<Position> positionStream =
+        Geolocator.getPositionStream(locationSettings: locationSettings)
+            .listen((Position? position) {
+      setState(() {
+        lat = position!.latitude;
+        long = position.longitude;
+      });
+      print(position == null
+          ? 'Unknown'
+          : '${position.latitude.toString()}, ${position.longitude.toString()}');
+      _getAdressFromCordinates(position!.latitude, position.longitude);
+    });
   }
 
   void _onMapCreated(GoogleMapController controller) {
@@ -133,8 +132,6 @@ class _HomeState extends State<Home> {
     }
   }
 
-
-
   String loca = '';
 
   @override
@@ -148,7 +145,6 @@ class _HomeState extends State<Home> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ///-----------Google Map  -------------------///
-
 
               // Expanded(
               // flex: 2, // Adjust flex value as needed
@@ -203,68 +199,71 @@ class _HomeState extends State<Home> {
                             width: .5.w,
                             style: BorderStyle.solid),
                         color: Colors.white),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(top: 0.h,right: 1.3.w),
-                          child: Icon(Icons.search_outlined,
-                              size: 28.sp, color: const Color(0xffb7b7b7)),
-                        ),
-                        SizedBox(
-                          width: 175.w,
-                          child: TextFormField(
-                            minLines: 1,
-                            style:TextStyle(color: Colors.black),
-                            decoration: InputDecoration(
-                              hintText:loca=_currentAdess,
-                              hintStyle:const TextStyle(color: Color(0xff191919)),
-                              enabledBorder: InputBorder.none,
-                              disabledBorder: InputBorder.none,
-                              focusedBorder: InputBorder.none,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 12.w),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(top: 0.h, right: 1.3.w),
+                            child: Icon(Icons.search_outlined,
+                                size: 28.sp, color: const Color(0xffb7b7b7)),
+                          ),
+                          SizedBox(
+                            width: 163.w,
+                            child: TextFormField(
+                              minLines: 1,
+                              style: TextStyle(color: Colors.black),
+                              decoration: InputDecoration(
+                                hintText: loca = _currentAdess,
+                                hintStyle:
+                                    const TextStyle(color: Color(0xff191919)),
+                                enabledBorder: InputBorder.none,
+                                disabledBorder: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                              ),
                             ),
                           ),
-                        ),
-
-                        Text(
-                          "- 6 km around",
-                          style: TextStyle(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.grey),
-                        ),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        GestureDetector(
-                          // _visible==true?
-                          child: Container(
-                            width: 42.w,
-                            // height: 40,
-                            //  color: Color(0xfff0f0f0),
-                            color: const Color(0xfff0f0f0),
-                            child: Center(
-                                child: _visible1 == true
-                                    ? Center(
-                                        child: Image.asset(
-                                          'assets/icons/filter.png',
-                                          width: 24.w,
-                                          // height: 24.h,
-                                          color: const Color(0xff191919),
-                                        ),
-                                      )
-                                    : Center(
-                                        child: Image.asset(
-                                          'assets/icons/notificationbell.png',
-                                          width: 24.w,
-                                          // height: 24.h,
-                                          color: const Color(0xff191919),
-                                        ),
-                                      )),
+                          Text(
+                            "- 6 km around",
+                            style: TextStyle(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.grey),
                           ),
-                        )
-                      ],
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          GestureDetector(
+                            // _visible==true?
+                            child: Container(
+                              width: 42.w,
+                              // height: 40,
+                              //  color: Color(0xfff0f0f0),
+                              color: const Color(0xfff0f0f0),
+                              child: Center(
+                                  child: _visible1 == true
+                                      ? Center(
+                                          child: SvgPicture.asset(
+                                            'assets/icons/filter1.svg',
+                                            width: 24.w,
+                                            // height: 24.h,
+                                            color: const Color(0xff191919),
+                                          ),
+                                        )
+                                      : Center(
+                                          child: Image.asset(
+                                            'assets/icons/notificationbell.png',
+                                            width: 24.w,
+                                            // height: 24.h,
+                                            color: const Color(0xff191919),
+                                          ),
+                                        )),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -288,73 +287,60 @@ class _HomeState extends State<Home> {
                   color: Colors.transparent,
                   child: Padding(
                     padding:
-                        EdgeInsets.symmetric(vertical: 10.w, horizontal: 24.w),
+                        EdgeInsets.symmetric(vertical: 0.w, horizontal: 24.w),
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          Container(
-                            width: 40.w,
-                            height: 28,
-                            color: const Color(0xffb7b7b7),
-                            child: Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: Image.asset(
-                                'assets/icons/filter.png',
-                                width: 24.w,
-                                height: 24.h,
-                                color: const Color(0xff191919),
+                          Padding(
+                            padding:  EdgeInsets.only(),
+                            child: Container(
+                              width: 44.w,
+                              height: 28.w,
+                              color: const Color(0xffb7b7b7),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 5.5.h, horizontal: 13.5.w),
+                                child: SvgPicture.asset(
+                                  'assets/icons/filter1.svg',
+                                  width: 15.57.w,
+                                  height: 15.57.h,
+                                  color: const Color(0xff191919),
+                                ),
                               ),
                             ),
                           ),
-
-
-
-
                           Container(
+                            child: ButtonsTabBar(
 
-                            child: TabBar(
-                              indicator: BoxDecoration(
-                                // Creates border
-                                color:  Color(0xff191919),
-                             ),
-                              labelStyle:TextStyle(color: Colors.white),
-                                unselectedLabelColor: Colors.black,
-                                dividerColor:Colors.transparent,
-                              tabAlignment: TabAlignment.start,
-                              indicatorColor: Colors.transparent,
-
-
-                              isScrollable: true,
+                                buttonMargin:EdgeInsets.only(left: 16),
+contentPadding: EdgeInsets.symmetric(horizontal: 23),
+                              height: 30,
+                              radius: 0,
+                              backgroundColor: Colors.black,
+                              unselectedBackgroundColor: Colors.grey[300],
+                              unselectedLabelStyle:
+                                  TextStyle(color: Colors.black),
+                              labelStyle: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400),
                               tabs: [
-                                Container(
-                                    width: 80.w,
-                                    height: 30.h,
-                                    decoration: const BoxDecoration(
-                                        color: Colors.transparent),
-                                    child:  Tab(child: Text('All(${38})',style:TextStyle()))),
-                                Container(
-                                    width: 80.w,
-                                    height: 30.h,
-                                    decoration:  BoxDecoration(
-                                        color: Colors.transparent),
-                                    child:  Tab(
-                                        child: Text(
-                                      'Gym(${21})',
-                                      style: TextStyle( ),
-                                    ))),
-                                Container(
-                                    width: 80.w,
-                                    height: 30.h,
 
-                                    decoration: const BoxDecoration(
-                                      color: Colors.grey
-                                      ),
-                                    child:  Tab(
-                                        child: Text(
+
+                                Tab(
+                                    child: Text('All(${38})', style: TextStyle())),
+
+
+                                Tab(
+                                    child: Text(
+                                      'Gym(${21})',
+                                      style: TextStyle(),
+                                    )),
+                                Tab(
+                                    child: Text(
                                       'Pool(${14})',
                                       style: TextStyle(),
-                                    ))),
+                                    )),
                               ],
                             ),
                           ),
@@ -373,8 +359,9 @@ class _HomeState extends State<Home> {
                           ///-----------1st Container  -------------------///
                           Container(
                             width: 393.w,
-                            decoration:
-                                 BoxDecoration(color: Theme.of(context).colorScheme.secondary,),
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).colorScheme.secondary,
+                            ),
                             child: Padding(
                               padding: EdgeInsets.symmetric(horizontal: 22.w),
                               child: Column(
@@ -413,13 +400,10 @@ class _HomeState extends State<Home> {
                                         );
                                       }
                                       if (state is FecilitiesblocLoaded) {
-                                        data =
-                                            BlocProvider.of<FecilitiesBloc>(
-                                                    context)
-                                                .fecilitiesModel;
-                                        for (int i = 0;
-                                            i < data.length;
-                                            i++) {
+                                        data = BlocProvider.of<FecilitiesBloc>(
+                                                context)
+                                            .fecilitiesModel;
+                                        for (int i = 0; i < data.length; i++) {
                                           for (int j = 0;
                                               j < data[i].images!.length;
                                               j++) {
@@ -444,18 +428,17 @@ class _HomeState extends State<Home> {
                                               },
                                               child: Container(
                                                 width: 300.w,
-                                                color:
-                                                Theme.of(context).colorScheme.secondary,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .secondary,
                                                 child: Column(
                                                   children: [
                                                     Stack(
                                                       children: [
-                                                        CarouselSlider
-                                                            .builder(
+                                                        CarouselSlider.builder(
                                                           itemBuilder: (BuildContext
                                                                       context,
-                                                                  int
-                                                                      itemIndex,
+                                                                  int itemIndex,
                                                                   int
                                                                       pageViewIndex) =>
                                                               data[index]
@@ -487,8 +470,7 @@ class _HomeState extends State<Home> {
                                                               });
                                                             },
                                                             height: 182.h,
-                                                            viewportFraction:
-                                                                1,
+                                                            viewportFraction: 1,
                                                             initialPage: 0,
                                                             enableInfiniteScroll:
                                                                 true,
@@ -496,8 +478,7 @@ class _HomeState extends State<Home> {
                                                             autoPlay: false,
                                                             autoPlayInterval:
                                                                 const Duration(
-                                                                    seconds:
-                                                                        3),
+                                                                    seconds: 3),
                                                             autoPlayAnimationDuration:
                                                                 const Duration(
                                                                     milliseconds:
@@ -506,15 +487,13 @@ class _HomeState extends State<Home> {
                                                                 .fastOutSlowIn,
                                                             enlargeCenterPage:
                                                                 true,
-                                                            enlargeFactor:
-                                                                0.1,
+                                                            enlargeFactor: 0.1,
                                                             scrollDirection:
                                                                 Axis.horizontal,
                                                           ),
-                                                          itemCount:
-                                                              data[index]
-                                                                  .images!
-                                                                  .length,
+                                                          itemCount: data[index]
+                                                              .images!
+                                                              .length,
                                                         ),
                                                         Padding(
                                                           padding:
@@ -526,18 +505,16 @@ class _HomeState extends State<Home> {
                                                               activeIndex:
                                                                   _currentIndex[
                                                                       index],
-                                                              count:
-                                                                  data[index]
-                                                                      .images!
-                                                                      .length,
+                                                              count: data[index]
+                                                                  .images!
+                                                                  .length,
                                                               effect: WormEffect(
                                                                   dotColor:
                                                                       const Color(
                                                                           0xffbdbdbd),
                                                                   dotHeight:
                                                                       6.h,
-                                                                  dotWidth:
-                                                                      6.w,
+                                                                  dotWidth: 6.w,
                                                                   activeDotColor:
                                                                       Colors
                                                                           .white),
@@ -547,39 +524,41 @@ class _HomeState extends State<Home> {
                                                       ],
                                                     ),
                                                     Padding(
-                                                      padding: EdgeInsets
-                                                          .symmetric(
+                                                      padding:
+                                                          EdgeInsets.symmetric(
                                                               vertical: 5.h),
                                                       child: Row(
                                                         children: [
                                                           Center(
                                                             child: SizedBox(
-                                                                width: 230.w,
-                                                                child: Text(
-                                                                  maxLines: 1,
-                                                                  overflow:
-                                                                      TextOverflow
-                                                                          .ellipsis,
+                                                              width: 230.w,
+                                                              child: Text(
+                                                                maxLines: 1,
+                                                                overflow:
+                                                                    TextOverflow
+                                                                        .ellipsis,
 
-                                                                  ///--image name--///
+                                                                ///--image name--///
 
-                                                                  data[index]
-                                                                      .facilityName
-                                                                      .toString(),
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color:Theme.of(context).colorScheme.onSecondary,
-                                                                    fontSize:
-                                                                        16.sp,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontFamily:
-                                                                        'Montserrat',
-                                                                  ),
+                                                                data[index]
+                                                                    .facilityName
+                                                                    .toString(),
+                                                                style:
+                                                                    TextStyle(
+                                                                  color: Theme.of(
+                                                                          context)
+                                                                      .colorScheme
+                                                                      .onSecondary,
+                                                                  fontSize:
+                                                                      16.sp,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontFamily:
+                                                                      'Montserrat',
                                                                 ),
+                                                              ),
                                                             ),
-
                                                           ),
                                                           SizedBox(
                                                             width: 60.w,
@@ -588,8 +567,7 @@ class _HomeState extends State<Home> {
                                                             Icons
                                                                 .location_on_outlined,
                                                             size: 14.sp,
-                                                            color:
-                                                                Colors.grey,
+                                                            color: Colors.grey,
                                                           ),
 
                                                           ///-- distance --///
@@ -597,7 +575,10 @@ class _HomeState extends State<Home> {
                                                           Text(
                                                             '${150}m',
                                                             style: TextStyle(
-                                                              color: Theme.of(context).colorScheme.onSecondary,
+                                                              color: Theme.of(
+                                                                      context)
+                                                                  .colorScheme
+                                                                  .onSecondary,
                                                               fontSize: 12.sp,
                                                               fontWeight:
                                                                   FontWeight
@@ -618,25 +599,30 @@ class _HomeState extends State<Home> {
                                                           MainAxisAlignment
                                                               .spaceBetween,
                                                       children: [
-
                                                         ///--Rating --///
 
-                                                         Icon(
+                                                        Icon(
                                                           Icons.star,
-                                                          color: Theme.of(context).colorScheme.onSecondary,
+                                                          color:
+                                                              Theme.of(context)
+                                                                  .colorScheme
+                                                                  .onSecondary,
                                                         ),
                                                         Text(
                                                           '${4.3} ',
                                                           style: TextStyle(
-                                                            color: Theme.of(context).colorScheme.onSecondary,
+                                                            color: Theme.of(
+                                                                    context)
+                                                                .colorScheme
+                                                                .onSecondary,
                                                             fontSize: 14.sp,
                                                             fontWeight:
-                                                                FontWeight
-                                                                    .w600,
+                                                                FontWeight.w600,
                                                             fontFamily:
                                                                 'Montserrat',
                                                           ),
                                                         ),
+
                                                         ///--Review count --///
                                                         SizedBox(
                                                           width: 85.w,
@@ -663,8 +649,7 @@ class _HomeState extends State<Home> {
                                                           child: ListView
                                                               .separated(
                                                             // Set reverse based on amenity list length
-                                                            reverse: data[
-                                                                        index]
+                                                            reverse: data[index]
                                                                     .amenities!
                                                                     .length <=
                                                                 4,
@@ -675,10 +660,10 @@ class _HomeState extends State<Home> {
                                                             scrollDirection:
                                                                 Axis.horizontal,
                                                             shrinkWrap: false,
-                                                            itemCount: data[
-                                                                    index]
-                                                                .amenities!
-                                                                .length,
+                                                            itemCount:
+                                                                data[index]
+                                                                    .amenities!
+                                                                    .length,
                                                             itemBuilder:
                                                                 (BuildContext
                                                                         context,
@@ -687,14 +672,12 @@ class _HomeState extends State<Home> {
                                                                   3) {
                                                                 return Container(
                                                                   width: 24.w,
-                                                                  height:
-                                                                      24.h,
+                                                                  height: 24.h,
                                                                   decoration:
                                                                       const BoxDecoration(
                                                                           color:
                                                                               Color(0xfff0f0f0)),
-                                                                  child:
-                                                                      Column(
+                                                                  child: Column(
                                                                     crossAxisAlignment:
                                                                         CrossAxisAlignment
                                                                             .end,
@@ -703,9 +686,12 @@ class _HomeState extends State<Home> {
                                                                             .center,
                                                                     children: [
                                                                       Center(
-                                                                        child:
-                                                                            Image.network(
-                                                                          data[index].amenities![position].iconUrl!.toString(),
+                                                                        child: Image
+                                                                            .network(
+                                                                          data[index]
+                                                                              .amenities![position]
+                                                                              .iconUrl!
+                                                                              .toString(),
                                                                           width:
                                                                               19.w,
                                                                           height:
@@ -717,32 +703,29 @@ class _HomeState extends State<Home> {
                                                                 );
                                                               } else if (position ==
                                                                   4) {
-                                                                int balance =
-                                                                    data[index]
-                                                                            .amenities!
-                                                                            .length -
-                                                                        4;
+                                                                int balance = data[
+                                                                            index]
+                                                                        .amenities!
+                                                                        .length -
+                                                                    4;
                                                                 return Container(
                                                                   width: 24.w,
-                                                                  height:
-                                                                      24.h,
+                                                                  height: 24.h,
                                                                   decoration:
                                                                       const BoxDecoration(
                                                                           color:
                                                                               Color(0xfff0f0f0)),
-                                                                  child:
-                                                                      Column(
+                                                                  child: Column(
                                                                     mainAxisAlignment:
                                                                         MainAxisAlignment
                                                                             .center,
                                                                     children: [
                                                                       Center(
-                                                                          child:
-                                                                              Text("+$balance",
-                                                                                 style:  const TextStyle(
-                                                                                   color: Colors.black,
-                                                                                 )
-                                                                              )),
+                                                                          child: Text(
+                                                                              "+$balance",
+                                                                              style: const TextStyle(
+                                                                                color: Colors.black,
+                                                                              ))),
                                                                     ],
                                                                   ),
                                                                 );
@@ -779,13 +762,11 @@ class _HomeState extends State<Home> {
                                             );
                                           },
                                         );
-
                                       } else {
                                         return const SizedBox();
                                       }
                                     }),
                                   ),
-
                                 ],
                               ),
                             ),
@@ -795,9 +776,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
 
-
                   /// tab 2///
-
 
                   Container(
                     child: SingleChildScrollView(
@@ -809,7 +788,6 @@ class _HomeState extends State<Home> {
                               //       builder: (builder) => Location()));
                               // },
                               child: const Icon(Icons.ac_unit_outlined)),
-
                           Padding(
                             padding: EdgeInsets.only(left: 23.w, top: 30.h),
                             child: Container(
@@ -818,17 +796,16 @@ class _HomeState extends State<Home> {
                               decoration: BoxDecoration(
                                   color: const Color(0x0fe7a3a3),
                                   borderRadius: BorderRadius.circular(8.r),
-                                  border: Border.all(color: const Color(0xff000000))),
+                                  border: Border.all(
+                                      color: const Color(0xff000000))),
                               child: Row(
                                 children: [
                                   SizedBox(
                                     width: 20.w,
                                   ),
                                   Text(
-                        ''
-
-
-                                 ,   style: TextStyle(
+                                    '',
+                                    style: TextStyle(
                                         fontSize: 20.sp,
                                         fontWeight: FontWeight.w500,
                                         color: const Color(0xff000000)),
@@ -837,8 +814,6 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                           ),
-
-
                         ],
                       ),
                     ),
@@ -846,20 +821,13 @@ class _HomeState extends State<Home> {
 
                   /// tab 3 ///
 
-
-
                   Container(
                     child: const Column(
                       children: [Text('Can Take Next Time ')],
                     ),
-
                   ),
-
                 ]),
-
               ),
-
-
             ],
           ),
         ),
