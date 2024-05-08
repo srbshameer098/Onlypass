@@ -6,6 +6,8 @@ import 'package:onlypass/UI/Bottomnav.dart';
 
 import 'package:onlypass/bloc/Fecilities/fecilities_bloc.dart';
 
+import 'UI/Authentication/authentication2.dart';
+import 'bloc/customer_login/login_bloc.dart';
 import 'color customize/Colors.dart';
 class ThemeProvider with ChangeNotifier {
   late ThemeMode _themeMode = ThemeMode.system;
@@ -44,8 +46,11 @@ class MyApp extends StatelessWidget {
             DeviceOrientation.portraitDown,
           ]);
           return
-            BlocProvider(
-              create: (context) => FecilitiesBloc(),
+            MultiBlocProvider(
+              providers: [
+                BlocProvider(create: (context) => FecilitiesBloc(),),
+                BlocProvider(create: (context) => LoginBloc(),)
+               ],
               child: MaterialApp(debugShowCheckedModeBanner: false,
                 title: 'Onlypass',
                 theme: ThemeData(
@@ -63,7 +68,7 @@ class MyApp extends StatelessWidget {
                 ),
 
                 themeMode: ThemeMode.light,
-                home: const BottomNav(),
+                home: const LogInPage(),
               ),
             );
         });

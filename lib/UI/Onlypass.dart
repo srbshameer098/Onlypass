@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:onlypass/UI/Authentication/Authentication.dart';
 
+import 'Authentication/authentication2.dart';
+
 class Onlypass extends StatefulWidget {
   const Onlypass({super.key});
 
@@ -26,7 +28,7 @@ class _OnlypassState extends State<Onlypass> {
             child: GestureDetector(
               onTap: (){
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (builder) => const Authentification()));
+                    builder: (builder) => const LogInPage()));
               },
               child: const Icon(
                 Icons.menu,

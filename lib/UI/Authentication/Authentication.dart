@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../Utils/Utils.dart';
+import 'Verify_code.dart';
 // import 'package:lottie/lottie.dart';
 
 class Authentification extends StatefulWidget {
@@ -58,11 +62,14 @@ class _AuthentificationState extends State<Authentification> {
 
                   SizedBox(height: 60.h,),
                   TextFormField(
+
+
                     keyboardType: TextInputType.phone,
                     controller: PhoneNumberController,
                     decoration: const InputDecoration(
+
                         prefixText: '+91',
-                        hintText: '99999 99999'
+                        hintText: '99999 99999',
                     ),
                   ),
                   SizedBox(height: 80.h,),
