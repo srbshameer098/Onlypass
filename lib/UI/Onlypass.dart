@@ -104,7 +104,7 @@ class _OnlypassState extends State<Onlypass> {
                                   padding: const EdgeInsets.all(8.0),
                                   child: SizedBox(
                                     width: 0.w,
-                                    height: 170,
+                                    height: 170.h,
                                     child: Padding(
                                       padding:
                                           EdgeInsets.symmetric(vertical: 2.h),
@@ -125,15 +125,15 @@ class _OnlypassState extends State<Onlypass> {
                                 Positioned(
                                     right: 3.w,
                                     top: 167.h,
-                                    child: const CircleAvatar(
-                                      radius: 5,
+                                    child:  CircleAvatar(
+                                      radius: 5.r,
                                       backgroundColor: Colors.white,
                                     )),
                                 Positioned(
                                     left: 3.w,
                                     bottom: 167.h,
-                                    child: const CircleAvatar(
-                                      radius: 5,
+                                    child:  CircleAvatar(
+                                      radius: 5.r,
                                       backgroundColor: Colors.white,
                                     ))
                               ]),
@@ -253,7 +253,7 @@ class _OnlypassState extends State<Onlypass> {
                                   padding: const EdgeInsets.all(8.0),
                                   child: SizedBox(
                                     width: 0.w,
-                                    height: 170,
+                                    height: 170.h,
                                     child: Padding(
                                       padding:
                                           EdgeInsets.symmetric(vertical: 2.h),
@@ -274,15 +274,15 @@ class _OnlypassState extends State<Onlypass> {
                                 Positioned(
                                     right: 3.w,
                                     top: 167.h,
-                                    child: const CircleAvatar(
-                                      radius: 5,
+                                    child:  CircleAvatar(
+                                      radius: 5.r,
                                       backgroundColor: Colors.white,
                                     )),
                                 Positioned(
                                     left: 3.w,
                                     bottom: 167.h,
-                                    child: const CircleAvatar(
-                                      radius: 5,
+                                    child:  CircleAvatar(
+                                      radius: 5.r,
                                       backgroundColor: Colors.white,
                                     ))
                               ]),

@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../Repository/ModelClass/login_model.dart';
 
 import '../../Repository/ModelClass/login_model.dart';
+import '../../Utils/Utils.dart';
 import '../../bloc/customer_login/login_bloc.dart';
 import '../Bottomnav.dart';
 import 'Verify_code.dart';
@@ -36,7 +38,7 @@ class _LogInPageState extends State<LogInPage> {
   // }
   bool loading =false ;
   final PhoneNumberController = TextEditingController();
-  // final auth = FirebaseAuth.instance;
+   final auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -160,11 +162,38 @@ class _LogInPageState extends State<LogInPage> {
   child: GestureDetector(
           onTap: (){
             // Navigator.push(context, MaterialPageRoute(builder: (_)=> const Verify_code()));
-            BlocProvider.of<LoginBloc>(context).add(
-              Fetchlogin(phoneNumber:'+91${PhoneNumberController.toString()}'),
+            setState(() {
+              loading = true ;
+            });
 
-            );
-            print(PhoneNumberController);
+            auth.verifyPhoneNumber(
+                phoneNumber: '+91${PhoneNumberController.text}',
+                verificationCompleted: (_){
+
+                  setState(() {
+                    loading = false ;
+                  });
+
+                },
+                verificationFailed: (e){
+                  setState(() {
+                    loading = false ;
+                  });
+                  Utils().toastMessage(e.toString());
+                },
+                codeSent: (String verificationId , int? token){
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context)=>Verify_code(verificationId: verificationId,)));
+                  setState(() {
+                    loading = false ;
+                  });
+                },
+                codeAutoRetrievalTimeout: (e){
+                  Utils().toastMessage(e.toString());
+                  setState(() {
+                    loading = false ;
+                  });
+                });
           },
           child: Container(
             width: 378.w,

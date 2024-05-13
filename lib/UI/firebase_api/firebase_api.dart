@@ -1,5 +1,6 @@
-import 'package:firebase/main.dart';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
+
 var message;
 Future<void> handleBackgroundMessage(RemoteMessage )async{
 
@@ -18,21 +19,21 @@ class FirebaseApi{
     final fCMToken = await _firebaseMessaging.getToken();
     print('Token: $fCMToken');
 
-    initPushNotification();
+    // initPushNotification();
     FirebaseMessaging.onBackgroundMessage(handleBackgroundMessage) ;
 
 
   }
 
-  void handleMessage(RemoteMessage?message){
-    if(message == null) return;
-    navigatorKey.currentState?.pushNamed(
-      "/Notification_Screen",
-      arguments: message,
-    );
-  }
-  Future initPushNotification()async{
-    FirebaseMessaging.instance.getInitialMessage().then(handleMessage);
-    FirebaseMessaging.onMessageOpenedApp.listen(handleMessage);
-  }
+ //  void handleMessage(RemoteMessage?message){
+ //    if(message == null) return;
+ // currentState?.pushNamed(
+ //      "/Notification_Screen",
+ //      arguments: message,
+ //    );
+ //  }
+ //  Future initPushNotification()async{
+ //    FirebaseMessaging.instance.getInitialMessage().then(handleMessage);
+ //    FirebaseMessaging.onMessageOpenedApp.listen(handleMessage);
+ //  }
 }

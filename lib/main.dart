@@ -3,12 +3,21 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:onlypass/UI/Bottomnav.dart';
+import 'package:onlypass/UI/Home.dart';
+import 'UI/Authentication/Verify_code.dart';
+import 'firebase_options.dart';
+
 
 import 'package:onlypass/bloc/Fecilities/fecilities_bloc.dart';
 
 import 'UI/Authentication/authentication2.dart';
 import 'bloc/customer_login/login_bloc.dart';
 import 'color customize/Colors.dart';
+
+final navigatorKey = GlobalKey<NavigatorState>();
+
+
 class ThemeProvider with ChangeNotifier {
   late ThemeMode _themeMode = ThemeMode.system;
   late ColorScheme _darkScheme = darkColorScheme;
@@ -31,11 +40,14 @@ class ThemeProvider with ChangeNotifier {
 }
 
 void main() async{
+
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-   
-
+    options: DefaultFirebaseOptions.currentPlatform,
   );
+
+
+
   runApp(const MyApp());
 }
 
@@ -74,7 +86,12 @@ class MyApp extends StatelessWidget {
                 ),
 
                 themeMode: ThemeMode.light,
-                home: const LogInPage(),
+                home: const BottomNav(),
+                  navigatorKey: navigatorKey,
+                  routes:
+                  {
+                    // '/Notification_Screen': (context)=> const Notification_Screen(),
+                  }
               ),
             );
         });

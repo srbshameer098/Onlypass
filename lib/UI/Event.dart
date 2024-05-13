@@ -122,7 +122,7 @@ class _EventState extends State<Event> {
                         Padding(
                           padding: const EdgeInsets.only(top: 15.0),
                           child: SizedBox(
-                            width: 261.8.w,
+                            width: 260.w,
                             child: TextFormField(
                               style:TextStyle(color: Colors.black),
                               decoration: InputDecoration(
@@ -249,64 +249,49 @@ todayStyle: DayStyle(borderRadius: 0.r,decoration: const BoxDecoration()),
 
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                    child: Row(crossAxisAlignment: CrossAxisAlignment.start,
+                    child: Row(crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Stack(
-                          children: [Padding(
-                            padding:  EdgeInsets.only(top: 8.h,left: 0.w),
-                            child: SizedBox(
-                              width: 60.w,
-                              height: 35.h,
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        // Navigator.of(context).push(MaterialPageRoute(
-                                        //     builder: (builder) => sample()));
-                                      },
-                                      child: Container(
-                                      width: 44.w,
-                                      height: 30,
-                                      color: const Color(0xffb7b7b7),
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(vertical: 6,horizontal: 14),
-                                        child: SvgPicture.asset(
-                                          'assets/icons/filter1.svg',
+                        Padding(
+                          padding:  EdgeInsets.only(top: 15.h,),
+                          child: SizedBox(
+                            width: 44.w,
+                            height: 29.h,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      // Navigator.of(context).push(MaterialPageRoute(
+                                      //     builder: (builder) => sample()));
+                                    },
+                                    child: Container(
+                                    width: 44.w,
+                                    height: 28.w,
+                                    color: const Color(0xffb7b7b7),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(vertical: 6,horizontal: 14),
+                                      child: SvgPicture.asset(
+                                        'assets/icons/filter1.svg',
 
-                                          height: 20.h,
-                                          color: const Color(0xff191919),
-                                        ),
+                                        height: 20.h,
+                                        color: const Color(0xff191919),
                                       ),
-                                                                            ),
                                     ),
+                                                                          ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
+                        ),
 
 
-                            Positioned(
-                              left: 40.w,
-                              bottom: 25.h,
-                              child: CircleAvatar(radius: 8.r,
-                                backgroundColor:const Color(0xff00ff00),
-                                child:    Text('${4}',
-                                    style: TextStyle(
-                                        color: const Color(0xff191919),
-                                        fontSize: 8.sp,
-                                        fontFamily: 'Montserrat',
-                                        fontWeight: FontWeight.w400)),),
-                            )
 
-
-                        ]),
                         ButtonsTabBar(
 
-                          buttonMargin:EdgeInsets.only(left: 16),
-                          contentPadding: EdgeInsets.symmetric(horizontal: 20),
-                          height: 30,
+                          buttonMargin:EdgeInsets.only(left: 20),
+                          contentPadding: EdgeInsets.symmetric(horizontal: 14),
+                          height: 33,
                           radius: 0,
                           backgroundColor: Colors.black,
                           unselectedBackgroundColor: Colors.grey[300],
@@ -337,6 +322,18 @@ todayStyle: DayStyle(borderRadius: 0.r,decoration: const BoxDecoration()),
                     ),
                   ),
                                 ),
+                ),
+                Positioned(
+                  left: 60.w,
+                  bottom: 53.h,
+                  child: CircleAvatar(radius: 6.r,
+                    backgroundColor:const Color(0xff00ff00),
+                    child:    Text('${4}',
+                        style: TextStyle(
+                            color: const Color(0xff191919),
+                            fontSize: 8.sp,
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w400)),),
                 ),
 
             ]),
@@ -459,7 +456,7 @@ todayStyle: DayStyle(borderRadius: 0.r,decoration: const BoxDecoration()),
                                                 ),
 
                                                 Positioned(
-                                                  left: 0.w,
+                                                  left: 5.w,
                                                   bottom: 140.h,
                                                   child: Container(
                                                     width: 61.w,

@@ -211,8 +211,9 @@ class _HomeState extends State<Home> {
                                 size: 28.sp, color: const Color(0xffb7b7b7)),
                           ),
                           SizedBox(
-                            width: 163.w,
+                            width: 162.w,
                             child: TextFormField(
+
                               minLines: 1,
                               style: TextStyle(color: Colors.black),
                               decoration: InputDecoration(
@@ -313,9 +314,9 @@ class _HomeState extends State<Home> {
                           Container(
                             child: ButtonsTabBar(
 
-                                buttonMargin:EdgeInsets.only(left: 16),
-contentPadding: EdgeInsets.symmetric(horizontal: 23),
-                              height: 30,
+                                buttonMargin:EdgeInsets.only(left: 20),
+contentPadding: EdgeInsets.symmetric(horizontal: 14),
+                              height: 33,
                               radius: 0,
                               backgroundColor: Colors.black,
                               unselectedBackgroundColor: Colors.grey[300],
