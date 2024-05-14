@@ -213,7 +213,6 @@ class _HomeState extends State<Home> {
                           SizedBox(
                             width: 162.w,
                             child: TextFormField(
-
                               minLines: 1,
                               style: TextStyle(color: Colors.black),
                               decoration: InputDecoration(
@@ -294,7 +293,7 @@ class _HomeState extends State<Home> {
                       child: Row(
                         children: [
                           Padding(
-                            padding:  EdgeInsets.only(),
+                            padding: EdgeInsets.only(),
                             child: Container(
                               width: 44.w,
                               height: 28.w,
@@ -313,9 +312,9 @@ class _HomeState extends State<Home> {
                           ),
                           Container(
                             child: ButtonsTabBar(
-
-                                buttonMargin:EdgeInsets.only(left: 20),
-contentPadding: EdgeInsets.symmetric(horizontal: 14),
+                              buttonMargin: EdgeInsets.only(left: 20),
+                              contentPadding:
+                                  EdgeInsets.symmetric(horizontal: 14),
                               height: 33,
                               radius: 0,
                               backgroundColor: Colors.black,
@@ -326,22 +325,19 @@ contentPadding: EdgeInsets.symmetric(horizontal: 14),
                                   color: Colors.white,
                                   fontWeight: FontWeight.w400),
                               tabs: [
-
-
                                 Tab(
-                                    child: Text('All(${38})', style: TextStyle())),
-
-
+                                    child:
+                                        Text('All(${38})', style: TextStyle())),
                                 Tab(
                                     child: Text(
-                                      'Gym(${21})',
-                                      style: TextStyle(),
-                                    )),
+                                  'Gym(${21})',
+                                  style: TextStyle(),
+                                )),
                                 Tab(
                                     child: Text(
-                                      'Pool(${14})',
-                                      style: TextStyle(),
-                                    )),
+                                  'Pool(${14})',
+                                  style: TextStyle(),
+                                )),
                               ],
                             ),
                           ),
@@ -784,11 +780,13 @@ contentPadding: EdgeInsets.symmetric(horizontal: 14),
                       child: Column(
                         children: [
                           GestureDetector(
-                              // onTap: () {
-                              //   Navigator.of(context).push(MaterialPageRoute(
-                              //       builder: (builder) => Location()));
-                              // },
-                              child: const Icon(Icons.ac_unit_outlined)),
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (builder) => Detailed_Page(
+                                          fecilityModel: data[0],
+                                        )));
+                              },
+                              child: const Icon(Icons.ac_unit_outlined,color:Colors.black)),
                           Padding(
                             padding: EdgeInsets.only(left: 23.w, top: 30.h),
                             child: Container(
@@ -805,7 +803,8 @@ contentPadding: EdgeInsets.symmetric(horizontal: 14),
                                     width: 20.w,
                                   ),
                                   Text(
-                                    '',
+                                    'data'
+                                      ,
                                     style: TextStyle(
                                         fontSize: 20.sp,
                                         fontWeight: FontWeight.w500,

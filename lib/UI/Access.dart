@@ -52,8 +52,8 @@ class _AccessState extends State<Access> {
 
 
                             child: QrImageView(
-                              data:
-                                  'This QR code has an embedded image as well',
+                            data:
+                                  'Access Granted',
                               version: QrVersions.auto,
                               size: 320,
                               gapless: false,
