@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'api_exception.dart';
 
@@ -12,6 +13,8 @@ class ApiClient {
     String url = path;
     print(url);
 
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    String accessToken= prefs.getString("accessToken").toString();
     final nullableHeaderParams = (headerParams.isEmpty) ? null : headerParams;
     print(body);
     switch (method) {
@@ -19,6 +22,8 @@ class ApiClient {
         response = await post(Uri.parse(url),
             headers: {
 
+              'content-Type': 'application/json',
+              "token":'Bearer $accessToken'
             },
             body: body);
 
@@ -31,7 +36,7 @@ class ApiClient {
             body: body);
         break;
       case "DELETE":
-        response = await delete(Uri.parse(url), headers: {}, body: body);
+        response = await delete(Uri.parse(url), headers: {"token":'Bearer $accessToken'}, body: body);
         break;
       case "POST_":
         response = await post(
@@ -51,6 +56,7 @@ class ApiClient {
         response = await get(
           Uri.parse(url),
           headers: {
+        "token":'Bearer $accessToken',
             'content-Type': 'application/json',
           },
         );

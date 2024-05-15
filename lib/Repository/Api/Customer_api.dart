@@ -11,7 +11,7 @@ class Loginapi {
 
 
   Future<Loginmodel> getLogin(String phoneNumber) async {
-    String trendingpath = 'http://192.168.1.7:5000/api/customer/login';
+    String trendingpath = 'http://178.18.254.224:8654/api/customer/login';
     var body = {
 
       "phoneNumber":phoneNumber

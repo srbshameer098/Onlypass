@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:onlypass/UI/Bottomnav.dart';
 import 'package:onlypass/UI/Home.dart';
+import 'UI/Authentication/Authentication.dart';
 import 'UI/Authentication/Verify_code.dart';
 import 'firebase_options.dart';
 
@@ -86,7 +87,7 @@ class MyApp extends StatelessWidget {
                 ),
 
                 themeMode: ThemeMode.light,
-                home: const BottomNav(),
+                home: const Authentification(),
                   navigatorKey: navigatorKey,
                   routes:
                   {

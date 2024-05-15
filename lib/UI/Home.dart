@@ -53,15 +53,16 @@ class _HomeState extends State<Home> {
       distanceFilter: 100,
     );
     StreamSubscription<Position> positionStream =
-        Geolocator.getPositionStream(locationSettings: locationSettings)
-            .listen((Position? position) {
+    Geolocator.getPositionStream(locationSettings: locationSettings)
+        .listen((Position? position) {
       setState(() {
         lat = position!.latitude;
         long = position.longitude;
       });
       print(position == null
           ? 'Unknown'
-          : '${position.latitude.toString()}, ${position.longitude.toString()}');
+          : '${position.latitude.toString()}, ${position.longitude
+          .toString()}');
       _getAdressFromCordinates(position!.latitude, position.longitude);
     });
   }
@@ -144,6 +145,7 @@ class _HomeState extends State<Home> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+
               ///-----------Google Map  -------------------///
 
               // Expanded(
@@ -218,7 +220,7 @@ class _HomeState extends State<Home> {
                               decoration: InputDecoration(
                                 hintText: loca = _currentAdess,
                                 hintStyle:
-                                    const TextStyle(color: Color(0xff191919)),
+                                const TextStyle(color: Color(0xff191919)),
                                 enabledBorder: InputBorder.none,
                                 disabledBorder: InputBorder.none,
                                 focusedBorder: InputBorder.none,
@@ -245,21 +247,21 @@ class _HomeState extends State<Home> {
                               child: Center(
                                   child: _visible1 == true
                                       ? Center(
-                                          child: SvgPicture.asset(
-                                            'assets/icons/filter1.svg',
-                                            width: 24.w,
-                                            // height: 24.h,
-                                            color: const Color(0xff191919),
-                                          ),
-                                        )
+                                    child: SvgPicture.asset(
+                                      'assets/icons/filter1.svg',
+                                      width: 24.w,
+                                      // height: 24.h,
+                                      color: const Color(0xff191919),
+                                    ),
+                                  )
                                       : Center(
-                                          child: Image.asset(
-                                            'assets/icons/notificationbell.png',
-                                            width: 24.w,
-                                            // height: 24.h,
-                                            color: const Color(0xff191919),
-                                          ),
-                                        )),
+                                    child: Image.asset(
+                                      'assets/icons/notificationbell.png',
+                                      width: 24.w,
+                                      // height: 24.h,
+                                      color: const Color(0xff191919),
+                                    ),
+                                  )),
                             ),
                           )
                         ],
@@ -274,7 +276,10 @@ class _HomeState extends State<Home> {
                 padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 20.h),
                 child: Text('Find facilities near you',
                     style: TextStyle(
-                        color: Theme.of(context).colorScheme.onSecondary,
+                        color: Theme
+                            .of(context)
+                            .colorScheme
+                            .onSecondary,
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w600,
                         fontFamily: 'Montserrat')),
@@ -287,7 +292,7 @@ class _HomeState extends State<Home> {
                   color: Colors.transparent,
                   child: Padding(
                     padding:
-                        EdgeInsets.symmetric(vertical: 0.w, horizontal: 24.w),
+                    EdgeInsets.symmetric(vertical: 0.w, horizontal: 24.w),
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
@@ -314,30 +319,30 @@ class _HomeState extends State<Home> {
                             child: ButtonsTabBar(
                               buttonMargin: EdgeInsets.only(left: 20),
                               contentPadding:
-                                  EdgeInsets.symmetric(horizontal: 14),
+                              EdgeInsets.symmetric(horizontal: 14),
                               height: 33,
                               radius: 0,
                               backgroundColor: Colors.black,
                               unselectedBackgroundColor: Colors.grey[300],
                               unselectedLabelStyle:
-                                  TextStyle(color: Colors.black),
+                              TextStyle(color: Colors.black),
                               labelStyle: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w400),
                               tabs: [
                                 Tab(
                                     child:
-                                        Text('All(${38})', style: TextStyle())),
+                                    Text('All(${38})', style: TextStyle())),
                                 Tab(
                                     child: Text(
-                                  'Gym(${21})',
-                                  style: TextStyle(),
-                                )),
+                                      'Gym(${21})',
+                                      style: TextStyle(),
+                                    )),
                                 Tab(
                                     child: Text(
-                                  'Pool(${14})',
-                                  style: TextStyle(),
-                                )),
+                                      'Pool(${14})',
+                                      style: TextStyle(),
+                                    )),
                               ],
                             ),
                           ),
@@ -353,11 +358,15 @@ class _HomeState extends State<Home> {
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
+
                           ///-----------1st Container  -------------------///
                           Container(
                             width: 393.w,
                             decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.secondary,
+                              color: Theme
+                                  .of(context)
+                                  .colorScheme
+                                  .secondary,
                             ),
                             child: Padding(
                               padding: EdgeInsets.symmetric(horizontal: 22.w),
@@ -367,402 +376,435 @@ class _HomeState extends State<Home> {
                                     width: 393.h,
                                     height: 440.h,
                                     child: BlocBuilder<FecilitiesBloc,
-                                            FecilitiesState>(
+                                        FecilitiesState>(
                                         builder: (context, state) {
-                                      if (state is FecilitiesblocLoading) {
-                                        return const Center(
-                                          child: CircularProgressIndicator(),
-                                        );
-                                      }
-                                      if (state is FecilitiesblocError) {
-                                        return RefreshIndicator(
-                                          onRefresh: () async {
-                                            return BlocProvider.of<
+                                          if (state is FecilitiesblocLoading) {
+                                            return const Center(
+                                              child: CircularProgressIndicator(),
+                                            );
+
+                                          }
+                                          if (state is FecilitiesblocError) {
+                                            return RefreshIndicator(
+                                              onRefresh: () async {
+                                                return BlocProvider.of<
                                                     FecilitiesBloc>(context)
-                                                .add(FetchFecilities());
-                                          },
-                                          child: SingleChildScrollView(
-                                            physics:
+                                                    .add(FetchFecilities());
+                                              },
+                                              child: SingleChildScrollView(
+                                                physics:
                                                 const BouncingScrollPhysics(),
-                                            child: SizedBox(
-                                                height: MediaQuery.of(context)
+                                                child: SizedBox(
+                                                    height: MediaQuery
+                                                        .of(context)
                                                         .size
                                                         .height *
-                                                    .9,
-                                                // color: Colors.red,
-                                                child: const Center(
-                                                    child: Text(
-                                                        'Oops something went wrong'))),
-                                          ),
-                                        );
-                                      }
-                                      if (state is FecilitiesblocLoaded) {
-                                        data = BlocProvider.of<FecilitiesBloc>(
+                                                        .9,
+                                                    // color: Colors.red,
+                                                    child: const Center(
+                                                        child: Text(
+                                                            'Oops something went wrong'))),
+                                              ),
+                                            );
+                                          }
+                                          if (state is FecilitiesblocLoaded) {
+                                            data = BlocProvider
+                                                .of<FecilitiesBloc>(
                                                 context)
-                                            .fecilitiesModel;
-                                        for (int i = 0; i < data.length; i++) {
-                                          for (int j = 0;
+                                                .fecilitiesModel;
+                                            for (int i = 0; i <
+                                                data.length; i++) {
+                                              for (int j = 0;
                                               j < data[i].images!.length;
                                               j++) {
-                                            _currentIndex.add(0);
-                                          }
-                                        }
+                                                _currentIndex.add(0);
+                                              }
+                                            }
 
-                                        return ListView.separated(
-                                          scrollDirection: Axis.vertical,
-                                          itemCount: data.length,
-                                          itemBuilder: (BuildContext context,
-                                              int index) {
-                                            return GestureDetector(
-                                              onTap: () {
-                                                Navigator.of(context).push(
-                                                    MaterialPageRoute(
-                                                        builder: (builder) =>
-                                                            Detailed_Page(
-                                                              fecilityModel:
+                                            return ListView.separated(
+                                              scrollDirection: Axis.vertical,
+                                              itemCount: data.length,
+                                              itemBuilder: (
+                                                  BuildContext context,
+                                                  int index) {
+                                                return GestureDetector(
+                                                  onTap: () {
+                                                    Navigator.of(context).push(
+                                                        MaterialPageRoute(
+                                                            builder: (
+                                                                builder) =>
+                                                                Detailed_Page(
+                                                                  fecilityModel:
                                                                   data[index],
-                                                            )));
-                                              },
-                                              child: Container(
-                                                width: 300.w,
-                                                color: Theme.of(context)
-                                                    .colorScheme
-                                                    .secondary,
-                                                child: Column(
-                                                  children: [
-                                                    Stack(
+                                                                )));
+                                                  },
+                                                  child: Container(
+                                                    width: 300.w,
+                                                    color: Theme
+                                                        .of(context)
+                                                        .colorScheme
+                                                        .secondary,
+                                                    child: Column(
                                                       children: [
-                                                        CarouselSlider.builder(
-                                                          itemBuilder: (BuildContext
-                                                                      context,
+                                                        Stack(
+                                                          children: [
+                                                            CarouselSlider
+                                                                .builder(
+                                                              itemBuilder: (
+                                                                  BuildContext
+                                                                  context,
                                                                   int itemIndex,
                                                                   int
-                                                                      pageViewIndex) =>
+                                                                  pageViewIndex) =>
                                                               data[index]
-                                                                          .images!
-                                                                          .length >
-                                                                      itemIndex
+                                                                  .images!
+                                                                  .length >
+                                                                  itemIndex
                                                                   ? Container(
-                                                                      child: Image
-                                                                          .network(
-                                                                        data[index]
-                                                                            .images![itemIndex]
-                                                                            .toString(),
-                                                                        width:
-                                                                            356.w,
-                                                                        height:
-                                                                            182.h,
-                                                                        fit: BoxFit
-                                                                            .fill,
-                                                                      ),
-                                                                    )
+                                                                child: Image
+                                                                    .network(
+                                                                  data[index]
+                                                                      .images![itemIndex]
+                                                                      .toString(),
+                                                                  width:
+                                                                  356.w,
+                                                                  height:
+                                                                  182.h,
+                                                                  fit: BoxFit
+                                                                      .fill,
+                                                                ),
+                                                              )
                                                                   : const SizedBox(),
-                                                          options:
+                                                              options:
                                                               CarouselOptions(
-                                                            onPageChanged:
-                                                                (i, reason) {
-                                                              setState(() {
-                                                                _currentIndex[
+                                                                onPageChanged:
+                                                                    (i,
+                                                                    reason) {
+                                                                  setState(() {
+                                                                    _currentIndex[
                                                                     index] = i;
-                                                              });
-                                                            },
-                                                            height: 182.h,
-                                                            viewportFraction: 1,
-                                                            initialPage: 0,
-                                                            enableInfiniteScroll:
+                                                                  });
+                                                                },
+                                                                height: 182.h,
+                                                                viewportFraction: 1,
+                                                                initialPage: 0,
+                                                                enableInfiniteScroll:
                                                                 true,
-                                                            reverse: false,
-                                                            autoPlay: false,
-                                                            autoPlayInterval:
+                                                                reverse: false,
+                                                                autoPlay: false,
+                                                                autoPlayInterval:
                                                                 const Duration(
                                                                     seconds: 3),
-                                                            autoPlayAnimationDuration:
+                                                                autoPlayAnimationDuration:
                                                                 const Duration(
                                                                     milliseconds:
-                                                                        800),
-                                                            autoPlayCurve: Curves
-                                                                .fastOutSlowIn,
-                                                            enlargeCenterPage:
+                                                                    800),
+                                                                autoPlayCurve: Curves
+                                                                    .fastOutSlowIn,
+                                                                enlargeCenterPage:
                                                                 true,
-                                                            enlargeFactor: 0.1,
-                                                            scrollDirection:
+                                                                enlargeFactor: 0.1,
+                                                                scrollDirection:
                                                                 Axis.horizontal,
-                                                          ),
-                                                          itemCount: data[index]
-                                                              .images!
-                                                              .length,
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  top: 170.h),
-                                                          child: Center(
-                                                            child:
-                                                                AnimatedSmoothIndicator(
-                                                              activeIndex:
-                                                                  _currentIndex[
-                                                                      index],
-                                                              count: data[index]
+                                                              ),
+                                                              itemCount: data[index]
                                                                   .images!
                                                                   .length,
-                                                              effect: WormEffect(
-                                                                  dotColor:
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                              EdgeInsets.only(
+                                                                  top: 170.h),
+                                                              child: Center(
+                                                                child:
+                                                                AnimatedSmoothIndicator(
+                                                                  activeIndex:
+                                                                  _currentIndex[
+                                                                  index],
+                                                                  count: data[index]
+                                                                      .images!
+                                                                      .length,
+                                                                  effect: WormEffect(
+                                                                      dotColor:
                                                                       const Color(
                                                                           0xffbdbdbd),
-                                                                  dotHeight:
+                                                                      dotHeight:
                                                                       6.h,
-                                                                  dotWidth: 6.w,
-                                                                  activeDotColor:
+                                                                      dotWidth: 6
+                                                                          .w,
+                                                                      activeDotColor:
                                                                       Colors
                                                                           .white),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsets.symmetric(
-                                                              vertical: 5.h),
-                                                      child: Row(
-                                                        children: [
-                                                          Center(
-                                                            child: SizedBox(
-                                                              width: 230.w,
-                                                              child: Text(
-                                                                maxLines: 1,
-                                                                overflow:
-                                                                    TextOverflow
-                                                                        .ellipsis,
-
-                                                                ///--image name--///
-
-                                                                data[index]
-                                                                    .facilityName
-                                                                    .toString(),
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: Theme.of(
-                                                                          context)
-                                                                      .colorScheme
-                                                                      .onSecondary,
-                                                                  fontSize:
-                                                                      16.sp,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontFamily:
-                                                                      'Montserrat',
                                                                 ),
                                                               ),
                                                             ),
-                                                          ),
-                                                          SizedBox(
-                                                            width: 60.w,
-                                                          ),
-                                                          Icon(
-                                                            Icons
-                                                                .location_on_outlined,
-                                                            size: 14.sp,
-                                                            color: Colors.grey,
-                                                          ),
+                                                          ],
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                          EdgeInsets.symmetric(
+                                                              vertical: 5.h),
+                                                          child: Row(
+                                                            children: [
+                                                              Center(
+                                                                child: SizedBox(
+                                                                  width: 230.w,
+                                                                  child: Text(
+                                                                    maxLines: 1,
+                                                                    overflow:
+                                                                    TextOverflow
+                                                                        .ellipsis,
 
-                                                          ///-- distance --///
+                                                                    ///--image name--///
 
-                                                          Text(
-                                                            '${150}m',
-                                                            style: TextStyle(
-                                                              color: Theme.of(
+                                                                    data[index]
+                                                                        .facilityName
+                                                                        .toString(),
+                                                                    style:
+                                                                    TextStyle(
+                                                                      color: Theme
+                                                                          .of(
+                                                                          context)
+                                                                          .colorScheme
+                                                                          .onSecondary,
+                                                                      fontSize:
+                                                                      16.sp,
+                                                                      fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                      fontFamily:
+                                                                      'Montserrat',
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                              SizedBox(
+                                                                width: 60.w,
+                                                              ),
+                                                              Icon(
+                                                                Icons
+                                                                    .location_on_outlined,
+                                                                size: 14.sp,
+                                                                color: Colors
+                                                                    .grey,
+                                                              ),
+
+                                                              ///-- distance --///
+
+                                                              Text(
+                                                                '${150}m',
+                                                                style: TextStyle(
+                                                                  color: Theme
+                                                                      .of(
                                                                       context)
-                                                                  .colorScheme
-                                                                  .onSecondary,
-                                                              fontSize: 12.sp,
-                                                              fontWeight:
+                                                                      .colorScheme
+                                                                      .onSecondary,
+                                                                  fontSize: 12
+                                                                      .sp,
+                                                                  fontWeight:
                                                                   FontWeight
                                                                       .w600,
-                                                              fontFamily:
+                                                                  fontFamily:
                                                                   'Montserrat',
-                                                            ),
+                                                                ),
+                                                              ),
+                                                            ],
                                                           ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    // Place the ListView.separated for the indicator here
-                                                    Row(
-                                                      crossAxisAlignment:
+                                                        ),
+                                                        // Place the ListView.separated for the indicator here
+                                                        Row(
+                                                          crossAxisAlignment:
                                                           CrossAxisAlignment
                                                               .center,
-                                                      mainAxisAlignment:
+                                                          mainAxisAlignment:
                                                           MainAxisAlignment
                                                               .spaceBetween,
-                                                      children: [
-                                                        ///--Rating --///
+                                                          children: [
 
-                                                        Icon(
-                                                          Icons.star,
-                                                          color:
-                                                              Theme.of(context)
+                                                            ///--Rating --///
+
+                                                            Icon(
+                                                              Icons.star,
+                                                              color:
+                                                              Theme
+                                                                  .of(context)
                                                                   .colorScheme
                                                                   .onSecondary,
-                                                        ),
-                                                        Text(
-                                                          '${4.3} ',
-                                                          style: TextStyle(
-                                                            color: Theme.of(
+                                                            ),
+                                                            Text(
+                                                              '${4.3} ',
+                                                              style: TextStyle(
+                                                                color: Theme
+                                                                    .of(
                                                                     context)
-                                                                .colorScheme
-                                                                .onSecondary,
-                                                            fontSize: 14.sp,
-                                                            fontWeight:
+                                                                    .colorScheme
+                                                                    .onSecondary,
+                                                                fontSize: 14.sp,
+                                                                fontWeight:
                                                                 FontWeight.w600,
-                                                            fontFamily:
+                                                                fontFamily:
                                                                 'Montserrat',
-                                                          ),
-                                                        ),
+                                                              ),
+                                                            ),
 
-                                                        ///--Review count --///
-                                                        SizedBox(
-                                                          width: 85.w,
-                                                          child: Text(
-                                                            '(${data[index].review!.length} Reviews)',
-                                                            style: TextStyle(
-                                                              color: const Color(
-                                                                  0xffa2a2a2),
-                                                              fontSize: 12.sp,
-                                                              fontWeight:
+                                                            ///--Review count --///
+                                                            SizedBox(
+                                                              width: 85.w,
+                                                              child: Text(
+                                                                '(${data[index]
+                                                                    .review!
+                                                                    .length} Reviews)',
+                                                                style: TextStyle(
+                                                                  color: const Color(
+                                                                      0xffa2a2a2),
+                                                                  fontSize: 12
+                                                                      .sp,
+                                                                  fontWeight:
                                                                   FontWeight
                                                                       .w400,
-                                                              fontFamily:
+                                                                  fontFamily:
                                                                   'Montserrat',
+                                                                ),
+                                                              ),
                                                             ),
-                                                          ),
-                                                        ),
-                                                        SizedBox(
-                                                          width: 50.w,
-                                                        ),
-                                                        SizedBox(
-                                                          width: 5 * 30.w,
-                                                          height: 24.h,
-                                                          child: ListView
-                                                              .separated(
-                                                            // Set reverse based on amenity list length
-                                                            reverse: data[index]
+                                                            SizedBox(
+                                                              width: 50.w,
+                                                            ),
+                                                            SizedBox(
+                                                              width: 5 * 30.w,
+                                                              height: 24.h,
+                                                              child: ListView
+                                                                  .separated(
+                                                                // Set reverse based on amenity list length
+                                                                reverse: data[index]
                                                                     .amenities!
                                                                     .length <=
-                                                                4,
-                                                            physics:
+                                                                    4,
+                                                                physics:
                                                                 const ScrollPhysics(
                                                                     parent:
-                                                                        NeverScrollableScrollPhysics()),
-                                                            scrollDirection:
+                                                                    NeverScrollableScrollPhysics()),
+                                                                scrollDirection:
                                                                 Axis.horizontal,
-                                                            shrinkWrap: false,
-                                                            itemCount:
+                                                                shrinkWrap: false,
+                                                                itemCount:
                                                                 data[index]
                                                                     .amenities!
                                                                     .length,
-                                                            itemBuilder:
-                                                                (BuildContext
-                                                                        context,
+                                                                itemBuilder:
+                                                                    (
+                                                                    BuildContext
+                                                                    context,
                                                                     int position) {
-                                                              if (position <=
-                                                                  3) {
-                                                                return Container(
-                                                                  width: 24.w,
-                                                                  height: 24.h,
-                                                                  decoration:
+                                                                  if (position <=
+                                                                      3) {
+                                                                    return Container(
+                                                                      width: 24
+                                                                          .w,
+                                                                      height: 24
+                                                                          .h,
+                                                                      decoration:
                                                                       const BoxDecoration(
                                                                           color:
-                                                                              Color(0xfff0f0f0)),
-                                                                  child: Column(
-                                                                    crossAxisAlignment:
+                                                                          Color(
+                                                                              0xfff0f0f0)),
+                                                                      child: Column(
+                                                                        crossAxisAlignment:
                                                                         CrossAxisAlignment
                                                                             .end,
-                                                                    mainAxisAlignment:
+                                                                        mainAxisAlignment:
                                                                         MainAxisAlignment
                                                                             .center,
-                                                                    children: [
-                                                                      Center(
-                                                                        child: Image
-                                                                            .network(
-                                                                          data[index]
-                                                                              .amenities![position]
-                                                                              .iconUrl!
-                                                                              .toString(),
-                                                                          width:
-                                                                              19.w,
-                                                                          height:
-                                                                              19.h,
-                                                                        ),
+                                                                        children: [
+                                                                          Center(
+                                                                            child: Image
+                                                                                .network(
+                                                                              data[index]
+                                                                                  .amenities![position]
+                                                                                  .iconUrl!
+                                                                                  .toString(),
+                                                                              width:
+                                                                              19
+                                                                                  .w,
+                                                                              height:
+                                                                              19
+                                                                                  .h,
+                                                                            ),
+                                                                          ),
+                                                                        ],
                                                                       ),
-                                                                    ],
-                                                                  ),
-                                                                );
-                                                              } else if (position ==
-                                                                  4) {
-                                                                int balance = data[
-                                                                            index]
+                                                                    );
+                                                                  } else
+                                                                  if (position ==
+                                                                      4) {
+                                                                    int balance = data[
+                                                                    index]
                                                                         .amenities!
                                                                         .length -
-                                                                    4;
-                                                                return Container(
-                                                                  width: 24.w,
-                                                                  height: 24.h,
-                                                                  decoration:
+                                                                        4;
+                                                                    return Container(
+                                                                      width: 24
+                                                                          .w,
+                                                                      height: 24
+                                                                          .h,
+                                                                      decoration:
                                                                       const BoxDecoration(
                                                                           color:
-                                                                              Color(0xfff0f0f0)),
-                                                                  child: Column(
-                                                                    mainAxisAlignment:
+                                                                          Color(
+                                                                              0xfff0f0f0)),
+                                                                      child: Column(
+                                                                        mainAxisAlignment:
                                                                         MainAxisAlignment
                                                                             .center,
-                                                                    children: [
-                                                                      Center(
-                                                                          child: Text(
-                                                                              "+$balance",
-                                                                              style: const TextStyle(
-                                                                                color: Colors.black,
-                                                                              ))),
-                                                                    ],
-                                                                  ),
-                                                                );
-                                                              } else {
-                                                                return const SizedBox();
-                                                              }
-                                                            },
-                                                            separatorBuilder:
-                                                                (BuildContext
-                                                                        context,
+                                                                        children: [
+                                                                          Center(
+                                                                              child: Text(
+                                                                                  "+$balance",
+                                                                                  style: const TextStyle(
+                                                                                    color: Colors
+                                                                                        .black,
+                                                                                  ))),
+                                                                        ],
+                                                                      ),
+                                                                    );
+                                                                  } else {
+                                                                    return const SizedBox();
+                                                                  }
+                                                                },
+                                                                separatorBuilder:
+                                                                    (
+                                                                    BuildContext
+                                                                    context,
                                                                     int index) {
-                                                              return SizedBox(
-                                                                width: 8.w,
-                                                              );
-                                                            },
-                                                          ),
+                                                                  return SizedBox(
+                                                                    width: 8.w,
+                                                                  );
+                                                                },
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+
+                                                        SizedBox(
+                                                          height: 10.h,
                                                         ),
                                                       ],
                                                     ),
-
-                                                    SizedBox(
-                                                      height: 10.h,
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            );
-                                          },
-                                          separatorBuilder:
-                                              (BuildContext context,
+                                                  ),
+                                                );
+                                              },
+                                              separatorBuilder:
+                                                  (BuildContext context,
                                                   int index) {
-                                            return SizedBox(
-                                              width: 14.w,
+                                                return SizedBox(
+                                                  width: 14.w,
+                                                );
+                                              },
                                             );
-                                          },
-                                        );
-                                      } else {
-                                        return const SizedBox();
-                                      }
-                                    }),
+                                          } else {
+                                            return const SizedBox();
+                                          }
+                                        }),
                                   ),
                                 ],
                               ),
@@ -782,11 +824,13 @@ class _HomeState extends State<Home> {
                           GestureDetector(
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (builder) => Detailed_Page(
+                                    builder: (builder) =>
+                                        Detailed_Page(
                                           fecilityModel: data[0],
                                         )));
                               },
-                              child: const Icon(Icons.ac_unit_outlined,color:Colors.black)),
+                              child: const Icon(
+                                  Icons.ac_unit_outlined, color: Colors.black)),
                           Padding(
                             padding: EdgeInsets.only(left: 23.w, top: 30.h),
                             child: Container(
@@ -804,7 +848,7 @@ class _HomeState extends State<Home> {
                                   ),
                                   Text(
                                     'data'
-                                      ,
+                                    ,
                                     style: TextStyle(
                                         fontSize: 20.sp,
                                         fontWeight: FontWeight.w500,
