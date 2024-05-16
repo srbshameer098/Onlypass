@@ -22,6 +22,16 @@ int activeIndex=0;
 class _Detailed_PageState extends State<Detailed_Page> {
 
 
+  String _url = ''; // Example coordinates for New York City
+
+  Future<void> _launchURL() async {
+    if (await canLaunch(_url)) {
+      await launch(_url);
+    } else {
+      throw 'Could not launch $_url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -315,15 +325,8 @@ class _Detailed_PageState extends State<Detailed_Page> {
 
                           GestureDetector(
                             onTap: (){
-                              launchURLApp() async {
-                                // Replace with the desired Google Maps URL (location or directions)
-                                var url = Uri.parse("https://www.google.com/maps/@11.01035796133147, 76.01419308465528,zoom"); // or "https://www.google.com/maps?dir=waid:your+origin:your+destination"
-                                if (await canLaunchUrl(url)) {
-                                  await launchUrl(url);
-                                } else {
-                                  throw 'Could not launch Google Maps';
-                                }
-                              }
+                              _url="${ widget.fecilityModel.link.toString()}";
+                              _launchURL();
                             },
                             child: Text(
                                 'Get direction',

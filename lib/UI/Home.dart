@@ -320,7 +320,7 @@ class _HomeState extends State<Home> {
                               buttonMargin: EdgeInsets.only(left: 20),
                               contentPadding:
                               EdgeInsets.symmetric(horizontal: 14),
-                              height: 33,
+                              height: 30,
                               radius: 0,
                               backgroundColor: Colors.black,
                               unselectedBackgroundColor: Colors.grey[300],
@@ -352,6 +352,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ]),
+              SizedBox(height: 10.h,),
               Expanded(
                 child: TabBarView(children: [
                   Container(
