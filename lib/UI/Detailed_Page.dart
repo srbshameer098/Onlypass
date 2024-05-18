@@ -730,12 +730,15 @@ class _Detailed_PageState extends State<Detailed_Page> {
                                     ),
                                     Padding(
                                       padding:  EdgeInsets.only(left: 8.w),
-                                      child: Text(widget.fecilityModel.amenities![index].amenitiesName.toString(),
-                                        style: TextStyle(
-                                          fontSize: 14.sp,
-                                          color: Theme.of(context).colorScheme.onSecondary,
-                                          fontFamily: 'Montserrat',
-                                          fontWeight: FontWeight.w500,
+                                      child: SizedBox(width: 110.w,
+                                        child: Text(widget.fecilityModel.amenities![index].amenitiesName.toString(),
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                            fontSize: 14.sp,
+                                            color: Theme.of(context).colorScheme.onSecondary,
+                                            fontFamily: 'Montserrat',
+                                            fontWeight: FontWeight.w500,
+                                          ),
                                         ),
                                       ),
                                     ),
