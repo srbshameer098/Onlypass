@@ -3,11 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:onlypass/UI/Bottomnav.dart';
-import 'package:onlypass/UI/Home.dart';
-import 'UI/Authentication/Authentication.dart';
-import 'UI/Authentication/Verify_code.dart';
-import 'firebase_options.dart';
+// import 'firebase_options.dart';
 
 
 import 'package:onlypass/bloc/Fecilities/fecilities_bloc.dart';
@@ -44,7 +40,7 @@ void main() async{
 
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+    // options: DefaultFirebaseOptions.currentPlatform,
   );
 
 
@@ -92,7 +88,7 @@ class MyApp extends StatelessWidget {
 
                   navigatorKey: navigatorKey,
                   routes:
-                  {
+                  const {
                     // '/Notification_Screen': (context)=> const Notification_Screen(),
                   }
               ),

@@ -19,12 +19,12 @@ class Loginmodel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
     if(customer != null) {
-      _data["customer"] = customer?.toJson();
+      data["customer"] = customer?.toJson();
     }
-    _data["accessToken"] = accessToken;
-    return _data;
+    data["accessToken"] = accessToken;
+    return data;
   }
 
   Loginmodel copyWith({
@@ -130,37 +130,37 @@ class Customer {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["_id"] = id;
-    _data["phoneNumber"] = phoneNumber;
-    _data["countryId"] = countryId;
-    _data["gender"] = gender;
-    _data["name"] = name;
-    _data["email"] = email;
-    _data["profilePic"] = profilePic;
-    _data["height"] = height;
-    _data["weight"] = weight;
-    _data["address"] = address;
-    _data["referral_code"] = referralCode;
-    _data["is_offline"] = isOffline;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["_id"] = id;
+    data["phoneNumber"] = phoneNumber;
+    data["countryId"] = countryId;
+    data["gender"] = gender;
+    data["name"] = name;
+    data["email"] = email;
+    data["profilePic"] = profilePic;
+    data["height"] = height;
+    data["weight"] = weight;
+    data["address"] = address;
+    data["referral_code"] = referralCode;
+    data["is_offline"] = isOffline;
     if(activeMembership != null) {
-      _data["activeMembership"] = activeMembership;
+      data["activeMembership"] = activeMembership;
     }
     if(upcomingMemberships != null) {
-      _data["upcomingMemberships"] = upcomingMemberships;
+      data["upcomingMemberships"] = upcomingMemberships;
     }
     if(membershipHistory != null) {
-      _data["membershipHistory"] = membershipHistory;
+      data["membershipHistory"] = membershipHistory;
     }
-    _data["emergencyContactName"] = emergencyContactName;
-    _data["emergencyContactNumber"] = emergencyContactNumber;
+    data["emergencyContactName"] = emergencyContactName;
+    data["emergencyContactNumber"] = emergencyContactNumber;
     if(accountUsing != null) {
-      _data["accountUsing"] = accountUsing;
+      data["accountUsing"] = accountUsing;
     }
-    _data["createdAt"] = createdAt;
-    _data["updatedAt"] = updatedAt;
-    _data["__v"] = v;
-    return _data;
+    data["createdAt"] = createdAt;
+    data["updatedAt"] = updatedAt;
+    data["__v"] = v;
+    return data;
   }
 
   Customer copyWith({

@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:onlypass/UI/Bottomnav.dart';
 import 'package:onlypass/bloc/customer_login/login_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../Utils/Utils.dart';
-import 'Verify_code.dart';
 // import 'package:lottie/lottie.dart';
 
 class Authentification extends StatefulWidget {
@@ -31,7 +28,7 @@ class _AuthentificationState extends State<Authentification> {
       body: SafeArea(
         child: Column(
           children: [
-            Expanded(
+            const Expanded(
               child: Stack(
                 alignment: Alignment.topCenter,
                 children: [
@@ -128,7 +125,7 @@ class _AuthentificationState extends State<Authentification> {
                               .accessToken
                               .toString());
                           Navigator.of(context).pushAndRemoveUntil(
-                            MaterialPageRoute(builder: (_) => BottomNav()),
+                            MaterialPageRoute(builder: (_) => const BottomNav()),
                             (Route<dynamic> route) => false,
                           );
                         } else if (state is LoginblocError) {
@@ -140,7 +137,7 @@ class _AuthentificationState extends State<Authentification> {
                                   onPressed: () {
                                     Navigator.pop(context);
                                   }),
-                              content: Text(
+                              content: const Text(
                                 'Login failed. Please try again.',
                                 style: TextStyle(color: Colors.red),
                               ),
@@ -153,10 +150,10 @@ class _AuthentificationState extends State<Authentification> {
                       child: GestureDetector(
                         onTap: () {
     BlocProvider.of<LoginBloc>(context).add(Fetchlogin(
-  phoneNumber: '${PhoneNumberController.text}',
+  phoneNumber: PhoneNumberController.text,
 
     ));
-print('${PhoneNumberController.text}');
+print(PhoneNumberController.text);
 print(BlocProvider.of<LoginBloc>(context)
     .loginmodel
     .accessToken
@@ -209,7 +206,7 @@ print(BlocProvider.of<LoginBloc>(context)
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text('Continue',
+                                const Text('Continue',
                                     style: TextStyle(color: Colors.black)
                                     // GoogleFonts.montserrat(
                                     //   color: const Color(0xFF191919),

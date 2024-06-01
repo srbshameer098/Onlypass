@@ -325,7 +325,7 @@ class _Detailed_PageState extends State<Detailed_Page> {
 
                           GestureDetector(
                             onTap: (){
-                              _url="${ widget.fecilityModel.link.toString()}";
+                              _url=widget.fecilityModel.link.toString();
                               _launchURL();
                             },
                             child: Text(

@@ -124,7 +124,7 @@ class _EventState extends State<Event> {
                           child: SizedBox(
                             width: 260.w,
                             child: TextFormField(
-                              style:TextStyle(color: Colors.black),
+                              style:const TextStyle(color: Colors.black),
                               decoration: InputDecoration(
                                   border: const OutlineInputBorder(
                                     borderSide: BorderSide.none,
@@ -212,7 +212,7 @@ todayStyle: DayStyle(borderRadius: 0.r,decoration: const BoxDecoration()),
     activeDayStyle: DayStyle(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(0.r)),
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
@@ -289,18 +289,18 @@ todayStyle: DayStyle(borderRadius: 0.r,decoration: const BoxDecoration()),
 
                         ButtonsTabBar(
 
-                          buttonMargin:EdgeInsets.only(left: 20),
-                          contentPadding: EdgeInsets.symmetric(horizontal: 14),
+                          buttonMargin:const EdgeInsets.only(left: 20),
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 14),
                           height: 33,
                           radius: 0,
                           backgroundColor: Colors.black,
                           unselectedBackgroundColor: Colors.grey[300],
                           unselectedLabelStyle:
-                          TextStyle(color: Colors.black),
-                          labelStyle: TextStyle(
+                          const TextStyle(color: Colors.black),
+                          labelStyle: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w400),
-                          tabs: [
+                          tabs: const [
                             Tab(child: Text('All(${38})',style: TextStyle(),)),
                             Tab(
                                 child: Text(

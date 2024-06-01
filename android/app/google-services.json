@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "977613763925",
+    "project_id": "onlypass-customer-app",
+    "storage_bucket": "onlypass-customer-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:977613763925:android:3e4a6650ba8eb8f1a56bdc",
+        "android_client_info": {
+          "package_name": "com.example.onlypass"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZnV5aNJnFlHYWlMfHw687oY6WqG0mftI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

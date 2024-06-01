@@ -1,14 +1,9 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../../Repository/ModelClass/login_model.dart';
 
-import '../../Repository/ModelClass/login_model.dart';
 import '../../Utils/Utils.dart';
 import '../../bloc/customer_login/login_bloc.dart';
 import '../Bottomnav.dart';
@@ -46,7 +41,7 @@ class _LogInPageState extends State<LogInPage> {
         body: SafeArea(
           child: Column(
             children: [
-          Expanded(
+          const Expanded(
           child: Stack(
           alignment: Alignment.topCenter,
             children: [
@@ -151,7 +146,7 @@ class _LogInPageState extends State<LogInPage> {
      BlocProvider
           .of<LoginBloc>(context).loginmodel;
 
-      Navigator.push(context, MaterialPageRoute(builder: (_)=> BottomNav()));
+      Navigator.push(context, MaterialPageRoute(builder: (_)=> const BottomNav()));
       print('hello');
     }
     if (state is LoginblocError){
@@ -208,7 +203,7 @@ class _LogInPageState extends State<LogInPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'Continue',
                      style:TextStyle(color: Colors.black)
                     // GoogleFonts.montserrat(

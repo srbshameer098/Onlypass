@@ -30,7 +30,7 @@ class _Verify_codeState extends State<Verify_code> {
         ),
       ),
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 0.0),
+        padding:  const EdgeInsets.symmetric(horizontal: 0.0),
         child: Container(
             padding: EdgeInsets.all(29.w),
             height: 343.h,
@@ -41,17 +41,17 @@ class _Verify_codeState extends State<Verify_code> {
           children: [
 
             SizedBox(height: 30.h,),
-            OtpInputEditor(otpLength: 6,
+            const OtpInputEditor(otpLength: 6,
               obscureText: false,
             ),
             TextFormField(
-              style: TextStyle(fontSize: 24),
+              style: const TextStyle(fontSize: 24),
 
               keyboardType: TextInputType.phone,
               controller: verificationCodeController,
 
               maxLength: 6,
-              decoration:  InputDecoration(
+              decoration:  const InputDecoration(
 
 
                   hintText: '6 digit code',
@@ -59,7 +59,7 @@ class _Verify_codeState extends State<Verify_code> {
               ),
             ),
             SizedBox(height: 50.h,),
-            TextButton(child: Text('Verify'), onPressed: ()async{
+            TextButton(child: const Text('Verify'), onPressed: ()async{
 
               setState(() {
                 loading = true ;
@@ -75,7 +75,7 @@ class _Verify_codeState extends State<Verify_code> {
 
                 await auth.signInWithCredential(credential);
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context)=>  BottomNav()));
+                    MaterialPageRoute(builder: (context)=>  const BottomNav()));
               }catch(e){
 
                 setState(() {

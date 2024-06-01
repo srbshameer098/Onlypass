@@ -9,8 +9,6 @@ const lightColorScheme = ColorScheme(
   secondary:  Color(0xFF191919),
   error:  Color(0xFF191919),
   onError:  Color(0xFF191919),
-  background:  Color(0xFF191919),
-  onBackground:  Color(0xFF191919),
   surface:  Color(0xFF191919),
   onSurface:  Color(0xFF191919),
 
@@ -25,8 +23,6 @@ const darkColorScheme = ColorScheme(
     onSecondary: Color(0xFF191919),
   error: Color(0xFFFEFEFE),
   onError: Color(0xFFFF0000),
-  background: Color(0xFFFEFEFE),
-  onBackground: Color(0xFFFEFEFE),
   surface: Color(0xFFFEFEFE),
   onSurface: Color(0xFFFEFEFE),
 

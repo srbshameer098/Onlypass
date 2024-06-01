@@ -155,64 +155,64 @@ class FacilityModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
     if(accessDevices != null) {
-      _data["access_devices"] = accessDevices;
+      data["access_devices"] = accessDevices;
     }
     if(category != null) {
-      _data["category"] = category?.map((e) => e.toJson()).toList();
+      data["category"] = category?.map((e) => e.toJson()).toList();
     }
-    _data["_id"] = id;
-    _data["tier"] = tier;
+    data["_id"] = id;
+    data["tier"] = tier;
     if(gender != null) {
-      _data["gender"] = gender;
+      data["gender"] = gender;
     }
-    _data["facilityName"] = facilityName;
-    _data["contactPerson"] = contactPerson;
-    _data["facility_type"] = facilityType;
-    _data["emailAddress"] = emailAddress;
-    _data["phoneNumber"] = phoneNumber;
-    _data["websiteURL"] = websiteUrl;
-    _data["logoUrl"] = logoUrl;
-    _data["description"] = description;
+    data["facilityName"] = facilityName;
+    data["contactPerson"] = contactPerson;
+    data["facility_type"] = facilityType;
+    data["emailAddress"] = emailAddress;
+    data["phoneNumber"] = phoneNumber;
+    data["websiteURL"] = websiteUrl;
+    data["logoUrl"] = logoUrl;
+    data["description"] = description;
     if(images != null) {
-      _data["images"] = images;
+      data["images"] = images;
     }
-    _data["address"] = address;
-    _data["pin_code"] = pinCode;
-    _data["country"] = country;
-    _data["state"] = state;
-    _data["latitude_longitude"] = latitudeLongitude;
+    data["address"] = address;
+    data["pin_code"] = pinCode;
+    data["country"] = country;
+    data["state"] = state;
+    data["latitude_longitude"] = latitudeLongitude;
     if(amenities != null) {
-      _data["amenities"] = amenities?.map((e) => e.toJson()).toList();
+      data["amenities"] = amenities?.map((e) => e.toJson()).toList();
     }
     if(facilityTiming != null) {
-      _data["facilityTiming"] = facilityTiming?.map((e) => e.toJson()).toList();
+      data["facilityTiming"] = facilityTiming?.map((e) => e.toJson()).toList();
     }
-    _data["admission_fee"] = admissionFee;
-    _data["daily_pass"] = dailyPass;
-    _data["other"] = other;
+    data["admission_fee"] = admissionFee;
+    data["daily_pass"] = dailyPass;
+    data["other"] = other;
     if(review != null) {
-      _data["review"] = review;
+      data["review"] = review;
     }
-    _data["createdAt"] = createdAt;
-    _data["updatedAt"] = updatedAt;
-    _data["__v"] = v;
+    data["createdAt"] = createdAt;
+    data["updatedAt"] = updatedAt;
+    data["__v"] = v;
     if(paymentInfo != null) {
-      _data["paymentInfo"] = paymentInfo;
+      data["paymentInfo"] = paymentInfo;
     }
-    _data["monthly_pass"] = monthlyPass;
-    _data["annual_pass"] = annualPass;
+    data["monthly_pass"] = monthlyPass;
+    data["annual_pass"] = annualPass;
     if(rushHours != null) {
-      _data["rushHours"] = rushHours?.toJson();
+      data["rushHours"] = rushHours?.toJson();
     }
-    _data["link"] = link;
+    data["link"] = link;
     if(equipments != null) {
-      _data["equipments"] = equipments?.map((e) => e.toJson()).toList();
+      data["equipments"] = equipments?.map((e) => e.toJson()).toList();
     }
-    _data["threeMonth_pass"] = threeMonthPass;
-    _data["sixMonth_pass"] = sixMonthPass;
-    return _data;
+    data["threeMonth_pass"] = threeMonthPass;
+    data["sixMonth_pass"] = sixMonthPass;
+    return data;
   }
 
   FacilityModel copyWith({
@@ -336,16 +336,16 @@ class Equipments {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["_id"] = id;
-    _data["name"] = name;
-    _data["image"] = image;
-    _data["createdAt"] = createdAt;
-    _data["updatedAt"] = updatedAt;
-    _data["__v"] = v;
-    _data["description"] = description;
-    _data["status"] = status;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["_id"] = id;
+    data["name"] = name;
+    data["image"] = image;
+    data["createdAt"] = createdAt;
+    data["updatedAt"] = updatedAt;
+    data["__v"] = v;
+    data["description"] = description;
+    data["status"] = status;
+    return data;
   }
 
   Equipments copyWith({
@@ -389,14 +389,14 @@ class RushHours {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
     if(morning != null) {
-      _data["morning"] = morning?.toJson();
+      data["morning"] = morning?.toJson();
     }
     if(evening != null) {
-      _data["evening"] = evening?.toJson();
+      data["evening"] = evening?.toJson();
     }
-    return _data;
+    return data;
   }
 
   RushHours copyWith({
@@ -428,10 +428,10 @@ class Evening1 {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["start"] = start;
-    _data["end"] = end;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["start"] = start;
+    data["end"] = end;
+    return data;
   }
 
   Evening1 copyWith({
@@ -463,10 +463,10 @@ class Morning1 {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["start"] = start;
-    _data["end"] = end;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["start"] = start;
+    data["end"] = end;
+    return data;
   }
 
   Morning1 copyWith({
@@ -506,16 +506,16 @@ class FacilityTiming {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
     if(morning != null) {
-      _data["morning"] = morning?.toJson();
+      data["morning"] = morning?.toJson();
     }
     if(evening != null) {
-      _data["evening"] = evening?.toJson();
+      data["evening"] = evening?.toJson();
     }
-    _data["day"] = day;
-    _data["_id"] = id;
-    return _data;
+    data["day"] = day;
+    data["_id"] = id;
+    return data;
   }
 
   FacilityTiming copyWith({
@@ -555,11 +555,11 @@ class Evening {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["start"] = start;
-    _data["end"] = end;
-    _data["holiday"] = holiday;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["start"] = start;
+    data["end"] = end;
+    data["holiday"] = holiday;
+    return data;
   }
 
   Evening copyWith({
@@ -597,11 +597,11 @@ class Morning {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["start"] = start;
-    _data["end"] = end;
-    _data["holiday"] = holiday;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["start"] = start;
+    data["end"] = end;
+    data["holiday"] = holiday;
+    return data;
   }
 
   Morning copyWith({
@@ -643,12 +643,12 @@ class Amenities {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["amenities_name"] = amenitiesName;
-    _data["isPaid"] = isPaid;
-    _data["iconUrl"] = iconUrl;
-    _data["_id"] = id;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["amenities_name"] = amenitiesName;
+    data["isPaid"] = isPaid;
+    data["iconUrl"] = iconUrl;
+    data["_id"] = id;
+    return data;
   }
 
   Amenities copyWith({
@@ -708,16 +708,16 @@ class Category {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["_id"] = id;
-    _data["category_name"] = categoryName;
-    _data["description"] = description;
-    _data["status"] = status;
-    _data["logo"] = logo;
-    _data["createdAt"] = createdAt;
-    _data["updatedAt"] = updatedAt;
-    _data["__v"] = v;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["_id"] = id;
+    data["category_name"] = categoryName;
+    data["description"] = description;
+    data["status"] = status;
+    data["logo"] = logo;
+    data["createdAt"] = createdAt;
+    data["updatedAt"] = updatedAt;
+    data["__v"] = v;
+    return data;
   }
 
   Category copyWith({

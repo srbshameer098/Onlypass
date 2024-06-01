@@ -218,7 +218,7 @@ class _HomeState extends State<Home> {
                             child: TextFormField(
                               controller: SearchFilter,
                               minLines: 1,
-                              style: TextStyle(color: Colors.black),
+                              style: const TextStyle(color: Colors.black),
                               decoration: InputDecoration(
                                 hintText: loca = _currentAdess,
                                 hintStyle:
@@ -300,7 +300,7 @@ class _HomeState extends State<Home> {
                       child: Row(
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(),
+                            padding: const EdgeInsets.only(),
                             child: Container(
                               width: 44.w,
                               height: 28.w,
@@ -319,19 +319,19 @@ class _HomeState extends State<Home> {
                           ),
                           Container(
                             child: ButtonsTabBar(
-                              buttonMargin: EdgeInsets.only(left: 20),
+                              buttonMargin: const EdgeInsets.only(left: 20),
                               contentPadding:
-                              EdgeInsets.symmetric(horizontal: 14),
+                              const EdgeInsets.symmetric(horizontal: 14),
                               height: 30,
                               radius: 0,
                               backgroundColor: Colors.black,
                               unselectedBackgroundColor: Colors.grey[300],
                               unselectedLabelStyle:
-                              TextStyle(color: Colors.black),
-                              labelStyle: TextStyle(
+                              const TextStyle(color: Colors.black),
+                              labelStyle: const TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w400),
-                              tabs: [
+                              tabs: const [
                                 Tab(
                                     child:
                                     Text('All(${38})', style: TextStyle())),
@@ -1177,6 +1177,7 @@ class _HomeState extends State<Home> {
 
 
                                                   }
+                                                  return null;
                                                 },
                                                 separatorBuilder:
                                                     (BuildContext context,
