@@ -87,7 +87,9 @@ class MyApp extends StatelessWidget {
                 ),
 
                 themeMode: ThemeMode.light,
-                home: const Authentification(),
+                home: const LogInPage(),
+
+
                   navigatorKey: navigatorKey,
                   routes:
                   {
