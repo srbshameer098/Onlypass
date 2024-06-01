@@ -64,7 +64,7 @@ dependencies:
   flutter_local_notifications: ^16.3.2
   otp_input_editor: ^0.0.8
   shared_preferences: ^2.2.3
-  flutterfire_cli: ^1.0.0
+
 
 
 
