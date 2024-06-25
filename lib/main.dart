@@ -8,6 +8,7 @@ import 'package:firebase_core/firebase_core.dart';
 
 import 'package:onlypass/bloc/Fecilities/fecilities_bloc.dart';
 
+import 'UI/Authentication/Authentication.dart';
 import 'UI/Authentication/authentication2.dart';
 import 'bloc/customer_login/login_bloc.dart';
 import 'color customize/Colors.dart';
@@ -54,7 +55,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(designSize: const Size(392, 852),
+    return ScreenUtilInit(designSize: const Size(393, 852),
         builder: (BuildContext context, Widget? child) {
           SystemChrome.setPreferredOrientations([
             DeviceOrientation.portraitUp,
@@ -83,7 +84,7 @@ class MyApp extends StatelessWidget {
                 ),
 
                 themeMode: ThemeMode.light,
-                home: const LogInPage(),
+                home: const Authentification(),
 
 
                   navigatorKey: navigatorKey,
