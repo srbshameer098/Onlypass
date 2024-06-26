@@ -19,6 +19,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:shimmer/shimmer.dart';
 
+import 'Event.dart';
+
 bool _visible1 = false;
 bool _location = true;
 
@@ -121,7 +123,7 @@ class _HomeState extends State<Home> {
 
       setState(() {
         _currentAddress = place.locality ?? '';
-        _currentAddress1 = place.subAdministrativeArea ?? '';
+        _currentAddress1 = place.administrativeArea ?? '';
         print('${_currentAddress1}-ghvgh');
       });
     } catch (e) {
@@ -131,6 +133,8 @@ class _HomeState extends State<Home> {
 
   String loca = '';
   final searchfilter = TextEditingController();
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -379,7 +383,7 @@ class _HomeState extends State<Home> {
                                           child: Expanded(
                                             child: Shimmer.fromColors(
                                               baseColor: Color(0xFFE7E7E7),
-                                              highlightColor: Colors.white,
+                                              highlightColor: Color(0xFF9B9B9B),
                                               child: ListView.builder(
                                                 itemBuilder: (_, __) => Padding(
                                                   padding:

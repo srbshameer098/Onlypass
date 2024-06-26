@@ -1,29 +1,126 @@
 
 
+import 'dart:async';
+
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 
 
 
 bool _visible = false;
 String _selectedValue ='' ;
+late GoogleMapController _mapController;
 final EasyInfiniteDateTimelineController _controller =
 EasyInfiniteDateTimelineController();
 class Event extends StatefulWidget {
-  const Event({super.key});
+  const Event({super.key, required String address});
 
   @override
   State<Event> createState() => _EventState();
 }
 
 class _EventState extends State<Event> {
+  String _currentAddress = '';
+  String _currentAddress1 = '';
+  double lat = 0.0;
+  double long = 0.0;
+  late StreamSubscription<Position> positionStream;
+  @override
+  void initState() {
+    super.initState();
+    // BlocProvider.of<FecilitiesBloc>(context).add(FetchFecilities());
+    _fetchInitialPosition();
+    const LocationSettings locationSettings = LocationSettings(
+      accuracy: LocationAccuracy.high,
+      distanceFilter: 100,
+    );
+    positionStream =
+        Geolocator.getPositionStream(locationSettings: locationSettings)
+            .listen((Position? position) {
+          if (position != null) {
+            setState(() {
+              lat = position.latitude;
+              long = position.longitude;
+            });
+            print('${position.latitude}, ${position.longitude}');
+            _getAddressFromCoordinates(position.latitude, position.longitude);
+          }
+        });
+  }
+  @override
+  void dispose() {
+    positionStream.cancel();
+    super.dispose();
+  }
 
+  void _onMapCreated(GoogleMapController controller) {
+    _mapController = controller;
+  }
 
+  Future<void> _fetchInitialPosition() async {
+    try {
+      Position position = await _determinePosition();
+      setState(() {
+        lat = position.latitude;
+        long = position.longitude;
+      });
+      _getAddressFromCoordinates(position.latitude, position.longitude);
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  Future<Position> _determinePosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    // Test if location services are enabled.
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Future.error('Location services are disabled.');
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('Location permissions are denied');
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
+
+    // When we reach here, permissions are granted and we can access the position of the device.
+    return await Geolocator.getCurrentPosition();
+  }
+
+  Future<void> _getAddressFromCoordinates(double lat, double long) async {
+    try {
+      List<Placemark> placemarks = await placemarkFromCoordinates(lat, long);
+      Placemark place = placemarks[0];
+
+      setState(() {
+        _currentAddress = place.locality ?? '';
+        _currentAddress1 = place.subAdministrativeArea ?? '';
+        print('${_currentAddress1}-ghvgh');
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  String loca = '';
 
 
   @override
@@ -63,7 +160,7 @@ class _EventState extends State<Event> {
                           size: 20.sp,
                           color: Theme.of(context).colorScheme.onSecondary,
                         ),
-                        Text('Kalamassery, Kochi ',
+                        Text('$_currentAddress, $_currentAddress1 ',
                             style: TextStyle(
                                 color: Theme.of(context).colorScheme.onSecondary,
                                 fontSize: 12.sp,

@@ -11,7 +11,8 @@ import 'Home.dart';
 int currentIndex = 0;
 
 class BottomNav extends StatefulWidget {
-  const BottomNav({super.key});
+
+  const BottomNav({super.key, });
 
   @override
   State<BottomNav> createState() => _BottomNavState();
@@ -19,7 +20,7 @@ class BottomNav extends StatefulWidget {
 
 final screens = [
   const Home(),
-  const Event(),
+  const Event(address: ''),
   const Onlypass(),
   const Access(),
   const Profile()
