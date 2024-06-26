@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../Utils/Utils.dart';
 import '../../bloc/customer_login/login_bloc.dart';
@@ -150,7 +151,7 @@ class _LogInPageState extends State<LogInPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => Verify_code(verificationId: verificationId),
+                                  builder: (context) => Verify_code(verificationId: verificationId, PhoneNumberController: PhoneNumberController.text,),
                                 ),
                               );
                               setState(() {
@@ -205,4 +206,10 @@ class _LogInPageState extends State<LogInPage> {
       ),
     );
   }
+
+
+void token(String accessToken) async {
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  prefs.setString("accessToken", accessToken);
+}
 }

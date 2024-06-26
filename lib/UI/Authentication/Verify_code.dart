@@ -1,13 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:onlypass/UI/Bottomnav.dart';
 import 'package:otp_input_editor/otp_input_editor.dart';
 
 import '../../Utils/Utils.dart';
+import '../../bloc/customer_login/login_bloc.dart';
 class Verify_code extends StatefulWidget {
   final String verificationId;
-  const Verify_code({super.key, required this.verificationId});
+  final String PhoneNumberController;
+  const Verify_code({super.key, required this.verificationId, required this.PhoneNumberController});
 
   @override
   State<Verify_code> createState() => _Verify_codeState();
@@ -73,9 +76,23 @@ class _Verify_codeState extends State<Verify_code> {
 
               try{
 
-                await auth.signInWithCredential(credential);
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context)=>  const BottomNav()));
+                BlocProvider.of<LoginBloc>(context).add(Fetchlogin(
+                    phoneNumber: widget.PhoneNumberController,
+                ));
+
+
+
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (_) => const BottomNav()),
+                      (Route<dynamic> route) => false,
+                );
+
+
+                BlocProvider.of<LoginBloc>(context).add(Fetchlogin(
+                  phoneNumber: widget.PhoneNumberController,
+
+                ));
+
               }catch(e){
 
                 setState(() {
