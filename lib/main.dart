@@ -10,6 +10,8 @@ import 'package:onlypass/bloc/Fecilities/fecilities_bloc.dart';
 
 import 'UI/Authentication/Authentication.dart';
 import 'UI/Authentication/authentication2.dart';
+import 'UI/splash/splash screen.dart';
+import 'UI/splash/splash service.dart';
 import 'bloc/customer_login/login_bloc.dart';
 import 'color customize/Colors.dart';
 
@@ -80,7 +82,7 @@ class MyApp extends StatelessWidget {
                 ),
 
                 themeMode: ThemeMode.light,
-                home: const LogInPage(),
+                home:  SplashScreen(),
 
 
                   navigatorKey: navigatorKey,
