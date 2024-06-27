@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:onlypass/UI/Authentication/verify.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../Utils/Utils.dart';
 import '../../bloc/customer_login/login_bloc.dart';
@@ -170,6 +171,10 @@ class _LogInPageState extends State<LogInPage> {
                         }
 
                         if (state is LoginblocLoaded) {
+                          token(BlocProvider.of<LoginBloc>(context)
+                              .loginmodel
+                              .accessToken
+                              .toString());
                           auth.verifyPhoneNumber(
                             phoneNumber: '+91${phoneNumberController.text}',
                             verificationCompleted: (_) {
@@ -188,7 +193,7 @@ class _LogInPageState extends State<LogInPage> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => Verification_code(
-                                    verificationId: verificationId, phoneNum: phoneNumberController.text.toString(),
+                                    verificationId: verificationId,verificationcode:token, phoneNum: phoneNumberController.text.toString(),
                                   ),
                                 ),
                               );
@@ -266,5 +271,9 @@ class _LogInPageState extends State<LogInPage> {
         ),
       ),
     );
+  }
+  void token(String accessToken) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString("accessToken", accessToken);
   }
 }

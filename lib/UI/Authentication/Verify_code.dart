@@ -9,8 +9,9 @@ import '../../Utils/Utils.dart';
 import '../../bloc/customer_login/login_bloc.dart';
 class Verify_code extends StatefulWidget {
   final String verificationId;
+  final String verificationcode;
   final String PhoneNumberController;
-  const Verify_code({super.key, required this.verificationId, required this.PhoneNumberController});
+  const Verify_code({super.key, required this.verificationId, required this.PhoneNumberController, required this.verificationcode});
 
   @override
   State<Verify_code> createState() => _Verify_codeState();
@@ -70,7 +71,7 @@ class _Verify_codeState extends State<Verify_code> {
 
 
               final credential = PhoneAuthProvider.credential(
-                  verificationId: widget.verificationId,
+                  verificationId: widget.verificationcode,
                   smsCode: verificationCodeController.text.toString()
               );
 
