@@ -112,7 +112,7 @@ class _EventState extends State<Event> {
 
       setState(() {
         _currentAddress = place.locality ?? '';
-        _currentAddress1 = place.subAdministrativeArea ?? '';
+        _currentAddress1 = place.administrativeArea ?? '';
         print('${_currentAddress1}-ghvgh');
       });
     } catch (e) {
@@ -443,6 +443,7 @@ todayStyle: DayStyle(borderRadius: 0.r,decoration: const BoxDecoration()),
                       child: Column(
                         children: [
                           ///-----------1st Container  -------------------///
+                          ///---------- Events happening nearby you ------///
                           Container(
                             width: 393.w,
                             height: 248.h,
@@ -553,7 +554,7 @@ todayStyle: DayStyle(borderRadius: 0.r,decoration: const BoxDecoration()),
                                                 ),
 
                                                 Positioned(
-                                                  left: 5.w,
+                                                  left: 0.w,
                                                   bottom: 140.h,
                                                   child: Container(
                                                     width: 61.w,
