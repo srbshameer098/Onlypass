@@ -37,7 +37,7 @@ class _OnlypassState extends State<Onlypass> {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 6.h),
+        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
         child: Column(
           children: [
             SizedBox(
