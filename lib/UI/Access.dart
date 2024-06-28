@@ -113,7 +113,7 @@ class _AccessState extends State<Access> {
                                       fontWeight: FontWeight.w600)),
                               Row(
                                 children: [
-                                  Text('Ends on ',
+                                  Text('Ends on',
                                       style: TextStyle(
                                           color: const Color(0xff191919),
                                           fontSize: 14.sp,
