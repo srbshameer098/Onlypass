@@ -206,7 +206,7 @@ class _AccessState extends State<Access> {
                             ],
                           ),
                           SizedBox(
-                            width: 69.w,
+                            width: 68.w,
                           ),
 
                           ///-----------Upgrade Membership Container  -------------------///

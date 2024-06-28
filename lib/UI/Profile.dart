@@ -82,7 +82,7 @@ class _ProfileState extends State<Profile> {
               ),
           
               Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 24.w,vertical: 30.h),
+                padding:  EdgeInsets.symmetric(horizontal: 23.w,vertical: 30.h),
                 child: Column(
                   children: [
                     //----------------- 2nd container ------------//

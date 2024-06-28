@@ -37,7 +37,7 @@ class _OnlypassState extends State<Onlypass> {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 4.2.h),
+        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 6.h),
         child: Column(
           children: [
             SizedBox(
@@ -48,447 +48,732 @@ class _OnlypassState extends State<Onlypass> {
 
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 10.h),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8.h),
-                      child: Stack(children: [
-                        Container(
-                          width: 350.w,
-                          height: 172.h,
-                          color: const Color(0xff191919),
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 12.h, horizontal: 12.5.w),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('Gold Pass',
-                                        style: TextStyle(
-                                            color: const Color(0xffd2ad63),
-                                            fontSize: 16.sp,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w700)),
-                                    Text('Best value for money.',
-                                        style: TextStyle(
-                                            color: const Color(0xffdadada),
-                                            fontSize: 12.sp,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w400)),
-                                    SizedBox(
-                                      height: 30.h,
-                                    ),
-                                    Text(
-                                        'Unlimited Visit to ${1165}+ \nFitness Centers in Kerala',
-                                        style: TextStyle(
-                                            color: const Color(0xffffffff),
-                                            fontSize: 14.sp,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w400)),
-                                    SizedBox(
-                                      height: 14.h,
-                                    ),
-                                    Text('Free access to training videos',
-                                        style: TextStyle(
-                                            color: const Color(0xffdadada),
-                                            fontSize: 14.sp,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w400)),
-                                  ],
-                                ),
+                    child: Stack(children: [
+                      Container(
+                        width: 350.w,
+                        height: 172.h,
+                        color: const Color(0xff191919),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 12.h, horizontal: 12.5.w),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Gold Pass',
+                                      style: TextStyle(
+                                          color: const Color(0xffd2ad63),
+                                          fontSize: 16.sp,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w700)),
+                                  Text('Best value for money.',
+                                      style: TextStyle(
+                                          color: const Color(0xffdadada),
+                                          fontSize: 12.sp,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w400)),
+                                  SizedBox(
+                                    height: 30.h,
+                                  ),
+                                  Text(
+                                      'Unlimited Visit to ${1165}+ \nFitness Centers in Kerala',
+                                      style: TextStyle(
+                                          color: const Color(0xffffffff),
+                                          fontSize: 14.sp,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w400)),
+                                  SizedBox(
+                                    height: 14.h,
+                                  ),
+                                  Text('Free access to training videos',
+                                      style: TextStyle(
+                                          color: const Color(0xffdadada),
+                                          fontSize: 14.sp,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w400)),
+                                ],
                               ),
-                              Stack(children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: SizedBox(
-                                    width: 0.w,
-                                    height: 170.h,
-                                    child: Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 2.h),
-                                      child: SizedBox(
-                                        height: 170.h,
-                                        child: DottedLine(
-                                          direction: Axis.vertical,
-                                          dashLength: 3,
-                                          dashGapLength: 5,
-                                          lineThickness: 1,
-                                          dashRadius: 1.r,
-                                          dashColor: Colors.white,
-                                        ),
+                            ),
+                            Stack(children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: SizedBox(
+                                  width: 0.w,
+                                  height: 170.h,
+                                  child: Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(vertical: 2.h),
+                                    child: SizedBox(
+                                      height: 170.h,
+                                      child: DottedLine(
+                                        direction: Axis.vertical,
+                                        dashLength: 3,
+                                        dashGapLength: 5,
+                                        lineThickness: 1,
+                                        dashRadius: 1.r,
+                                        dashColor: Colors.white,
                                       ),
                                     ),
                                   ),
                                 ),
-                                Positioned(
-                                    right: 3.w,
-                                    top: 167.h,
-                                    child:  CircleAvatar(
-                                      radius: 5.r,
-                                      backgroundColor: Colors.white,
-                                    )),
-                                Positioned(
-                                    left: 3.w,
-                                    bottom: 167.h,
-                                    child:  CircleAvatar(
-                                      radius: 5.r,
-                                      backgroundColor: Colors.white,
-                                    ))
-                              ]),
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 10.5.w, vertical: 12.h),
-                                child: Column(
-                                  children: [
-                                    Text('30 Days\nAccess',
-                                        style: TextStyle(
-                                            color: const Color(0xffffffff),
-                                            fontSize: 14.sp,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w400)),
-                                    SizedBox(
-                                      height: 50.h,
+                              ),
+                              Positioned(
+                                  right: 2.w,
+                                  top: 167.h,
+                                  child:  CircleAvatar(
+                                    radius: 5.r,
+                                    backgroundColor: Colors.white,
+                                  )),
+                              Positioned(
+                                  left: 3.w,
+                                  bottom: 167.h,
+                                  child:  CircleAvatar(
+                                    radius: 5.r,
+                                    backgroundColor: Colors.white,
+                                  ))
+                            ]),
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10.5.w, vertical: 12.h),
+                              child: Column(
+                                children: [
+                                  Text('30 Days\nAccess',
+                                      style: TextStyle(
+                                          color: const Color(0xffffffff),
+                                          fontSize: 14.sp,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w400)),
+                                  SizedBox(
+                                    height: 50.h,
+                                  ),
+                                  Text('Starts from',
+                                      style: TextStyle(
+                                          color: const Color(0xffdadada),
+                                          fontSize: 12.sp,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w400)),
+                                  Container(
+                                    width: 72.w,
+                                    height: 36.h,
+                                    color: const Color(0xff00ff00),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text('Rs. 1,999',
+                                            style: TextStyle(
+                                                color: const Color(0xff191919),
+                                                fontSize: 12.sp,
+                                                fontFamily: 'Montserrat',
+                                                fontWeight: FontWeight.w600)),
+                                        Text('  /Month',
+                                            style: TextStyle(
+                                                color: const Color(0xff191919),
+                                                fontSize: 10.sp,
+                                                fontFamily: 'Montserrat',
+                                                fontWeight: FontWeight.w400)),
+                                      ],
                                     ),
-                                    Text('Starts from',
-                                        style: TextStyle(
-                                            color: const Color(0xffdadada),
-                                            fontSize: 12.sp,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w400)),
-                                    Container(
-                                      width: 72.w,
-                                      height: 36.h,
-                                      color: const Color(0xff00ff00),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text('Rs. 1,999',
-                                              style: TextStyle(
-                                                  color: const Color(0xff191919),
-                                                  fontSize: 12.sp,
-                                                  fontFamily: 'Montserrat',
-                                                  fontWeight: FontWeight.w600)),
-                                          Text('  /Month',
-                                              style: TextStyle(
-                                                  color: const Color(0xff191919),
-                                                  fontSize: 10.sp,
-                                                  fontFamily: 'Montserrat',
-                                                  fontWeight: FontWeight.w400)),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
                         ),
-                      ]),
-                    ),
+                      ),
+                    ]),
                   ),
 
                   ///--------------  Silver Pass  -------------------///
 
+
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 10.h),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8.h),
-                      child: Stack(children: [
-                        Container(
-                          width: 350.w,
-                          height: 172.h,
-                          color: const Color(0xff191919),
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 12.h, horizontal: 9.w),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('Silver Pass',
-                                        style: TextStyle(
-                                            color: const Color(0xffececec),
-                                            fontSize: 16.sp,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w700)),
-                                    Text('Budget-friendly for everyone.',
-                                        style: TextStyle(
-                                            color: const Color(0xffdadada),
-                                            fontSize: 12.sp,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w400)),
-                                    SizedBox(
-                                      height: 30.h,
-                                    ),
-                                    Text(
-                                        'Unlimited Visit to ${11076}+ \nFitness Centers in Kerala',
-                                        style: TextStyle(
-                                            color: const Color(0xffffffff),
-                                            fontSize: 14.sp,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w400)),
-                                    SizedBox(
-                                      height: 14.h,
-                                    ),
-                                    Text('See the fitness clubs included',
-                                        style: TextStyle(
-                                            decoration:
-                                                TextDecoration.underline,
-                                            decorationColor: Colors.white,
-                                            color: const Color(0xffdadada),
-                                            fontSize: 14.sp,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w600)),
-                                  ],
-                                ),
+                    child: Stack(children: [
+                      Container(
+                        width: 350.w,
+                        height: 172.h,
+                        color: const Color(0xff191919),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 12.h, horizontal: 12.5.w),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Silver Pass',
+                                      style: TextStyle(
+                                          color: const Color(0xffbbbbbb),
+                                          fontSize: 16.sp,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w700)),
+                                  Text('Budget-friendly for everyone.',
+                                      style: TextStyle(
+                                          color: const Color(0xffdadada),
+                                          fontSize: 12.sp,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w400)),
+                                  SizedBox(
+                                    height: 30.h,
+                                  ),
+                                  Text(
+                                      'Unlimited Visit to 11,076+ \n Fitness Centers in Kerala',
+                                      style: TextStyle(
+                                          color: const Color(0xffffffff),
+                                          fontSize: 14.sp,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w400)),
+                                  SizedBox(
+                                    height: 14.h,
+                                  ),
+                                  Text('Free access to training videos',
+                                      style: TextStyle(
+                                          color: const Color(0xffdadada),
+                                          fontSize: 14.sp,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w400)),
+                                ],
                               ),
-                              Stack(children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: SizedBox(
-                                    width: 0.w,
-                                    height: 170.h,
-                                    child: Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 2.h),
-                                      child: SizedBox(
-                                        height: 170.h,
-                                        child: DottedLine(
-                                          direction: Axis.vertical,
-                                          dashLength: 3,
-                                          dashGapLength: 5,
-                                          lineThickness: 1,
-                                          dashRadius: 1.r,
-                                          dashColor: Colors.white,
-                                        ),
+                            ),
+                            Stack(children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: SizedBox(
+                                  width: 0.w,
+                                  height: 170.h,
+                                  child: Padding(
+                                    padding:
+                                    EdgeInsets.symmetric(vertical: 2.h),
+                                    child: SizedBox(
+                                      height: 170.h,
+                                      child: DottedLine(
+                                        direction: Axis.vertical,
+                                        dashLength: 3,
+                                        dashGapLength: 5,
+                                        lineThickness: 1,
+                                        dashRadius: 1.r,
+                                        dashColor: Colors.white,
                                       ),
                                     ),
                                   ),
                                 ),
-                                Positioned(
-                                    right: 3.w,
-                                    top: 167.h,
-                                    child:  CircleAvatar(
-                                      radius: 5.r,
-                                      backgroundColor: Colors.white,
-                                    )),
-                                Positioned(
-                                    left: 3.w,
-                                    bottom: 167.h,
-                                    child:  CircleAvatar(
-                                      radius: 5.r,
-                                      backgroundColor: Colors.white,
-                                    ))
-                              ]),
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 9.w, vertical: 12.h),
-                                child: Column(
-                                  children: [
-                                    Text('30 Days\nAccess',
-                                        style: TextStyle(
-                                            color: const Color(0xffffffff),
-                                            fontSize: 14.sp,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w400)),
-                                    SizedBox(
-                                      height: 50.h,
+                              ),
+                              Positioned(
+                                  right: 2.w,
+                                  top: 167.h,
+                                  child:  CircleAvatar(
+                                    radius: 5.r,
+                                    backgroundColor: Colors.white,
+                                  )),
+                              Positioned(
+                                  left: 3.w,
+                                  bottom: 167.h,
+                                  child:  CircleAvatar(
+                                    radius: 5.r,
+                                    backgroundColor: Colors.white,
+                                  ))
+                            ]),
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10.5.w, vertical: 12.h),
+                              child: Column(
+                                children: [
+                                  Text('30 Days\nAccess',
+                                      style: TextStyle(
+                                          color: const Color(0xffffffff),
+                                          fontSize: 14.sp,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w400)),
+                                  SizedBox(
+                                    height: 50.h,
+                                  ),
+                                  Text('Starts from',
+                                      style: TextStyle(
+                                          color: const Color(0xffdadada),
+                                          fontSize: 12.sp,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w400)),
+                                  Container(
+                                    width: 72.w,
+                                    height: 36.h,
+                                    color: const Color(0xff00ff00),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.center,
+                                      children: [
+                                        Text('Rs. 1,999',
+                                            style: TextStyle(
+                                                color: const Color(0xff191919),
+                                                fontSize: 12.sp,
+                                                fontFamily: 'Montserrat',
+                                                fontWeight: FontWeight.w600)),
+                                        Text('  /Month',
+                                            style: TextStyle(
+                                                color: const Color(0xff191919),
+                                                fontSize: 10.sp,
+                                                fontFamily: 'Montserrat',
+                                                fontWeight: FontWeight.w400)),
+                                      ],
                                     ),
-                                    Text('Starts from',
-                                        style: TextStyle(
-                                            color: const Color(0xffdadada),
-                                            fontSize: 12.sp,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w400)),
-                                    Container(
-                                      width: 72.w,
-                                      height: 36.h,
-                                      color: const Color(0xff00ff00),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text('Rs. 999',
-                                              style: TextStyle(
-                                                  color: const Color(0xff191919),
-                                                  fontSize: 12.sp,
-                                                  fontFamily: 'Montserrat',
-                                                  fontWeight: FontWeight.w600)),
-                                          Text('  /Month',
-                                              style: TextStyle(
-                                                  color: const Color(0xff191919),
-                                                  fontSize: 10.sp,
-                                                  fontFamily: 'Montserrat',
-                                                  fontWeight: FontWeight.w400)),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
                         ),
-
-                        // Positioned(
-                        //     left: 250.w,
-                        //     top: 167.h,
-                        //     child: CircleAvatar(radius: 5,backgroundColor: Colors.white,))
-                      ]),
-                    ),
+                      ),
+                    ]),
                   ),
+
+                  // Padding(
+                  //   padding: EdgeInsets.symmetric(vertical: 10.h),
+                  //   child: Padding(
+                  //     padding: EdgeInsets.symmetric(vertical: 8.h),
+                  //     child: Stack(children: [
+                  //       Container(
+                  //         width: 350.w,
+                  //         height: 172.h,
+                  //         color: const Color(0xff191919),
+                  //         child: Row(
+                  //           children: [
+                  //             Padding(
+                  //               padding: EdgeInsets.symmetric(
+                  //                   vertical: 12.h, horizontal: 9.w),
+                  //               child: Column(
+                  //                 crossAxisAlignment: CrossAxisAlignment.start,
+                  //                 children: [
+                  //                   Text('Silver Pass',
+                  //                       style: TextStyle(
+                  //                           color: const Color(0xffececec),
+                  //                           fontSize: 16.sp,
+                  //                           fontFamily: 'Montserrat',
+                  //                           fontWeight: FontWeight.w700)),
+                  //                   Text('Budget-friendly for everyone.',
+                  //                       style: TextStyle(
+                  //                           color: const Color(0xffdadada),
+                  //                           fontSize: 12.sp,
+                  //                           fontFamily: 'Montserrat',
+                  //                           fontWeight: FontWeight.w400)),
+                  //                   SizedBox(
+                  //                     height: 30.h,
+                  //                   ),
+                  //                   Text(
+                  //                       'Unlimited Visit to ${11076}+ \nFitness Centers in Kerala',
+                  //                       style: TextStyle(
+                  //                           color: const Color(0xffffffff),
+                  //                           fontSize: 14.sp,
+                  //                           fontFamily: 'Montserrat',
+                  //                           fontWeight: FontWeight.w400)),
+                  //                   SizedBox(
+                  //                     height: 14.h,
+                  //                   ),
+                  //                   Text('See the fitness clubs included',
+                  //                       style: TextStyle(
+                  //                           decoration:
+                  //                               TextDecoration.underline,
+                  //                           decorationColor: Colors.white,
+                  //                           color: const Color(0xffdadada),
+                  //                           fontSize: 14.sp,
+                  //                           fontFamily: 'Montserrat',
+                  //                           fontWeight: FontWeight.w600)),
+                  //                 ],
+                  //               ),
+                  //             ),
+                  //             Stack(children: [
+                  //               Padding(
+                  //                 padding: const EdgeInsets.all(8.0),
+                  //                 child: SizedBox(
+                  //                   width: 0.w,
+                  //                   height: 170.h,
+                  //                   child: Padding(
+                  //                     padding:
+                  //                         EdgeInsets.symmetric(vertical: 2.h),
+                  //                     child: SizedBox(
+                  //                       height: 170.h,
+                  //                       child: DottedLine(
+                  //                         direction: Axis.vertical,
+                  //                         dashLength: 3,
+                  //                         dashGapLength: 5,
+                  //                         lineThickness: 1,
+                  //                         dashRadius: 1.r,
+                  //                         dashColor: Colors.white,
+                  //                       ),
+                  //                     ),
+                  //                   ),
+                  //                 ),
+                  //               ),
+                  //               Positioned(
+                  //                   right: 3.w,
+                  //                   top: 167.h,
+                  //                   child:  CircleAvatar(
+                  //                     radius: 5.r,
+                  //                     backgroundColor: Colors.white,
+                  //                   )),
+                  //               Positioned(
+                  //                   left: 3.w,
+                  //                   bottom: 167.h,
+                  //                   child:  CircleAvatar(
+                  //                     radius: 5.r,
+                  //                     backgroundColor: Colors.white,
+                  //                   ))
+                  //             ]),
+                  //             Padding(
+                  //               padding: EdgeInsets.symmetric(
+                  //                   horizontal: 9.w, vertical: 12.h),
+                  //               child: Column(
+                  //                 children: [
+                  //                   Text('30 Days\nAccess',
+                  //                       style: TextStyle(
+                  //                           color: const Color(0xffffffff),
+                  //                           fontSize: 14.sp,
+                  //                           fontFamily: 'Montserrat',
+                  //                           fontWeight: FontWeight.w400)),
+                  //                   SizedBox(
+                  //                     height: 50.h,
+                  //                   ),
+                  //                   Text('Starts from',
+                  //                       style: TextStyle(
+                  //                           color: const Color(0xffdadada),
+                  //                           fontSize: 12.sp,
+                  //                           fontFamily: 'Montserrat',
+                  //                           fontWeight: FontWeight.w400)),
+                  //                   Container(
+                  //                     width: 72.w,
+                  //                     height: 36.h,
+                  //                     color: const Color(0xff00ff00),
+                  //                     child: Column(
+                  //                       crossAxisAlignment:
+                  //                           CrossAxisAlignment.center,
+                  //                       mainAxisAlignment:
+                  //                           MainAxisAlignment.center,
+                  //                       children: [
+                  //                         Text('Rs. 999',
+                  //                             style: TextStyle(
+                  //                                 color: const Color(0xff191919),
+                  //                                 fontSize: 12.sp,
+                  //                                 fontFamily: 'Montserrat',
+                  //                                 fontWeight: FontWeight.w600)),
+                  //                         Text('  /Month',
+                  //                             style: TextStyle(
+                  //                                 color: const Color(0xff191919),
+                  //                                 fontSize: 10.sp,
+                  //                                 fontFamily: 'Montserrat',
+                  //                                 fontWeight: FontWeight.w400)),
+                  //                       ],
+                  //                     ),
+                  //                   )
+                  //                 ],
+                  //               ),
+                  //             )
+                  //           ],
+                  //         ),
+                  //       ),
+                  //
+                  //       // Positioned(
+                  //       //     left: 250.w,
+                  //       //     top: 167.h,
+                  //       //     child: CircleAvatar(radius: 5,backgroundColor: Colors.white,))
+                  //     ]),
+                  //   ),
+                  // ),
 
                   ///--------------  Platinum Pass  -------------------///
 
+
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 10.h),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8.h),
-                      child: Stack(children: [
-                        Container(
-                          width: 350.w,
-                          height: 172.h,
-                          color: const Color(0xff191919),
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 12.h, horizontal: 5.w),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('Platinum Pass',
-                                        style: TextStyle(
-                                            color: const Color(0xff8ca9b1),
-                                            fontSize: 16.sp,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w700)),
-                                    Text('VIP full access with no restriction.',
-                                        style: TextStyle(
-                                            color: const Color(0xffdadada),
-                                            fontSize: 12.sp,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w400)),
-                                    SizedBox(
-                                      height: 30.h,
-                                    ),
-                                    Text(
-                                        'Access any fitness center in\nthe network with premium pass',
+                    child: Stack(children: [
+                      Container(
+                        width: 350.w,
+                        height: 172.h,
+                        color: const Color(0xff191919),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 12.h, horizontal: 12.5.w),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Platinum Pass',
+                                      style: TextStyle(
+                                          color: const Color(0xff8ca9b1),
+                                          fontSize: 16.sp,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w700)),
+                                  Text('VIP full access with no restriction.',
+                                      style: TextStyle(
+                                          color: const Color(0xffdadada),
+                                          fontSize: 12.sp,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w400)),
+                                  SizedBox(
+                                    height: 30.h,
+                                  ),
+                                  SizedBox(width: 230,
+                                    child: Text(
+                                      maxLines: 2,
+                                       overflow: TextOverflow.ellipsis,
+                                        'Access any fitness center in the network with premium pass ',
                                         style: TextStyle(
                                             color: const Color(0xffffffff),
                                             fontSize: 14.sp,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.w400)),
-                                    SizedBox(
-                                      height: 14.h,
-                                    ),
-                                    Text('Elite access to whole content',
-                                        style: TextStyle(
-                                            color: const Color(0xffdadada),
-                                            fontSize: 14.sp,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w400)),
-                                  ],
-                                ),
+                                  ),
+                                  SizedBox(
+                                    height: 14.h,
+                                  ),
+                                  Text('Free access to training videos',
+                                      style: TextStyle(
+                                          color: const Color(0xffdadada),
+                                          fontSize: 14.sp,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w400)),
+                                ],
                               ),
-                              Stack(children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: SizedBox(
-                                    width: 0.w,
-                                    height: 170,
-                                    child: Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 2.h),
-                                      child: SizedBox(
-                                        height: 170.h,
-                                        child: DottedLine(
-                                          direction: Axis.vertical,
-                                          dashLength: 3,
-                                          dashGapLength: 5,
-                                          lineThickness: 1,
-                                          dashRadius: 1.r,
-                                          dashColor: Colors.white,
-                                        ),
+                            ),
+                            Stack(children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: SizedBox(
+                                  width: 0.w,
+                                  height: 170.h,
+                                  child: Padding(
+                                    padding:
+                                    EdgeInsets.symmetric(vertical: 2.h),
+                                    child: SizedBox(
+                                      height: 170.h,
+                                      child: DottedLine(
+                                        direction: Axis.vertical,
+                                        dashLength: 3,
+                                        dashGapLength: 5,
+                                        lineThickness: 1,
+                                        dashRadius: 1.r,
+                                        dashColor: Colors.white,
                                       ),
                                     ),
                                   ),
                                 ),
-                                Positioned(
-                                    right: 3.w,
-                                    top: 167.h,
-                                    child: const CircleAvatar(
-                                      radius: 5,
-                                      backgroundColor: Colors.white,
-                                    )),
-                                Positioned(
-                                    left: 3.w,
-                                    bottom: 167.h,
-                                    child: const CircleAvatar(
-                                      radius: 5,
-                                      backgroundColor: Colors.white,
-                                    ))
-                              ]),
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 5.w, vertical: 12.h),
-                                child: Column(
-                                  children: [
-                                    Text('30 Days\nAccess',
-                                        style: TextStyle(
-                                            color: const Color(0xffffffff),
-                                            fontSize: 14.sp,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w400)),
-                                    SizedBox(
-                                      height: 50.h,
+                              ),
+                              Positioned(
+                                  right: 2.w,
+                                  top: 167.h,
+                                  child:  CircleAvatar(
+                                    radius: 5.r,
+                                    backgroundColor: Colors.white,
+                                  )),
+                              Positioned(
+                                  left: 3.w,
+                                  bottom: 167.h,
+                                  child:  CircleAvatar(
+                                    radius: 5.r,
+                                    backgroundColor: Colors.white,
+                                  ))
+                            ]),
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10.5.w, vertical: 12.h),
+                              child: Column(
+                                children: [
+                                  Text('30 Days\nAccess',
+                                      style: TextStyle(
+                                          color: const Color(0xffffffff),
+                                          fontSize: 14.sp,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w400)),
+                                  SizedBox(
+                                    height: 50.h,
+                                  ),
+                                  Text('Starts from',
+                                      style: TextStyle(
+                                          color: const Color(0xffdadada),
+                                          fontSize: 12.sp,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w400)),
+                                  Container(
+                                    width: 72.w,
+                                    height: 36.h,
+                                    color: const Color(0xff00ff00),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.center,
+                                      children: [
+                                        Text('Rs. 1,999',
+                                            style: TextStyle(
+                                                color: const Color(0xff191919),
+                                                fontSize: 12.sp,
+                                                fontFamily: 'Montserrat',
+                                                fontWeight: FontWeight.w600)),
+                                        Text('  /Month',
+                                            style: TextStyle(
+                                                color: const Color(0xff191919),
+                                                fontSize: 10.sp,
+                                                fontFamily: 'Montserrat',
+                                                fontWeight: FontWeight.w400)),
+                                      ],
                                     ),
-                                    Text('Starts from',
-                                        style: TextStyle(
-                                            color: const Color(0xffdadada),
-                                            fontSize: 12.sp,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w400)),
-                                    Container(
-                                      width: 72.w,
-                                      height: 36.h,
-                                      color: const Color(0xff00ff00),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text('Rs. 3,199',
-                                              style: TextStyle(
-                                                  color: const Color(0xff191919),
-                                                  fontSize: 12.sp,
-                                                  fontFamily: 'Montserrat',
-                                                  fontWeight: FontWeight.w600)),
-                                          Text('  /Month',
-                                              style: TextStyle(
-                                                  color: const Color(0xff191919),
-                                                  fontSize: 10.sp,
-                                                  fontFamily: 'Montserrat',
-                                                  fontWeight: FontWeight.w400)),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
                         ),
-                      ]),
-                    ),
+                      ),
+                    ]),
                   ),
+
+                  // Padding(
+                  //   padding: EdgeInsets.symmetric(vertical: 10.h),
+                  //   child: Padding(
+                  //     padding: EdgeInsets.symmetric(vertical: 8.h),
+                  //     child: Stack(children: [
+                  //       Container(
+                  //         width: 350.w,
+                  //         height: 172.h,
+                  //         color: const Color(0xfff60202),
+                  //         child: Row(
+                  //           children: [
+                  //             Padding(
+                  //               padding: EdgeInsets.symmetric(
+                  //                   vertical: 12.h, horizontal: 5.w),
+                  //               child: Column(
+                  //                 crossAxisAlignment: CrossAxisAlignment.start,
+                  //                 children: [
+                  //                   Text('Platinum Pass',
+                  //                       style: TextStyle(
+                  //                           color: const Color(0xff8ca9b1),
+                  //                           fontSize: 16.sp,
+                  //                           fontFamily: 'Montserrat',
+                  //                           fontWeight: FontWeight.w700)),
+                  //                   Text('VIP full access with no restriction.',
+                  //                       style: TextStyle(
+                  //                           color: const Color(0xffdadada),
+                  //                           fontSize: 12.sp,
+                  //                           fontFamily: 'Montserrat',
+                  //                           fontWeight: FontWeight.w400)),
+                  //                   SizedBox(
+                  //                     height: 30.h,
+                  //                   ),
+                  //                   Text(
+                  //                       'Access any fitness center in\nthe network with premium pass',
+                  //                       style: TextStyle(
+                  //                           color: const Color(0xffffffff),
+                  //                           fontSize: 14.sp,
+                  //                           fontFamily: 'Montserrat',
+                  //                           fontWeight: FontWeight.w400)),
+                  //                   SizedBox(
+                  //                     height: 14.h,
+                  //                   ),
+                  //                   Text('Elite access to whole content',
+                  //                       style: TextStyle(
+                  //                           color: const Color(0xffdadada),
+                  //                           fontSize: 14.sp,
+                  //                           fontFamily: 'Montserrat',
+                  //                           fontWeight: FontWeight.w400)),
+                  //                 ],
+                  //               ),
+                  //             ),
+                  //             Stack(children: [
+                  //               Padding(
+                  //                 padding: const EdgeInsets.all(8.0),
+                  //                 child: SizedBox(
+                  //                   width: 0.w,
+                  //                   height: 170,
+                  //                   child: Padding(
+                  //                     padding:
+                  //                         EdgeInsets.symmetric(vertical: 2.h),
+                  //                     child: SizedBox(
+                  //                       height: 170.h,
+                  //                       child: DottedLine(
+                  //                         direction: Axis.vertical,
+                  //                         dashLength: 3,
+                  //                         dashGapLength: 5,
+                  //                         lineThickness: 1,
+                  //                         dashRadius: 1.r,
+                  //                         dashColor: Colors.white,
+                  //                       ),
+                  //                     ),
+                  //                   ),
+                  //                 ),
+                  //               ),
+                  //               Positioned(
+                  //                   right: 3.w,
+                  //                   top: 163.h,
+                  //                   child: const CircleAvatar(
+                  //                     radius: 5,
+                  //                     backgroundColor: Colors.white,
+                  //                   )),
+                  //               Positioned(
+                  //                   left: 3.w,
+                  //                   bottom: 163.h,
+                  //                   child: const CircleAvatar(
+                  //                     radius: 5,
+                  //                     backgroundColor: Colors.white,
+                  //                   ))
+                  //             ]),
+                  //             Padding(
+                  //               padding: EdgeInsets.symmetric(
+                  //                   horizontal: 5.w, vertical: 12.h),
+                  //               child: Column(
+                  //                 children: [
+                  //                   Text('30 Days\nAccess',
+                  //                       style: TextStyle(
+                  //                           color: const Color(0xffffffff),
+                  //                           fontSize: 14.sp,
+                  //                           fontFamily: 'Montserrat',
+                  //                           fontWeight: FontWeight.w400)),
+                  //                   SizedBox(
+                  //                     height: 50.h,
+                  //                   ),
+                  //                   Text('Starts from',
+                  //                       style: TextStyle(
+                  //                           color: const Color(0xffdadada),
+                  //                           fontSize: 12.sp,
+                  //                           fontFamily: 'Montserrat',
+                  //                           fontWeight: FontWeight.w400)),
+                  //                   Container(
+                  //                     width: 72.w,
+                  //                     height: 36.h,
+                  //                     color: const Color(0xff00ff00),
+                  //                     child: Column(
+                  //                       crossAxisAlignment:
+                  //                           CrossAxisAlignment.center,
+                  //                       mainAxisAlignment:
+                  //                           MainAxisAlignment.center,
+                  //                       children: [
+                  //                         Text('Rs. 3,199',
+                  //                             style: TextStyle(
+                  //                                 color: const Color(0xff191919),
+                  //                                 fontSize: 12.sp,
+                  //                                 fontFamily: 'Montserrat',
+                  //                                 fontWeight: FontWeight.w600)),
+                  //                         Text('  /Month',
+                  //                             style: TextStyle(
+                  //                                 color: const Color(0xff191919),
+                  //                                 fontSize: 10.sp,
+                  //                                 fontFamily: 'Montserrat',
+                  //                                 fontWeight: FontWeight.w400)),
+                  //                       ],
+                  //                     ),
+                  //                   )
+                  //                 ],
+                  //               ),
+                  //             )
+                  //           ],
+                  //         ),
+                  //       ),
+                  //     ]),
+                  //   ),
+                  // ),
                 ],
               ),
             ),

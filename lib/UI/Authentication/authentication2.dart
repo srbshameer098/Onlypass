@@ -193,7 +193,7 @@ class _LogInPageState extends State<LogInPage> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => Verification_code(
-                                    verificationId: verificationId,verificationcode:token, phoneNum: phoneNumberController.text.toString(),
+                                    verificationId: verificationId,verificationcode:token.toString(), phoneNum: phoneNumberController.text.toString(),
                                   ),
                                 ),
                               );
