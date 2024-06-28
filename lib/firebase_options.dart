@@ -85,4 +85,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'onlypass-customer-app.appspot.com',
     measurementId: 'G-JDNL0NPHTQ',
   );
+
 }
