@@ -248,7 +248,7 @@ class _LogInPageState extends State<LogInPage> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 const Text('Continue',
-                                    style: TextStyle(color: Colors.black)
+                                    style: TextStyle(color: Colors.black,fontWeight: FontWeight.w600,)
                                   // GoogleFonts.montserrat(
                                   //   color: const Color(0xFF191919),
                                   //   fontSize: 14.sp,
